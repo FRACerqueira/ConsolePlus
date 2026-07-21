@@ -1,14 +1,8 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/FRACerqueira/ConsolePlus/main/icon.png" alt="ConsolePlus" width="120" height="120" />
-  # ConsolePlus
-
-  **A modern .NET library for building beautiful, cross-platform console applications.**
+**A modern .NET library for building beautiful, cross-platform console applications.**
 
   [![NuGet](https://img.shields.io/badge/NuGet-ConsolePlus-blue)](https://www.nuget.org/packages/ConsolePlus)
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   [![.NET](https://img.shields.io/badge/.NET-8%20%7C%209%20%7C%2010-512BD4)](https://dotnet.microsoft.com/)
-
-</div>
 
 ---
 
