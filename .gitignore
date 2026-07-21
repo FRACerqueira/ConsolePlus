@@ -1,0 +1,38 @@
+# Build results
+bin/
+obj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Exception: ExternalAnsiBundleLegacy must be versioned
+!src/ExternalAnsiBundleLegacy/
+!src/ExternalAnsiBundleLegacy/**
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+.nuget/
+
+# API Documentation (generated)
+# NOTA: Os arquivos em docs/api/ são gerados automaticamente pelo DefaultDocumentation
+# Você pode optar por commitá-los (para ver mudanças em PRs) ou ignorá-los.
+# Para ignorar, descomente a linha abaixo:
+# docs/api/*.md
+# docs/api/links-output.json

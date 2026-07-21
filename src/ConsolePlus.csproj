@@ -1,0 +1,152 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
+		<LangVersion>latest</LangVersion>
+		<AssemblyName>ConsolePlus</AssemblyName>
+		<RootNamespace>ConsolePlusLibrary</RootNamespace>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+		<!-- These folders are packaged explicitly (see the buildTransitive ItemGroup); keep them out of the SDK default globs. -->
+		<DefaultItemExcludes>$(DefaultItemExcludes);ExternalAnsiBundleLegacy\**;build\**</DefaultItemExcludes>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<Authors>Fernando Cerqueira</Authors>
+		<Description>A .NET library that makes it easier to create beautiful, cross platform, console applications and core components to PromptPlus. It is heavily inspired by the excellent Spectre.Console.</Description>
+		<PackageReleaseNotes>https://github.com/FRACerqueira/ConsolePlus/releases</PackageReleaseNotes>
+		<PackageTags>cli;console;terminal;csharp;command;command-line;dotnet;prompt;Spectre.Console;Sharprompt</PackageTags>
+		<RepositoryUrl>https://github.com/FRACerqueira/ConsolePlus</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>ConsolePlus.net</PackageId>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/FRACerqueira/ConsolePlus</PackageProjectUrl>
+		<Version>0.5.0-Beta</Version>
+		<PackageIcon>icon.png</PackageIcon>
+		<Copyright>© 2026 - Fernando Cerqueira</Copyright>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>ConsolePlus.net</Title>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\NugetREADME.md">
+			<Pack>True</Pack>
+			<PackagePath>README.md</PackagePath>
+		</None>
+		<None Include="..\README.md" Link="README.md" />
+		<None Include="..\README.txt">
+			<Pack>True</Pack>
+			<PackagePath>README.txt</PackagePath>
+		</None>
+		<None Include="..\icon.png">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+	<!--
+		Native legacy ANSICON payload. ConsolePlus probes
+		AppContext.BaseDirectory\ExternalAnsiBundleLegacy\{x64|x86}\ansicon.exe at runtime
+		(see LegacyAnsiBootstrapper). These are native binaries, so they are shipped as MSBuild
+		assets under buildTransitive\ (NOT content\/lib\) and copied to the consumer's output by
+		build\ConsolePlus.targets. This avoids NU5100 and works for modern PackageReference consumers.
+		CopyToOutputDirectory keeps them flowing to this project's own output and to ProjectReference
+		consumers such as PromptPlus.
+	-->
+	<ItemGroup>
+		<None Include="ExternalAnsiBundleLegacy\x64\ANSI32.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x64\</PackagePath>
+		</None>
+		<None Include="ExternalAnsiBundleLegacy\x64\ANSI64.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x64\</PackagePath>
+		</None>
+		<None Include="ExternalAnsiBundleLegacy\x64\ansicon.exe">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x64\</PackagePath>
+		</None>
+		<None Include="ExternalAnsiBundleLegacy\x86\ANSI32.dll">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x86\</PackagePath>
+		</None>
+		<None Include="ExternalAnsiBundleLegacy\x86\ansicon.exe">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x86\</PackagePath>
+		</None>
+		<!-- MSBuild targets that copies the payload above into the consuming project's output. -->
+		<None Include="build\ConsolePlus.targets">
+			<Pack>true</Pack>
+			<PackagePath>buildTransitive\ConsolePlus.targets</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Figlet\Fonts\Standard.flf" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+		<PackageReference Include="DefaultDocumentation" Version="1.2.5">
+			<!-- <PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>. -->
+		</PackageReference>
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+		<DefaultDocumentationFolder>..\docs\api</DefaultDocumentationFolder>
+		<DefaultDocumentationGeneratedPages>Assembly, Namespaces , Classes, Interfaces, Events, Enums, Structs, Delegates</DefaultDocumentationGeneratedPages>
+		<DefaultDocumentationFileNameFactory>NameAndMd5Mix</DefaultDocumentationFileNameFactory>
+		<DefaultDocumentationGeneratedAccessModifiers>Public</DefaultDocumentationGeneratedAccessModifiers>
+		<DefaultDocumentationAssemblyPageName>ConsolePlus</DefaultDocumentationAssemblyPageName>
+		<DocIconUrl>https://raw.githubusercontent.com/FRACerqueira/ConsolePlus/main/icon.png</DocIconUrl>
+		<DocIconWidth>120</DocIconWidth>
+	</PropertyGroup>
+
+	<UsingTask TaskName="PrependDocIconHeader" TaskFactory="RoslynCodeTaskFactory" AssemblyFile="$(MSBuildToolsPath)\Microsoft.Build.Tasks.Core.dll">
+		<ParameterGroup>
+			<DocsFolder Required="true" />
+			<IconUrl Required="true" />
+			<IconWidth />
+		</ParameterGroup>
+		<Task>
+			<Code Type="Fragment" Language="cs">
+				<![CDATA[
+					if (Directory.Exists(DocsFolder))
+					{
+						string width = string.IsNullOrEmpty(IconWidth) ? "120" : IconWidth;
+						string header = "<img src=\"" + IconUrl + "\" width=\"" + width + "\" alt=\"ConsolePlus\" />";
+						foreach (string file in Directory.GetFiles(DocsFolder, "*.md"))
+						{
+							string content = File.ReadAllText(file);
+							if (content.StartsWith(header, StringComparison.Ordinal))
+							{
+								continue;
+							}
+							File.WriteAllText(file, header + Environment.NewLine + Environment.NewLine + content);
+						}
+					}
+				]]>
+			</Code>
+		</Task>
+	</UsingTask>
+
+	<Target Name="AddDocIconHeader" AfterTargets="DefaultDocumentation" Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+		<PropertyGroup>
+			<_DocIconFolder>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('$(MSBuildProjectDirectory)', '$(DefaultDocumentationFolder)'))))</_DocIconFolder>
+		</PropertyGroup>
+		<PrependDocIconHeader DocsFolder="$(_DocIconFolder)" IconUrl="$(DocIconUrl)" IconWidth="$(DocIconWidth)" />
+		<Message Importance="high" Text="DefaultDocumentation: added icon header to markdown pages in $(_DocIconFolder)" />
+	</Target>
+</Project>
