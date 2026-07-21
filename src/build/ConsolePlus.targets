@@ -1,0 +1,20 @@
+<Project>
+
+  <!--
+	Copies the bundled legacy ANSICON payload to the consuming project's output directory.
+
+	ConsolePlus probes AppContext.BaseDirectory\ExternalAnsiBundleLegacy\{x64|x86}\ansicon.exe
+	on pre-Windows 10 systems to enable transparent ANSI support (see LegacyAnsiBootstrapper).
+	Shipping the files under buildTransitive\ (instead of content\) both avoids NuGet warning
+	NU5100 and ensures PackageReference consumers actually receive the files in their output.
+  -->
+  <ItemGroup>
+	<None Include="$(MSBuildThisFileDirectory)ExternalAnsiBundleLegacy\**\*">
+	  <Link>ExternalAnsiBundleLegacy\%(RecursiveDir)%(Filename)%(Extension)</Link>
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  <Visible>false</Visible>
+	  <Pack>false</Pack>
+	</None>
+  </ItemGroup>
+
+</Project>
