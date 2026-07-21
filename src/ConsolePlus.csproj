@@ -17,7 +17,7 @@
 		<Authors>Fernando Cerqueira</Authors>
 		<Description>A .NET library that makes it easier to create beautiful, cross platform, console applications and core components to PromptPlus. It is heavily inspired by the excellent Spectre.Console.</Description>
 		<PackageReleaseNotes>https://github.com/FRACerqueira/ConsolePlus/releases</PackageReleaseNotes>
-		<PackageTags>cli;console;terminal;csharp;command;command-line;dotnet;</PackageTags>
+		<PackageTags>cli;console;terminal;csharp;command;command-line;dotnet;prompt;Spectre.Console;Sharprompt</PackageTags>
 		<RepositoryUrl>https://github.com/FRACerqueira/ConsolePlus</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageId>ConsolePlus</PackageId>
