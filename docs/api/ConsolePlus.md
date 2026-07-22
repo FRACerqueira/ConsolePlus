@@ -149,6 +149,19 @@ public static ConsolePlusLibrary.IConsole Driver { get; }
 #### Property Value
 [IConsole](IConsole.md 'ConsolePlusLibrary\.IConsole')
 
+<a name='ConsolePlusLibrary.ConsolePlus.EnabledEmacs'></a>
+
+## ConsolePlus\.EnabledEmacs Property
+
+Enables/Disable Emacs\-style key bindings in the console, allowing for standard Emacs key combinations to be used for text editing and navigation\.
+
+```csharp
+public static bool EnabledEmacs { get; set; }
+```
+
+#### Property Value
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
 <a name='ConsolePlusLibrary.ConsolePlus.Error'></a>
 
 ## ConsolePlus\.Error Property
@@ -575,23 +588,6 @@ Extra blank lines appended after the dash line \(default: 0\)\.
 `applycolorbackground` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
 
 If `true`, applies background color across the full line \(default: `false`\)\.
-
-<a name='ConsolePlusLibrary.ConsolePlus.EnabledEmacsKeyBindings(bool)'></a>
-
-## ConsolePlus\.EnabledEmacsKeyBindings\(bool\) Method
-
-Enables/Disable Emacs\-style key bindings in the console, allowing for standard Emacs key combinations to be used for text editing and navigation\.
-
-```csharp
-public static void EnabledEmacsKeyBindings(bool value);
-```
-#### Parameters
-
-<a name='ConsolePlusLibrary.ConsolePlus.EnabledEmacsKeyBindings(bool).value'></a>
-
-`value` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
-
-True to enable Emacs\-style key bindings, false to disable them\.
 
 <a name='ConsolePlusLibrary.ConsolePlus.GetCursorPosition()'></a>
 

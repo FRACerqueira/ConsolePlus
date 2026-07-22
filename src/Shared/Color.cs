@@ -435,7 +435,7 @@ namespace ConsolePlusLibrary
             }
             catch
             {
-                color = Color.Default;
+                color = Default;
                 return false;
             }
         }

@@ -23,7 +23,7 @@ namespace ConsolePlusLibrary.Core
         {
             try
             {
-                var top = System.Console.CursorTop;
+                var top = Console.CursorTop;
                 if (top < 0)
                 {
                     top = defaultValue;
@@ -40,7 +40,7 @@ namespace ConsolePlusLibrary.Core
         {
             try
             {
-                var left = System.Console.CursorLeft;
+                var left = Console.CursorLeft;
                 if (left < 0)
                 {
                     left = defaultValue;
@@ -57,7 +57,7 @@ namespace ConsolePlusLibrary.Core
         {
             try
             {
-                var width = System.Console.BufferWidth;
+                var width = Console.BufferWidth;
                 if (width <= 0)
                 {
                     width = defaultValue;
@@ -75,7 +75,7 @@ namespace ConsolePlusLibrary.Core
         {
             try
             {
-                var height = System.Console.WindowHeight;
+                var height = Console.WindowHeight;
                 if (height <= 0)
                 {
                     height = defaultValue;
@@ -94,7 +94,7 @@ namespace ConsolePlusLibrary.Core
             try
             {
                 // try restore cursor visibility if it was changed
-                System.Console.CursorVisible = true;
+                Console.CursorVisible = true;
             }
             catch (Exception)
             {
@@ -103,7 +103,7 @@ namespace ConsolePlusLibrary.Core
             try
             {
                 // try restore input encoding if it was changed
-                System.Console.InputEncoding = originalInputEncoding;
+                Console.InputEncoding = originalInputEncoding;
             }
             catch (Exception)
             {
@@ -112,7 +112,7 @@ namespace ConsolePlusLibrary.Core
             try
             {
                 // try restore output encoding if it was changed
-                System.Console.OutputEncoding = originalOutputEncoding;
+                Console.OutputEncoding = originalOutputEncoding;
             }
             catch (Exception)
             {
@@ -122,10 +122,10 @@ namespace ConsolePlusLibrary.Core
             {
                 if (isansi)
                 {
-                    var (left, top) = System.Console.GetCursorPosition();
+                    var (left, top) = Console.GetCursorPosition();
                     // try Exit alternate screen buffer if it was used
-                    System.Console.Write("\u001b[?1049l");
-                    System.Console.SetCursorPosition(left, top);
+                    Console.Write("\u001b[?1049l");
+                    Console.SetCursorPosition(left, top);
                 }
             }
             catch (Exception)
@@ -144,8 +144,8 @@ namespace ConsolePlusLibrary.Core
             try
             {
                 // try Restore original console colors
-                System.Console.ForegroundColor = originalForecolor;
-                System.Console.BackgroundColor = originalBackcolor;
+                Console.ForegroundColor = originalForecolor;
+                Console.BackgroundColor = originalBackcolor;
             }
             catch (Exception)
             {
@@ -204,9 +204,9 @@ namespace ConsolePlusLibrary.Core
                 {
                     if (defaultInputEncodingStr != null && defaultInputEncodingStr.CompareTo("Detect", StringComparison.OrdinalIgnoreCase) == 0)
                     {
-                        if (profile.DefaultInputEncoding != System.Console.InputEncoding)
+                        if (profile.DefaultInputEncoding != Console.InputEncoding)
                         {
-                            profile.DefaultInputEncoding = System.Console.InputEncoding;
+                            profile.DefaultInputEncoding = Console.InputEncoding;
                             profile.SupportsAnsi = AutoDetect.Detect; // if input encoding is detected, we can also trigger a new detection for ANSI support as it can be related
                         }
                     }
@@ -223,9 +223,9 @@ namespace ConsolePlusLibrary.Core
                 {
                     if (defaultOutputEncodingStr != null && defaultOutputEncodingStr.CompareTo("Detect", StringComparison.OrdinalIgnoreCase) == 0)
                     {
-                        if (profile.DefaultOutputEncoding != System.Console.OutputEncoding)
+                        if (profile.DefaultOutputEncoding != Console.OutputEncoding)
                         {
-                            profile.DefaultOutputEncoding = System.Console.OutputEncoding;
+                            profile.DefaultOutputEncoding = Console.OutputEncoding;
                             profile.SupportsAnsi = AutoDetect.Detect; // if input encoding is detected, we can also trigger a new detection for ANSI support as it can be related
                         }
                     }
@@ -299,8 +299,8 @@ namespace ConsolePlusLibrary.Core
                 }
             }
 
-            System.Console.InputEncoding = profile.DefaultInputEncoding;
-            System.Console.OutputEncoding = profile.DefaultOutputEncoding;
+            Console.InputEncoding = profile.DefaultInputEncoding;
+            Console.OutputEncoding = profile.DefaultOutputEncoding;
 
             if (profile.SupportsAnsi == AutoDetect.Detect && !profile.ChangedSupportsAnsi)
             {
@@ -309,7 +309,7 @@ namespace ConsolePlusLibrary.Core
             }
             if (profile.SupportUnicode == AutoDetect.Detect && !profile.ChangedSupportUnicode)
             {
-                var unicodeDetection = UnicodeDetector.Detect(System.Console.Out, AutoDetect.Detect);
+                var unicodeDetection = UnicodeDetector.Detect(Console.Out, AutoDetect.Detect);
                 profile.DetectedUnicodeSupport = unicodeDetection;
             }
             if (!profile.ChangedColorDepth)

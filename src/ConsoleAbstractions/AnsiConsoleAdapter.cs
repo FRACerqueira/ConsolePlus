@@ -42,8 +42,8 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() => 
             {
                 // Change the output and input code page to 65001 (UTF-8)
-                System.Console.OutputEncoding = Encoding.UTF8;
-                System.Console.InputEncoding = Encoding.UTF8;
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.InputEncoding = Encoding.UTF8;
 
                 _currentBuffer = TargetScreen.Primary; //ensure we start with the primary buffer
                 _lastWidth = EnvironmentUtil.GetSafeWidth();
@@ -303,13 +303,13 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         }
 
         /// <inheritdoc/>
-        public bool IsInputRedirected => System.Console.IsInputRedirected;
+        public bool IsInputRedirected => Console.IsInputRedirected;
 
         /// <inheritdoc/>
-        public bool IsOutputRedirected => System.Console.IsOutputRedirected;
+        public bool IsOutputRedirected => Console.IsOutputRedirected;
 
         /// <inheritdoc/>
-        public bool IsErrorRedirected => System.Console.IsErrorRedirected;
+        public bool IsErrorRedirected => Console.IsErrorRedirected;
 
         /// <inheritdoc/>
         public void Write(string? value, Style style, bool clearrestofline = false)
@@ -474,168 +474,168 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void Write(bool value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(bool value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(bool value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(bool value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(double value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(double value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(double value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(double value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(float value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(float value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(float value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(float value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(int value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(int value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(int value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(int value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(long value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(long value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(long value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(long value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
@@ -1151,7 +1151,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             }
             return _lock.Run(() =>
             {
-                return System.Console.ReadLine();
+                return Console.ReadLine();
             });
         }
 
@@ -1165,7 +1165,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             }
             return _lock.Run(() =>
             {
-                return System.Console.Read();
+                return Console.Read();
             });
         }
 
@@ -1189,7 +1189,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 while (true)
                 {
                    
-                    if (!System.Console.KeyAvailable)
+                    if (!Console.KeyAvailable)
                     {
                         try
                         {
@@ -1201,7 +1201,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                         }
                         continue;
                     }
-                    ConsoleKeyInfo candidate = System.Console.ReadKey(intercept);
+                    ConsoleKeyInfo candidate = Console.ReadKey(intercept);
                     if (candidate.Key != 0 || candidate.KeyChar != '\0')
                     {
                         return candidate;
@@ -1229,7 +1229,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 ThrowIfDisposed();
                 try
                 {
-                    System.Console.Beep();
+                    Console.Beep();
                 }
                 catch
                 {
@@ -1244,7 +1244,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetError(value);
+                Console.SetError(value);
             });
         }
 
@@ -1254,7 +1254,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetIn(value);
+                Console.SetIn(value);
             });
         }
 
@@ -1264,7 +1264,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetOut(value);
+                Console.SetOut(value);
             });   
         }
 
@@ -1275,7 +1275,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             {
                 return _lock.Run(() =>
                 {
-                    return _profile.Interactive && System.Console.KeyAvailable;
+                    return _profile.Interactive && Console.KeyAvailable;
                 });
             }
         }
@@ -1287,16 +1287,16 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             {
                 return _lock.Run(() =>
                 {
-                    return !_profile.Interactive || System.Console.IsInputRedirected ? Encoding.Default : System.Console.InputEncoding;
+                    return !_profile.Interactive || Console.IsInputRedirected ? Encoding.Default : Console.InputEncoding;
                 });
             }
             set
             {
                 _lock.Run(() =>
                 {
-                    if (_profile.Interactive && !System.Console.IsInputRedirected)
+                    if (_profile.Interactive && !Console.IsInputRedirected)
                     {
-                        System.Console.InputEncoding = value;
+                        Console.InputEncoding = value;
                     }
                 });
             }
@@ -1309,17 +1309,17 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             {
                 return _lock.Run(() =>
                 {
-                    return System.Console.IsOutputRedirected ? Encoding.Default : System.Console.OutputEncoding;
+                    return Console.IsOutputRedirected ? Encoding.Default : Console.OutputEncoding;
                 });
             }   
             set
             {
                 _lock.Run(() =>
                 {
-                    if (!System.Console.IsOutputRedirected)
+                    if (!Console.IsOutputRedirected)
                     {
-                        System.Console.OutputEncoding = value;
-                        _profile.DetectedUnicodeSupport = UnicodeDetector.Detect(System.Console.Out, _profile.SupportUnicode);
+                        Console.OutputEncoding = value;
+                        _profile.DetectedUnicodeSupport = UnicodeDetector.Detect(Console.Out, _profile.SupportUnicode);
                     }
                 });
             }
@@ -1330,7 +1330,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         {
             get
             {
-                return _lock.Run(() => System.Console.In);
+                return _lock.Run(() => Console.In);
             }
         }
 
@@ -1339,7 +1339,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         {
             get
             {
-                return _lock.Run(() => System.Console.Out);
+                return _lock.Run(() => Console.Out);
             }
         }
 
@@ -1348,7 +1348,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         {
             get
             {
-                return _lock.Run(() => System.Console.Error);   
+                return _lock.Run(() => Console.Error);   
             }
         }
 
