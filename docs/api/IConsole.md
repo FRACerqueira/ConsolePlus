@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/FRACerqueira/ConsolePlus/main/icon.png" width="120" alt="ConsolePlus" />
 
-#### [ConsolePlus](ConsolePlus.md 'ConsolePlus')
+#### [ConsolePlus\.net](ConsolePlus.md 'ConsolePlus')
 ### [ConsolePlusLibrary](ConsolePlusLibrary.md 'ConsolePlusLibrary')
 
 ## IConsole Interface
@@ -137,6 +137,20 @@ Gets or sets a value indicating whether the cursor is visible\.
 
 ```csharp
 bool CursorVisible { get; set; }
+```
+
+#### Property Value
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+<a name='ConsolePlusLibrary.IConsole.EnabledEmacs'></a>
+
+## IConsole\.EnabledEmacs Property
+
+Get a value indicating whether Emacs\-style key bindings are enabled in the console\. 
+When enabled, standard Emacs key combinations can be used for text editing and navigation\.
+
+```csharp
+bool EnabledEmacs { get; set; }
 ```
 
 #### Property Value

@@ -21,6 +21,12 @@ namespace ConsolePlusLibrary
     {
 
         /// <summary>
+        /// Get a value indicating whether Emacs-style key bindings are enabled in the console. 
+        /// When enabled, standard Emacs key combinations can be used for text editing and navigation.
+        /// </summary>
+        bool EnabledEmacs { get; set; }
+
+        /// <summary>
         /// Gets the cancellation token (<see cref="CancellationToken"/>) that can be used to observe cancellation requests for console operations.
         /// </summary>
         CancellationToken CancelToken { get; }

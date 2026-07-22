@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/FRACerqueira/ConsolePlus/main/icon.png" width="120" alt="ConsolePlus" />
 
-#### [ConsolePlus](ConsolePlus.md 'ConsolePlus')
+#### [ConsolePlus\.net](ConsolePlus.md 'ConsolePlus')
 ### [ConsolePlusLibrary](ConsolePlusLibrary.md 'ConsolePlusLibrary').[ConsolePlus](ConsolePlus.md 'ConsolePlusLibrary\.ConsolePlus')
 
 ## ConsolePlus\.SizeChanged Event

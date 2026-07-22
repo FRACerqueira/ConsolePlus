@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFrameworks>net10.0;net9.0;net8.0</TargetFrameworks>
 		<LangVersion>latest</LangVersion>
-		<AssemblyName>ConsolePlus</AssemblyName>
+		<AssemblyName>ConsolePlus.net</AssemblyName>
 		<RootNamespace>ConsolePlusLibrary</RootNamespace>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<Nullable>enable</Nullable>
@@ -23,7 +23,7 @@
 		<PackageId>ConsolePlus.net</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/FRACerqueira/ConsolePlus</PackageProjectUrl>
-		<Version>0.5.0-Beta</Version>
+		<Version>0.5.1-Beta</Version>
 		<PackageIcon>icon.png</PackageIcon>
 		<Copyright>© 2026 - Fernando Cerqueira</Copyright>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -87,10 +87,6 @@
 			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x86\</PackagePath>
 		</None>
 		<!-- MSBuild targets that copies the payload above into the consuming project's output. -->
-		<None Include="build\ConsolePlus.targets">
-			<Pack>true</Pack>
-			<PackagePath>buildTransitive\ConsolePlus.targets</PackagePath>
-		</None>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -102,6 +98,13 @@
 			<!-- <PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>. -->
 		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="buildTransitive\ConsolePlus.net.targets">
+	    <Pack>true</Pack>
+	    <PackagePath>buildTransitive\ConsolePlus.targets</PackagePath>
+	  </None>
 	</ItemGroup>
 
 	<PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">

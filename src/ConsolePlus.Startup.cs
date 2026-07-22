@@ -23,7 +23,6 @@ namespace ConsolePlusLibrary
     {
         internal static Action<IConsole, Exception?, bool>? ActionBeforeExitValue;
         internal static readonly ILock Envlock = new LockEnvironment();
-        internal static bool EnabledEmacs = true;
 
         private static readonly ProfileConsole _profile;
         private static bool _ctrlCPress;
@@ -102,19 +101,12 @@ namespace ConsolePlusLibrary
         }
 
         /// <summary>
-        /// Disables Emacs-style key bindings in the console, allowing for alternative key binding schemes to be used.
+        /// Enables/Disable Emacs-style key bindings in the console, allowing for standard Emacs key combinations to be used for text editing and navigation.
         /// </summary>
-        public static void DisabledEmacsKeyBindings()
+        public static bool EnabledEmacs
         {
-            EnabledEmacs = false;
-        }
-
-        /// <summary>
-        /// Enables Emacs-style key bindings in the console, allowing for standard Emacs key combinations to be used for text editing and navigation.
-        /// </summary>
-        public static void EnabledEmacsKeyBindings()
-        {
-            EnabledEmacs = true;
+            get => _consoledrive.EnabledEmacs;
+            set => _consoledrive.EnabledEmacs = value;
         }
 
         /// <summary>
@@ -122,7 +114,7 @@ namespace ConsolePlusLibrary
         /// The action receives the current console instance and a boolean indicating if Ctrl+C was pressed as parameters.
         /// </summary>
         /// <param name="action">The action to be invoked before the console exits.</param>
-        public static void ActionBeforeExist(Action<IConsole,Exception?,bool> action)
+        public static void ActionBeforeExit(Action<IConsole,Exception?,bool> action)
         {
             ActionBeforeExitValue = action;
         }

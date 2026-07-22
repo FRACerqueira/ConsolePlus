@@ -149,10 +149,10 @@ globally disable Emacs **letter** shortcuts for ConsolePlus input editors:
 
 ```csharp
 // Disable Emacs letter shortcuts (Ctrl+A, Ctrl+E, Ctrl+K, Alt+F, ...)
-ConsolePlus.DiabledEmacsKeyBindings();
+ConsolePlus.EnabledEmacs = false;
 
 // Re-enable Emacs letter shortcuts
-ConsolePlus.EnabledEmacsKeyBindings();
+ConsolePlus.EnabledEmacs = true;
 ```
 
 When disabled, only Emacs-style letter combinations are ignored. Dedicated editing/navigation keys
