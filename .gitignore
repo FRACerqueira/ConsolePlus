@@ -9,6 +9,7 @@ x86/
 # Exception: ExternalAnsiBundleLegacy must be versioned
 !src/ExternalAnsiBundleLegacy/
 !src/ExternalAnsiBundleLegacy/**
+
 [Ww][Ii][Nn]32/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/

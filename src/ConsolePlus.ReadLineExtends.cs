@@ -35,7 +35,7 @@ namespace ConsolePlusLibrary
         {
             return ConsolePlus.Envlock.RunAsync(async () =>
             {
-                var result = await InputEmacsAsync(console, ConsolePlus.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, default);
+                var result = await InputEmacsAsync(console, console.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, default);
                 if (result != null)
                 {
                     console.WriteLine();
@@ -59,7 +59,7 @@ namespace ConsolePlusLibrary
         public static string ReadInlineEmacs(this IConsole console, Func<char, bool>? acceptInput = null, CaseOptions caseOptions = CaseOptions.Any, int maxlength = int.MaxValue, Style? style = null)
         {
             return ConsolePlus.Envlock.RunAsync(
-                () => InputEmacsAsync(console, ConsolePlus.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, default)
+                () => InputEmacsAsync(console, console.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, default)
             ).Result!;
         }
 
@@ -84,7 +84,7 @@ namespace ConsolePlusLibrary
         {
             return ConsolePlus.Envlock.RunAsync(async () =>
             {
-                var result = await InputEmacsAsync(console, ConsolePlus.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, cancellationToken);
+                var result = await InputEmacsAsync(console, console.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, cancellationToken);
                 if (result != null)
                 {
                     console.WriteLine();
@@ -109,7 +109,7 @@ namespace ConsolePlusLibrary
         public static Task<string?> ReadInlineEmacsAsync(this IConsole console, Func<char, bool>? acceptInput = null, CaseOptions caseOptions = CaseOptions.Any, int maxlength = int.MaxValue, Style? style = null, CancellationToken cancellationToken = default)
         {
             return ConsolePlus.Envlock.RunAsync(
-                () => InputEmacsAsync(console, ConsolePlus.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, cancellationToken)
+                () => InputEmacsAsync(console, console.EnabledEmacs, false, caseOptions, maxlength, style ?? console.CurrentStyle, acceptInput, cancellationToken)
             );
         }
 

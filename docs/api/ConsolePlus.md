@@ -1,6 +1,6 @@
 <img src="https://raw.githubusercontent.com/FRACerqueira/ConsolePlus/main/icon.png" width="120" alt="ConsolePlus" />
 
-#### [ConsolePlus](ConsolePlus.md 'ConsolePlus')
+#### [ConsolePlus\.net](ConsolePlus.md 'ConsolePlus')
 ### [ConsolePlusLibrary](ConsolePlusLibrary.md 'ConsolePlusLibrary')
 
 ## ConsolePlus Class
@@ -358,19 +358,19 @@ public static int Width { get; }
 [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 ### Methods
 
-<a name='ConsolePlusLibrary.ConsolePlus.ActionBeforeExist(System.Action_ConsolePlusLibrary.IConsole,System.Exception,bool_)'></a>
+<a name='ConsolePlusLibrary.ConsolePlus.ActionBeforeExit(System.Action_ConsolePlusLibrary.IConsole,System.Exception,bool_)'></a>
 
-## ConsolePlus\.ActionBeforeExist\(Action\<IConsole,Exception,bool\>\) Method
+## ConsolePlus\.ActionBeforeExit\(Action\<IConsole,Exception,bool\>\) Method
 
 Registers a callback action to be invoked before the console exits, allowing for custom cleanup or final output\. 
 The action receives the current console instance and a boolean indicating if Ctrl\+C was pressed as parameters\.
 
 ```csharp
-public static void ActionBeforeExist(System.Action<ConsolePlusLibrary.IConsole,System.Exception?,bool> action);
+public static void ActionBeforeExit(System.Action<ConsolePlusLibrary.IConsole,System.Exception?,bool> action);
 ```
 #### Parameters
 
-<a name='ConsolePlusLibrary.ConsolePlus.ActionBeforeExist(System.Action_ConsolePlusLibrary.IConsole,System.Exception,bool_).action'></a>
+<a name='ConsolePlusLibrary.ConsolePlus.ActionBeforeExit(System.Action_ConsolePlusLibrary.IConsole,System.Exception,bool_).action'></a>
 
 `action` [System\.Action&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.action-3 'System\.Action\`3')[IConsole](IConsole.md 'ConsolePlusLibrary\.IConsole')[,](https://learn.microsoft.com/en-us/dotnet/api/system.action-3 'System\.Action\`3')[System\.Exception](https://learn.microsoft.com/en-us/dotnet/api/system.exception 'System\.Exception')[,](https://learn.microsoft.com/en-us/dotnet/api/system.action-3 'System\.Action\`3')[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.action-3 'System\.Action\`3')
 
@@ -576,25 +576,22 @@ Extra blank lines appended after the dash line \(default: 0\)\.
 
 If `true`, applies background color across the full line \(default: `false`\)\.
 
-<a name='ConsolePlusLibrary.ConsolePlus.DisabledEmacsKeyBindings()'></a>
+<a name='ConsolePlusLibrary.ConsolePlus.EnabledEmacsKeyBindings(bool)'></a>
 
-## ConsolePlus\.DisabledEmacsKeyBindings\(\) Method
+## ConsolePlus\.EnabledEmacsKeyBindings\(bool\) Method
 
-Disables Emacs\-style key bindings in the console, allowing for alternative key binding schemes to be used\.
-
-```csharp
-public static void DisabledEmacsKeyBindings();
-```
-
-<a name='ConsolePlusLibrary.ConsolePlus.EnabledEmacsKeyBindings()'></a>
-
-## ConsolePlus\.EnabledEmacsKeyBindings\(\) Method
-
-Enables Emacs\-style key bindings in the console, allowing for standard Emacs key combinations to be used for text editing and navigation\.
+Enables/Disable Emacs\-style key bindings in the console, allowing for standard Emacs key combinations to be used for text editing and navigation\.
 
 ```csharp
-public static void EnabledEmacsKeyBindings();
+public static void EnabledEmacsKeyBindings(bool value);
 ```
+#### Parameters
+
+<a name='ConsolePlusLibrary.ConsolePlus.EnabledEmacsKeyBindings(bool).value'></a>
+
+`value` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+True to enable Emacs\-style key bindings, false to disable them\.
 
 <a name='ConsolePlusLibrary.ConsolePlus.GetCursorPosition()'></a>
 

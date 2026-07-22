@@ -31,9 +31,30 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         private bool _disposed;
         private readonly ILock _lock;
         private readonly CancellationToken _mainToken;
+        private bool _enabledEmacs;
+
 
         /// <inheritdoc/>
         public event EventHandler<ConsoleSizeChangedEventArgs>? SizeChanged;
+
+        /// <inheritdoc/>
+        public bool EnabledEmacs
+        {
+            get
+            {
+                return _lock.Run(() =>
+                {
+                    return _enabledEmacs;
+                });
+            }
+            set
+            {
+                _lock.Run(() =>
+                {
+                    _enabledEmacs = value;
+                });
+            }
+        }
 
         /// <inheritdoc/>
         public NoAnsiConsoleAdapter(IProfileReadOnly profile, ILock lockenv, CancellationToken mainToken)
