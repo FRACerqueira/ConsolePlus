@@ -122,6 +122,9 @@ Start here and follow the guides in order, or jump straight to the topic you nee
 ### Advanced
 - **[Advanced API](docs/advanced-api.md)** — driver access, thread-safe output, fragments, the Emacs buffer, and string/culture/key helpers
 
+### Development
+- **[Test Driver Maintenance](docs/testing-driver-maintenance.md)** — how the `VirtualTerminal` test driver is kept in sync with PromptPlus (contributor-facing, not part of the public API)
+
 ---
 
 ## 🧩 ConsolePlus + PromptPlus
@@ -144,6 +147,19 @@ PromptPlus.Widgets.Banner("PromptPlus", Color.Bisque);
 ```
 
 > 👉 Learn more in the **[ConsolePlus + PromptPlus](docs/promptplus.md)** guide.
+
+---
+
+## 📐 Architecture Decision Records (ADR)
+
+ConsolePlus documents its significant architectural and design decisions as
+**Architecture Decision Records (ADR)**, following the
+[AdrPlus](https://github.com/FRACerqueira/AdrPlus) convention. Each record
+captures the context, the decision, the alternatives considered, and the
+consequences — so the reasoning behind the library's design stays traceable over
+time.
+
+👉 See the **[ADR index](docs/adr/README.md)** for the full list of decisions.
 
 ---
 

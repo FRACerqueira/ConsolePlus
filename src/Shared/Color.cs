@@ -77,7 +77,7 @@ namespace ConsolePlusLibrary
         /// <returns><see cref="White"/> or <see cref="Black"/> depending on brightness.</returns>
         public readonly Color GetInvertedColor()
         {
-            return GetLuminance() < 140 ? White : Black;
+            return GetLuminance() < 0.5 ? White : Black;
         }
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace ConsolePlusLibrary
         /// <returns>The hexadecimal representation of the color.</returns>
         public string ToHex()
         {
-            // stackalloc: zero intermediate string allocations vs 3 × ToString("X2") + string.Format
+            // stackalloc: zero intermediate string allocations vs 3 ï¿½ ToString("X2") + string.Format
             Span<char> buf = stackalloc char[6];
             R.TryFormat(buf[..2], out _, "X2", CultureInfo.InvariantCulture);
             G.TryFormat(buf[2..4], out _, "X2", CultureInfo.InvariantCulture);
@@ -404,7 +404,7 @@ namespace ConsolePlusLibrary
             // by doubling each digit, conform to CSS color codes
             if (hex.Length == 3)
             {
-                // string.Create: single allocation vs LINQ enumerator + 3 × new string(c,2)
+                // string.Create: single allocation vs LINQ enumerator + 3 ï¿½ new string(c,2)
                 hex = string.Create(6, hex, static (span, h) =>
                 {
                     span[0] = span[1] = h[0];

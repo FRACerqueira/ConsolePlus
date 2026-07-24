@@ -23,7 +23,7 @@
 		<PackageId>ConsolePlus.net</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/FRACerqueira/ConsolePlus</PackageProjectUrl>
-		<Version>0.5.2-Beta</Version>
+		<Version>1.0.0-Beta1</Version>
 		<PackageIcon>icon.png</PackageIcon>
 		<Copyright>© 2026 - Fernando Cerqueira</Copyright>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
