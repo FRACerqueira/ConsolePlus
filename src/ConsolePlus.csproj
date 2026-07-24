@@ -23,7 +23,7 @@
 		<PackageId>ConsolePlus.net</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/FRACerqueira/ConsolePlus</PackageProjectUrl>
-		<Version>0.5.1-Beta</Version>
+		<Version>1.0.0-Beta1</Version>
 		<PackageIcon>icon.png</PackageIcon>
 		<Copyright>© 2026 - Fernando Cerqueira</Copyright>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -62,27 +62,27 @@
 	-->
 	<ItemGroup>
 		<None Include="ExternalAnsiBundleLegacy\x64\ANSI32.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 			<Pack>true</Pack>
 			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x64\</PackagePath>
 		</None>
 		<None Include="ExternalAnsiBundleLegacy\x64\ANSI64.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 			<Pack>true</Pack>
 			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x64\</PackagePath>
 		</None>
 		<None Include="ExternalAnsiBundleLegacy\x64\ansicon.exe">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 			<Pack>true</Pack>
 			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x64\</PackagePath>
 		</None>
 		<None Include="ExternalAnsiBundleLegacy\x86\ANSI32.dll">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 			<Pack>true</Pack>
 			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x86\</PackagePath>
 		</None>
 		<None Include="ExternalAnsiBundleLegacy\x86\ansicon.exe">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 			<Pack>true</Pack>
 			<PackagePath>buildTransitive\ExternalAnsiBundleLegacy\x86\</PackagePath>
 		</None>
@@ -101,9 +101,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="buildTransitive\ConsolePlus.net.targets">
-	    <Pack>true</Pack>
-	    <PackagePath>buildTransitive\ConsolePlus.targets</PackagePath>
+	  <None Include="buildTransitive\ConsolePlus.net.targets">
+		<Pack>true</Pack>
+		<PackagePath>buildTransitive\ConsolePlus.net.targets</PackagePath>
 	  </None>
 	</ItemGroup>
 

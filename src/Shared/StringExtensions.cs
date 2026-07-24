@@ -88,7 +88,37 @@ namespace ConsolePlusLibrary
             return idx == lines.Length ? lines : lines[..idx];
         }
 
-        private static int GetRuneWidth(Rune rune)
+        /// <summary>
+        /// Returns the longest prefix of <paramref name="text"/> whose display width does not exceed
+        /// <paramref name="maxWidth"/> columns, without splitting a wide rune in half.
+        /// </summary>
+        /// <param name="text">The text to truncate.</param>
+        /// <param name="maxWidth">The maximum display width, in columns, of the returned prefix.</param>
+        /// <returns>The truncated text. Empty when <paramref name="maxWidth"/> is not positive.</returns>
+        public static string TruncateToDisplayWidth(this string? text, int maxWidth)
+        {
+            if (string.IsNullOrEmpty(text) || maxWidth <= 0) return string.Empty;
+
+            int width = 0;
+            int endIndex = 0;
+            foreach (Rune r in text.EnumerateRunes())
+            {
+                int w = GetRuneWidth(r);
+                if (width + w > maxWidth) break;
+                width += w;
+                endIndex += r.Utf16SequenceLength;
+            }
+
+            return endIndex == text.Length ? text : text[..endIndex];
+        }
+
+        /// <summary>
+        /// Returns the display width, in terminal columns, of a single rune (0 for combining/control
+        /// runes, 2 for East Asian wide runes, 1 otherwise).
+        /// </summary>
+        /// <param name="rune">The rune to measure.</param>
+        /// <returns>The display width, in columns, of <paramref name="rune"/>.</returns>
+        public static int GetRuneWidth(this Rune rune)
         {
             var category = Rune.GetUnicodeCategory(rune);
             if (category is UnicodeCategory.NonSpacingMark or

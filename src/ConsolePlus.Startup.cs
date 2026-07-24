@@ -48,10 +48,10 @@ namespace ConsolePlusLibrary
             var ansilegacy = LegacyAnsiBootstrapper.TryEnable();
 
             _originalCulture = CultureInfo.CurrentCulture.Name;
-            _originalForecolor = System.Console.ForegroundColor;
-            _originalBackcolor = System.Console.BackgroundColor;
-            _originalInputEncoding = System.Console.InputEncoding;
-            _originalOutputEncoding = System.Console.OutputEncoding;
+            _originalForecolor = Console.ForegroundColor;
+            _originalBackcolor = Console.BackgroundColor;
+            _originalInputEncoding = Console.InputEncoding;
+            _originalOutputEncoding = Console.OutputEncoding;
 
             _profile = EnvironmentUtil.CreateProfile(ansilegacy, _originalCulture, _originalBackcolor, _originalForecolor, Encoding.UTF8, Encoding.UTF8);
 
@@ -65,7 +65,7 @@ namespace ConsolePlusLibrary
             }
             AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
-            System.Console.CancelKeyPress += Console_CancelKeyPress;
+            Console.CancelKeyPress += Console_CancelKeyPress;
         }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)

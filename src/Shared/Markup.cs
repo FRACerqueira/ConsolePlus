@@ -23,7 +23,7 @@ namespace ConsolePlusLibrary
         /// <returns>The escaped markup text.</returns>
         public static string EscapeMarkup(this string? markup)
         { 
-            return Markup.Escape(markup);
+            return Escape(markup);
         }
 
 
@@ -72,7 +72,7 @@ namespace ConsolePlusLibrary
         /// <returns>The text without markup.</returns>
         public static string RemoveMarkup(this string? markup)
         {
-            return Markup.Remove(markup);
+            return Remove(markup);
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace ConsolePlusLibrary
         /// <returns>The length of the text without markup. </returns>
         public static int LengthMarkup(this string? markup)
         {
-            return Markup.Length(markup);
+            return Length(markup);
         }
 
         /// <summary>

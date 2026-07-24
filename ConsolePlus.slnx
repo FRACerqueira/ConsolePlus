@@ -3,4 +3,5 @@
     <Project Path="samples/ConsolePlusFeaturesSamples/ConsolePlusFeaturesSamples.csproj" />
   </Folder>
   <Project Path="src/ConsolePlus.csproj" />
+  <Project Path="tests/ConsolePlus.Tests/ConsolePlus.Tests.csproj" />
 </Solution>

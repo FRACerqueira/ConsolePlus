@@ -117,7 +117,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                                     int len = textout.GetDisplayLength() is { Length: > 0 } d ? d[0] : 0;
                                     if (len + _outputconsole.CursorLeft > _outputconsole.Width)
                                     {
-                                        textout = textout[..(_outputconsole.Width - _outputconsole.CursorLeft)];
+                                        // Budget is in display COLUMNS, not characters — a wide rune (CJK)
+                                        // is 1 char but 2 columns, so a plain char-index Substring can throw
+                                        // or overflow the line. TruncateToDisplayWidth trims by rune width.
+                                        textout = textout.TruncateToDisplayWidth(_outputconsole.Width - _outputconsole.CursorLeft);
                                     }
                                     break;
                                 }
@@ -133,11 +136,11 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                                         int truncateLen = remainingSpace - lentellipsis;
                                         if (truncateLen > 0)
                                         {
-                                            textout = textout[..truncateLen] + ellipsisStr;
+                                            textout = textout.TruncateToDisplayWidth(truncateLen) + ellipsisStr;
                                         }
                                         else
                                         {
-                                            textout = textout[..remainingSpace];
+                                            textout = textout.TruncateToDisplayWidth(remainingSpace);
                                         }
                                     }
                                     break;

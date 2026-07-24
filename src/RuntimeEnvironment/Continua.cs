@@ -15,6 +15,7 @@ namespace ConsolePlusLibrary.RuntimeEnvironment
         {
             if (Found(null, "ContinuaCI.Version"))
             {
+                profile.ChangedColorDepth = true;
                 profile.ColorDepth = ColorSystem.FourBit;
                 profile.Interactive = false;
                 return true;

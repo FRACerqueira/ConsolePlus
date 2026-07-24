@@ -66,8 +66,8 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 // Change the output and input code page to 65001 (UTF-8)
-                System.Console.OutputEncoding = Encoding.UTF8;
-                System.Console.InputEncoding = Encoding.UTF8;
+                Console.OutputEncoding = Encoding.UTF8;
+                Console.InputEncoding = Encoding.UTF8;
 
                 _lastWidth = EnvironmentUtil.GetSafeWidth();
                 _lastHeight = EnvironmentUtil.GetSafeHeight();
@@ -218,7 +218,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                         return; // No color support, ignore changes
                     }
                     _consoleForegroundColor = value;
-                    System.Console.ForegroundColor = value;
+                    Console.ForegroundColor = value;
                 });
             }
         }
@@ -242,7 +242,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                         return; // No color support, ignore changes
                     }
                     _consoleForegroundColor = value;
-                    System.Console.ForegroundColor = value;
+                    Console.ForegroundColor = value;
                 });
             }
         }
@@ -266,7 +266,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                         return; // No color support, ignore changes
                     }
                     _consoleBackgroundColor = value;
-                    System.Console.BackgroundColor = value;
+                    Console.BackgroundColor = value;
                 });
             }
         }
@@ -290,7 +290,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                         return; // No color support, ignore changes
                     }
                     _consoleBackgroundColor = value;
-                    System.Console.BackgroundColor = value;
+                    Console.BackgroundColor = value;
                 });
             }
         }
@@ -308,13 +308,13 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         }
 
         /// <inheritdoc/>
-        public bool IsInputRedirected => System.Console.IsInputRedirected;
+        public bool IsInputRedirected => Console.IsInputRedirected;
 
         /// <inheritdoc/>
-        public bool IsOutputRedirected => System.Console.IsOutputRedirected;
+        public bool IsOutputRedirected => Console.IsOutputRedirected;
 
         /// <inheritdoc/>
-        public bool IsErrorRedirected => System.Console.IsErrorRedirected;
+        public bool IsErrorRedirected => Console.IsErrorRedirected;
 
         /// <inheritdoc/>
         public void Write(string? value, Style style , bool clearrestofline = false)
@@ -479,168 +479,168 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void Write(bool value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(bool value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(bool value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(bool value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline );
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline );
         }
 
         /// <inheritdoc/>
         public void Write(double value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(double value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(double value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(double value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(float value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(float value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(float value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(float value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(decimal value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(int value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(int value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(int value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(int value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(long value)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void Write(long value, Style style)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, false);
+            Write(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void Write(long value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void Write(long value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            Write(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            Write(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
 
@@ -730,42 +730,42 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(bool value)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void WriteLine(bool value, Style style)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, false);
         }
 
         /// <inheritdoc/>
         public void WriteLine(bool value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void WriteLine(bool value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void WriteLine(double value)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void WriteLine(double value, Style style)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, false);
 
         }
 
@@ -773,21 +773,21 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(double value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void WriteLine(double value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void WriteLine(float value)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
 
         }
 
@@ -795,7 +795,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(float value, Style style)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, false);
 
         }
 
@@ -803,7 +803,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(float value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
 
         }
 
@@ -811,7 +811,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(float value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
 
         }
 
@@ -819,7 +819,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(decimal value)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
 
         }
 
@@ -827,7 +827,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(decimal value, Style style)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, false);
 
         }
 
@@ -835,7 +835,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(decimal value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
 
         }
 
@@ -843,21 +843,21 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(decimal value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
         public void WriteLine(int value)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void WriteLine(int value, Style style)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, false);
 
         }
 
@@ -865,7 +865,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(int value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
 
         }
 
@@ -873,7 +873,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(int value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
 
         }
 
@@ -881,14 +881,14 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(long value)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, false);
         }
 
         /// <inheritdoc/>
         public void WriteLine(long value, Style style)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, false);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, false);
 
         }
 
@@ -896,7 +896,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(long value, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), CurrentStyle, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), CurrentStyle, clearrestofline);
 
         }
 
@@ -904,7 +904,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public void WriteLine(long value, Style style, bool clearrestofline)
         {
             ThrowIfDisposed();
-            WriteLine(value.ToString(System.Console.Out.FormatProvider), style, clearrestofline);
+            WriteLine(value.ToString(Console.Out.FormatProvider), style, clearrestofline);
         }
 
         /// <inheritdoc/>
@@ -1033,7 +1033,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         }
         private static void Clear()
         {
-            System.Console.Clear();
+            Console.Clear();
         }
 
 
@@ -1043,7 +1043,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetCursorPosition(left, top);
+                Console.SetCursorPosition(left, top);
             });
         }
 
@@ -1051,14 +1051,14 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public int CursorLeft
         {
             get { return _lock.Run(() => EnvironmentUtil.GetSafeLeftCursor()); }
-            set { _lock.Run(() => System.Console.SetCursorPosition(value, CursorTop)); }
+            set { _lock.Run(() => Console.SetCursorPosition(value, CursorTop)); }
         }
 
         /// <inheritdoc/>
         public int CursorTop
         {
             get { return _lock.Run(() => EnvironmentUtil.GetSafeTopCursor()); }
-            set { _lock.Run(() => System.Console.SetCursorPosition(CursorLeft, value)); }
+            set { _lock.Run(() => Console.SetCursorPosition(CursorLeft, value)); }
         }
 
         /// <inheritdoc/>
@@ -1096,7 +1096,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 ThrowIfDisposed();
                 try
                 {
-                    System.Console.CursorVisible = false;
+                    Console.CursorVisible = false;
                 }
                 finally
                 {
@@ -1114,7 +1114,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 ThrowIfDisposed();
                 try
                 {
-                    System.Console.CursorVisible = true;
+                    Console.CursorVisible = true;
                 }
                 catch (PlatformNotSupportedException)
                 {
@@ -1138,7 +1138,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             return _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                return System.Console.ReadLine();
+                return Console.ReadLine();
             });
         }
 
@@ -1152,7 +1152,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             return _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                return System.Console.Read();
+                return Console.Read();
             });
         }
 
@@ -1176,7 +1176,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 while (true)
                 {
 
-                    if (!System.Console.KeyAvailable)
+                    if (!Console.KeyAvailable)
                     {
                         try
                         {
@@ -1188,7 +1188,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                         }
                         continue;
                     }
-                    ConsoleKeyInfo candidate = System.Console.ReadKey(intercept);
+                    ConsoleKeyInfo candidate = Console.ReadKey(intercept);
                     if (candidate.Key != 0 || candidate.KeyChar != '\0')
                     {
                         return candidate;
@@ -1204,7 +1204,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.ResetColor();
+                Console.ResetColor();
             });
         }
 
@@ -1214,7 +1214,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             ThrowIfDisposed();
             try
             {
-                System.Console.Beep();
+                Console.Beep();
             }
             catch
             {
@@ -1228,7 +1228,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetError(value);
+                Console.SetError(value);
             });
         }
 
@@ -1238,7 +1238,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetIn(value);
+                Console.SetIn(value);
             });
         }
 
@@ -1248,7 +1248,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                System.Console.SetOut(value);
+                Console.SetOut(value);
             });
         }
 
@@ -1260,7 +1260,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return _profile.Interactive && System.Console.KeyAvailable;
+                    return _profile.Interactive && Console.KeyAvailable;
                 });
             }
         }
@@ -1273,7 +1273,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return !_profile.Interactive || System.Console.IsInputRedirected ? Encoding.Default : System.Console.InputEncoding;
+                    return !_profile.Interactive || Console.IsInputRedirected ? Encoding.Default : Console.InputEncoding;
                 });
             }
             set
@@ -1281,9 +1281,9 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    if (_profile.Interactive && !System.Console.IsInputRedirected)
+                    if (_profile.Interactive && !Console.IsInputRedirected)
                     {
-                        System.Console.InputEncoding = value;
+                        Console.InputEncoding = value;
                     }
                 });
             }
@@ -1297,7 +1297,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return System.Console.IsOutputRedirected ? Encoding.Default : System.Console.OutputEncoding;
+                    return Console.IsOutputRedirected ? Encoding.Default : Console.OutputEncoding;
                 });
             }
             set
@@ -1305,10 +1305,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    if (!System.Console.IsOutputRedirected)
+                    if (!Console.IsOutputRedirected)
                     {
-                        System.Console.OutputEncoding = value;
-                        _profile.DetectedUnicodeSupport = UnicodeDetector.Detect(System.Console.Out, _profile.SupportUnicode);
+                        Console.OutputEncoding = value;
+                        _profile.DetectedUnicodeSupport = UnicodeDetector.Detect(Console.Out, _profile.SupportUnicode);
                     }
                 });
             }
@@ -1322,7 +1322,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return System.Console.In;
+                    return Console.In;
                 });
             }
         }
@@ -1335,7 +1335,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return System.Console.Out;
+                    return Console.Out;
                 });
             }
         }
@@ -1348,7 +1348,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return System.Console.Error;
+                    return Console.Error;
                 });
             }
         }
