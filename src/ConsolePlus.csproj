@@ -11,6 +11,7 @@
 		<AnalysisLevel>latest-recommended</AnalysisLevel>
 		<!-- These folders are packaged explicitly (see the buildTransitive ItemGroup); keep them out of the SDK default globs. -->
 		<DefaultItemExcludes>$(DefaultItemExcludes);ExternalAnsiBundleLegacy\**;build\**</DefaultItemExcludes>
+		<Configurations>Debug;Release;ReleaseDoc</Configurations>
 	</PropertyGroup>
 
 	<PropertyGroup>
