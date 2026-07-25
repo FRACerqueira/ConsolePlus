@@ -13,6 +13,15 @@ namespace ConsolePlus.Tests.Unit
     // invalid") from NoAnsiConsoleAdapter's ctor calling ShowCursor() against a console-less test
     // process; fixed by making HideCursor/ShowCursor swallow IOException the same way
     // EnvironmentUtil's other Safe* console helpers already do.
+    //
+    // Real singleton init also runs EnvironmentUtil.CreateProfile -> EnrichersCI(), which populates
+    // the process-wide static BaseClassCI._environmentVariables cache that ProfileExtensionsTests
+    // manages by hand via reflection. Since xUnit parallelizes different test classes by default,
+    // this class must share GlobalStateCollection with ProfileExtensionsTests or the two race on
+    // that cache (confirmed: intermittent CI failure on macOS, 2026-07-25 — ProfileExtensionsTests
+    // saw a stale/real-environment snapshot mid-reset because this class's singleton init ran
+    // concurrently and repopulated the shared cache).
+    [Collection(GlobalStateCollection.Name)]
     public class ConsolePlusExtendsTests
     {
         [Fact]
