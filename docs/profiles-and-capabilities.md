@@ -35,8 +35,9 @@ The static initializer runs **once**, the first time you touch `ConsolePlus`, an
    - Modern Windows (Windows 10+) has native ANSI support via Virtual Terminal Processing
    - On legacy Windows systems (pre-Windows 10) that lack native ANSI support, ConsolePlus 
      automatically uses **[ANSICON](https://github.com/adoxa/ansicon)** (bundled with the library)
-   - The ANSICON injection uses the `LdrLoadDll` approach via `CreateRemoteThread` for 64-bit 
-     .NET AnyCPU processes, providing transparent ANSI escape sequence support
+   - It does this by launching the bundled `ansicon.exe` (matching the process architecture,
+     x86 or x64) via `Process.Start(..., "-p")` — no DLL injection involved, and it provides
+     transparent ANSI escape sequence support
    - This happens automatically during initialization without requiring manual installation or 
      configuration
 2. **Captures the original culture, colors, and input/output encodings** (so they can be restored on
@@ -80,6 +81,10 @@ ConsolePlus.WriteLine($"ColorDepth  : {p.ColorDepth}");        // ColorSystem
 | `DefaultForegroundColor` / `DefaultBackgroundColor` | `Color` | Default colors |
 | `DefaultInputEncoding` / `DefaultOutputEncoding` | `Encoding` | Default encodings |
 | `OriginalInputEncoding` / `OriginalOutputEncoding` | `Encoding` | Encodings captured at startup |
+
+`IProfileReadOnly` is genuinely **read-only** — there is no fluent setter API on it or on
+`ConsolePlus.Profile`. To override any of these values, use a `ConsoleProfile.json` file, read once
+before detection runs; see [Environment Detection → Override detection](environment-detection.md#override-detection).
 
 ---
 
@@ -167,7 +172,7 @@ always restored to its original culture, colors, and encodings when your app end
 shutdown to run final logic:
 
 ```csharp
-ConsolePlus.ActionBeforeExist((console, ctrlCPressed) =>
+ConsolePlus.ActionBeforeExit((console, exception, ctrlCPressed) =>
 {
 	console.WriteLine(ctrlCPressed
 		? "[Yellow]Cancelled by user (Ctrl+C).[/]"
@@ -175,7 +180,8 @@ ConsolePlus.ActionBeforeExist((console, ctrlCPressed) =>
 });
 ```
 
-The callback receives the console instance and a `bool` indicating whether Ctrl+C triggered the exit.
+The callback receives the console instance, any exception that caused the exit (`null` on a
+normal exit), and a `bool` indicating whether Ctrl+C triggered the exit.
 
 ---
 
@@ -222,7 +228,7 @@ bool outRedirected = ConsolePlus.IsOutputRedirected;
 bool inRedirected  = ConsolePlus.IsInputRedirected;
 
 // Graceful shutdown hook
-ConsolePlus.ActionBeforeExist((console, ctrlC) => console.WriteLine("Bye!"));
+ConsolePlus.ActionBeforeExit((console, exception, ctrlC) => console.WriteLine("Bye!"));
 ```
 
 ---

@@ -117,25 +117,25 @@ namespace ConsolePlusLibrary.Testing
         public ConsoleColor ForegroundColor
         {
             get => Color.ToConsoleColor(_fg);
-            set { _fg = value; _writer.ApplyStyle(new Style(_fg, _bg)); }
+            set { _fg = value; _ = _writer.ApplyStyle(new Style(_fg, _bg)); }
         }
 
         public ConsoleColor BackgroundColor
         {
             get => Color.ToConsoleColor(_bg);
-            set { _bg = value; _writer.ApplyStyle(new Style(_fg, _bg)); }
+            set { _bg = value; _ = _writer.ApplyStyle(new Style(_fg, _bg)); }
         }
 
         public Color ForegroundRgbColor
         {
             get => _fg;
-            set { _fg = value; _writer.ApplyStyle(new Style(_fg, _bg)); }
+            set { _fg = value; _ = _writer.ApplyStyle(new Style(_fg, _bg)); }
         }
 
         public Color BackgroundRgbColor
         {
             get => _bg;
-            set { _bg = value; _writer.ApplyStyle(new Style(_fg, _bg)); }
+            set { _bg = value; _ = _writer.ApplyStyle(new Style(_fg, _bg)); }
         }
 
         public void ResetColor()
@@ -195,7 +195,7 @@ namespace ConsolePlusLibrary.Testing
         public bool CursorVisible
         {
             get => _cursorVisible;
-            set { if (value) { ShowCursor(); } else { HideCursor(); } }
+            set { if (value) { _ = ShowCursor(); } else { _ = HideCursor(); } }
         }
 
         public bool HideCursor() { _writer.Ansi.HideCursor(); _cursorVisible = false; return true; }

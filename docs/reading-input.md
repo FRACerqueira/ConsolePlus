@@ -103,8 +103,9 @@ string ReadLineEmacs(
 ### Key bindings
 
 While editing, the following Emacs-style shortcuts are available. Most of them also have an
-equivalent standard editing key. Case-changing, deletion, and clearing commands only take effect
-when there is text in the buffer.
+equivalent standard editing key. **Every shortcut below — including plain cursor movement, not just
+editing/deletion/case-changing — only takes effect when there is text in the buffer** (an empty
+buffer ignores `Home`/`End`/arrows/`Ctrl+A`/`Ctrl+E`/etc. entirely, not just deletion commands).
 
 **Cursor movement**
 
@@ -211,6 +212,13 @@ string code = ConsolePlus.ReadLineEmacs(
 | `Uppercase` | Converts accepted characters to uppercase |
 | `Lowercase` | Converts accepted characters to lowercase |
 
+> ⚠️ **Order matters when combining `caseOptions` with `acceptInput`.** The case transform runs
+> **before** `acceptInput` sees the character — `acceptInput` receives the already-transformed
+> character, not the one the user actually typed. A predicate that only accepts one case (e.g.
+> `caseOptions: CaseOptions.Uppercase` combined with `acceptInput: char.IsLower`) will silently
+> reject every character, since it never sees a lowercase char to accept. Write `acceptInput`
+> predicates that are case-insensitive (or that expect the target case) when using `caseOptions`.
+
 ### Async and cancellation
 
 The async variants accept a `CancellationToken` and return `null` if canceled:
@@ -249,6 +257,11 @@ while (!ConsolePlus.KeyAvailable)
 }
 var key = ConsolePlus.ReadKey(intercept: true);
 ```
+
+> ⚠️ `ReadKey`/`ReadKeyAsync` throw `InvalidOperationException` ("Console is not interactive.")
+> when `ConsolePlus.Profile.Interactive` is `false` — for example, when input is redirected. Check
+> `IsInputRedirected` (or `Profile.Interactive`) before calling them in code that might run with
+> redirected/piped input.
 
 ---
 

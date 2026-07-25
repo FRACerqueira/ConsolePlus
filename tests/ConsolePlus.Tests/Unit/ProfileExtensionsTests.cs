@@ -20,6 +20,13 @@ namespace ConsolePlus.Tests.Unit
     // de teste sem resetar o cache manualmente — daqui o uso de reflection (mesmo padrão já usado
     // para métodos privados estáticos, ex. MaskEditControl.NormalizeStringMask) para zerar o campo
     // antes de cada cenário, sem alterar o código de produção.
+    //
+    // Precisa do GlobalStateCollection (DisableParallelization) porque ConsolePlusExtendsTests
+    // também toca esse mesmo cache indiretamente (via inicialização real do singleton
+    // ConsolePlusLibrary.ConsolePlus) — sem isolamento as duas classes competem pelo mesmo campo
+    // static entre threads paralelas do xUnit (achado real, flake intermitente em CI no macOS,
+    // 2026-07-25).
+    [Collection(GlobalStateCollection.Name)]
     public class ProfileExtensionsTests : IDisposable
     {
         // Todas as env vars conhecidas pelos 14 detectores, para isolar cada teste do ambiente real

@@ -46,10 +46,10 @@ projects (ConsolePlus + PromptPlus).
 | ADR | Title | Version | Status |
 | --- | --- | --- | --- |
 | [ADR0001V01R01](ADR0001V01R01-SplitConsolePlusAndPromptPlus.md) | Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus) | V01 | Accepted |
-| [ADR0002V01R01](ADR0002V01R01-ImmutableCapabilityProfile.md) | Immutable capability profile | V01 | Accepted |
+| [ADR0002V01R02](ADR0002V01R02-ImmutableCapabilityProfile.md) | Immutable capability profile | V01 (R02) | Accepted |
 | [ADR0003V01R01](ADR0003V01R01-AutomaticInitializationOnFirstAccess.md) | Automatic initialization on first access | V01 | Accepted |
 | [ADR0004V01R01](ADR0004V01R01-AnsiVsNonAnsiDriverSelection.md) | ANSI vs non-ANSI driver selection | V01 | Accepted |
-| [ADR0005V01R01](ADR0005V01R01-AnsiconLegacyWindowsSupport.md) | ANSICON injection for legacy Windows | V01 | Accepted |
+| [ADR0005V01R02](ADR0005V01R02-AnsiconLegacyWindowsSupport.md) | ANSICON launch (not injection) for legacy Windows | V01 (R02) | Accepted |
 | [ADR0006V01R01](ADR0006V01R01-AutoDetectTriState.md) | `AutoDetect` tri-state for capabilities | V01 | Accepted |
 | [ADR0007V01R01](ADR0007V01R01-GracefulDegradation.md) | Profile-driven graceful degradation | V01 | Accepted |
 | [ADR0008V01R01](ADR0008V01R01-ColorDepthModel.md) | Color depth model (`ColorSystem`) | V01 | Accepted |
@@ -59,4 +59,4 @@ projects (ConsolePlus + PromptPlus).
 | [ADR0012V01R01](ADR0012V01R01-ShutdownStateRestoration.md) | Shutdown state restoration | V01 | Accepted |
 | [ADR0013V01R01](ADR0013V01R01-EmojiShortcodeModel.md) | Emoji shortcode model with fallback | V01 | Accepted |
 | [ADR0014V01R01](ADR0014V01R01-LowLevelAnsiAndAlternateScreen.md) | Low-level ANSI and alternate-screen API | V01 | Accepted |
-| [ADR0015V01R01](ADR0015V01R01-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits | V01 | Accepted |
+| [ADR0015V01R02](ADR0015V01R02-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits; regeneration gated on `ReleaseDoc` | V01 (R02) | Accepted |

@@ -31,17 +31,18 @@ A configuração do DefaultDocumentation está no arquivo `src/ConsolePlus.cspro
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
 </PropertyGroup>
 
-<!-- DefaultDocumentation APENAS em Release e no target net10.0 -->
-<ItemGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+<!-- DefaultDocumentation APENAS em ReleaseDoc e no target net10.0 -->
+<ItemGroup Condition="'$(Configuration)' == 'ReleaseDoc' and '$(TargetFramework)' == 'net10.0'">
 	<PackageReference Include="DefaultDocumentation" Version="1.2.5">
-		<PrivateAssets>all</PrivateAssets>
-		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		<!-- <PrivateAssets>all</PrivateAssets>
+		<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>. -->
 	</PackageReference>
 </ItemGroup>
 
-<PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+<PropertyGroup Condition="'$(Configuration)' == 'ReleaseDoc' and '$(TargetFramework)' == 'net10.0'">
 	<DefaultDocumentationFolder>..\docs\api</DefaultDocumentationFolder>
-	<DefaultDocumentationGeneratedPages>Assembly, Namespaces , Types , Members</DefaultDocumentationGeneratedPages>
+	<DefaultDocumentationGeneratedPages>Assembly, Namespaces, Classes, Interfaces, Events, Enums, Structs, Delegates</DefaultDocumentationGeneratedPages>
+	<DefaultDocumentationFileNameFactory>NameAndMd5Mix</DefaultDocumentationFileNameFactory>
 	<DefaultDocumentationGeneratedAccessModifiers>Public</DefaultDocumentationGeneratedAccessModifiers>
 	<DefaultDocumentationAssemblyPageName>ConsolePlus</DefaultDocumentationAssemblyPageName>
 	<DocIconUrl>https://raw.githubusercontent.com/FRACerqueira/ConsolePlus/main/icon.png</DocIconUrl>
@@ -50,40 +51,44 @@ A configuração do DefaultDocumentation está no arquivo `src/ConsolePlus.cspro
 ```
 
 > ℹ️ Após a geração, uma task MSBuild (`PrependDocIconHeader`) adiciona o cabeçalho com o ícone
-> (`DocIconUrl` / `DocIconWidth`) no topo de cada arquivo `.md` gerado em `docs/api`.
+> (`DocIconUrl` / `DocIconWidth`) no topo de cada arquivo `.md` gerado em `docs/api`. Note que o
+> `PrivateAssets`/`IncludeAssets` do `PackageReference` está comentado no projeto real — deixado como
+> referência caso seja necessário reativar, não como configuração ativa.
 
 ### Opções de Configuração
 
 | Propriedade | Valor | Descrição |
 |-------------|-------|-----------|
-| `Condition` | `Release` + `net10.0` | **Documentação gerada APENAS em builds Release do target net10.0** |
+| `Condition` | `ReleaseDoc` + `net10.0` | **Documentação gerada APENAS em builds da configuração `ReleaseDoc` no target net10.0** (não em `Release`, que é usado para empacotar o NuGet sem regenerar docs) |
 | `DefaultDocumentationFolder` | `../docs/api` | Pasta de saída para os arquivos Markdown |
-| `DefaultDocumentationGeneratedPages` | `Assembly, Namespaces, Types, Members` | Páginas geradas |
+| `DefaultDocumentationGeneratedPages` | `Assembly, Namespaces, Classes, Interfaces, Events, Enums, Structs, Delegates` | Páginas geradas |
+| `DefaultDocumentationFileNameFactory` | `NameAndMd5Mix` | Estratégia de nomeação dos arquivos gerados |
 | `DefaultDocumentationGeneratedAccessModifiers` | `Public` | Documenta apenas membros públicos |
 | `DefaultDocumentationAssemblyPageName` | `ConsolePlus` | Nome da página principal do assembly (`ConsolePlus.md`) |
 | `DocIconUrl` / `DocIconWidth` | icon.png / `120` | Cabeçalho com ícone adicionado a cada `.md` gerado |
 
 ## 🔄 Regenerando a Documentação
 
-A documentação é regenerada automaticamente toda vez que você compila o projeto em **Release**
-para o target **net10.0**:
+A documentação é regenerada automaticamente toda vez que você compila o projeto na configuração
+**ReleaseDoc** para o target **net10.0**:
 
 ### Via Visual Studio
 1. Abra a solução no Visual Studio
-2. Mude para configuração **Release**
+2. Mude para configuração **ReleaseDoc**
 3. Build → Build Solution (Ctrl+Shift+B)
 4. Os arquivos Markdown serão atualizados em `docs/api/`
 
-**Nota**: Em builds **Debug** (ou em targets diferentes de net10.0), a documentação **não** é
-gerada, para acelerar o desenvolvimento.
+**Nota**: Em builds **Debug** ou **Release** (ou em targets diferentes de net10.0), a documentação
+**não** é gerada — `Release` é usado apenas para empacotar o NuGet, sem o custo do DefaultDocumentation.
 
 ### Via Linha de Comando
 ```bash
-# Na raiz do repositório - APENAS Release gera documentação (target net10.0)
-dotnet build src/ConsolePlus.csproj -c Release -f net10.0
+# Na raiz do repositório - APENAS ReleaseDoc gera documentação (target net10.0)
+dotnet build src/ConsolePlus.csproj -c ReleaseDoc -f net10.0
 
-# Build Debug NÃO gera documentação
+# Build Debug ou Release NÃO gera documentação
 dotnet build src/ConsolePlus.csproj -c Debug
+dotnet build src/ConsolePlus.csproj -c Release
 ```
 
 ### Verificando os arquivos gerados

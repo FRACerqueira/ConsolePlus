@@ -1098,11 +1098,15 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 {
                     Console.CursorVisible = false;
                 }
-                finally
+                catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
                 {
-                    _cursorVisible = false;
+                    // Ignore if the platform doesn't support this operation, or there is no real
+                    // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                    // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+                    return false;
                 }
-                return _cursorVisible;
+                _cursorVisible = false;
+                return true;
             });
         }
 
@@ -1116,15 +1120,15 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 {
                     Console.CursorVisible = true;
                 }
-                catch (PlatformNotSupportedException)
+                catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
                 {
-                    // Ignore if the platform doesn't support this operation
+                    // Ignore if the platform doesn't support this operation, or there is no real
+                    // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                    // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+                    return false;
                 }
-                finally
-                {
-                    _cursorVisible = true;
-                }
-                return _cursorVisible;
+                _cursorVisible = true;
+                return true;
             });
         }
 

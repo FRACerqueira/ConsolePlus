@@ -59,7 +59,7 @@ using ConsolePlusLibrary;
 var c1 = new Color(30, 144, 255);
 
 // From a named CSS color (static properties)
-var c2 = Color.DodgerBlue;
+var c2 = Color.Dodgerblue;
 
 // From HEX (throws on invalid input)
 var c3 = Color.FromHex("#1E90FF");
@@ -101,8 +101,8 @@ All 148 CSS colors are available as static `Color` properties (case-insensitive 
 | `Color.Blue` | ![](https://placehold.co/13x13/0000FF/0000FF.png) | `#0000FF` |
 | `Color.Teal` | ![](https://placehold.co/13x13/008080/008080.png) | `#008080` |
 | `Color.Gold` | ![](https://placehold.co/13x13/FFD700/FFD700.png) | `#FFD700` |
-| `Color.HotPink` | ![](https://placehold.co/13x13/FF69B4/FF69B4.png) | `#FF69B4` |
-| `Color.RebeccaPurple` | ![](https://placehold.co/13x13/663399/663399.png) | `#663399` |
+| `Color.Hotpink` | ![](https://placehold.co/13x13/FF69B4/FF69B4.png) | `#FF69B4` |
+| `Color.Rebeccapurple` | ![](https://placehold.co/13x13/663399/663399.png) | `#663399` |
 
 👉 Jump to the [Full color reference](#full-color-reference-visual) for all 148 with swatches.
 
@@ -194,7 +194,7 @@ double ratio = Color.White.GetContrast(Color.Navy);
 Color fg = Color.GetContrastForegroundColor(Color.Gold);   // -> black
 
 // A quick "readable inverse" (black or white) based on brightness
-Color inv = Color.SteelBlue.GetInvertedColor();
+Color inv = Color.Steelblue.GetInvertedColor();
 
 // Nudge a foreground color only if it fails a minimum contrast ratio
 Color safe = Color.Yellow.AdjustForegroundColorForContrast(

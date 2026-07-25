@@ -187,7 +187,7 @@ namespace ConsolePlusLibrary.Testing
             var sb = new StringBuilder();
             for (int c = col; c < col + len && c < Width; c++)
             {
-                sb.Append(_cells[row, c].Glyph.ToString());
+                _ = sb.Append(_cells[row, c].Glyph.ToString());
             }
             return sb.ToString();
         }
@@ -201,9 +201,9 @@ namespace ConsolePlusLibrary.Testing
                 var line = new StringBuilder();
                 for (int c = 0; c < Width; c++)
                 {
-                    line.Append(_cells[r, c].Glyph.ToString());
+                    _ = line.Append(_cells[r, c].Glyph.ToString());
                 }
-                sb.AppendLine(line.ToString().TrimEnd());
+                _ = sb.AppendLine(line.ToString().TrimEnd());
             }
             return sb.ToString();
         }

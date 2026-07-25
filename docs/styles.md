@@ -58,7 +58,7 @@ Use them anywhere output is written:
 
 ```csharp
 ConsolePlus.WriteLine("Hello", new Style(Color.Black, Color.Gold));
-ConsolePlus.Banner("Title", new Style(Color.White, Color.DarkBlue), DashOptions.SingleBorder);
+ConsolePlus.Banner("Title", new Style(Color.White, Color.Darkblue), DashOptions.SingleBorder);
 ```
 
 ---
@@ -152,7 +152,7 @@ void Log(string level, Color color, string message)
 	ConsolePlus.WriteLine(message, ConsolePlus.CurrentStyle.Overflow(Overflow.Ellipsis));
 }
 
-Log("INFO", Color.SteelBlue, "Service started");
+Log("INFO", Color.Steelblue, "Service started");
 Log("WARN", Color.Gold, "Cache miss rate is high");
 Log("ERR ", Color.Firebrick, "Connection reset by peer");
 ```

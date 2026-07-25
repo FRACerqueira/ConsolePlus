@@ -17,7 +17,7 @@
   # ADR0014V01R01
 </div>
 
-[← ADR0013](ADR0013V01R01-EmojiShortcodeModel.md) • [ADR Index](README.md) • **Next:** [ADR0015 →](ADR0015V01R01-GeneratedApiDocsOffLimits.md)
+[← ADR0013](ADR0013V01R01-EmojiShortcodeModel.md) • [ADR Index](README.md) • **Next:** [ADR0015 →](ADR0015V01R02-GeneratedApiDocsOffLimits.md)
 
 ---
 

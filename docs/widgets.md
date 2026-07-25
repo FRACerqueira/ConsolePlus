@@ -107,10 +107,12 @@ ConsolePlus.Dash(
 
 ## Banners
 
-A **banner** draws large, attention-grabbing text. Without a FIGlet font it renders the text on a
-single line (optionally bordered); with a font it renders multi-line ASCII-art letters.
+A **banner** draws large, attention-grabbing text as multi-line [FIGlet](http://www.figlet.org/)
+ASCII-art letters. Every overload renders FIGlet art, even without an explicit font argument — the
+library embeds the **Standard** FIGlet font as the default, so there is no "plain single-line text"
+banner mode.
 
-### Simple banners
+### Banner with the default (embedded) font
 
 ```csharp
 using ConsolePlusLibrary;
@@ -128,10 +130,10 @@ ConsolePlus.Banner(
 	DashOptions dashOptions = DashOptions.None);
 ```
 
-### FIGlet banners
+### Banner with a custom font
 
-Provide a [FIGlet](http://www.figlet.org/) font (a `.flf` file path or a `Stream`) to render
-stylized letter art:
+Provide a [FIGlet](http://www.figlet.org/) font (a `.flf` file path or a `Stream`) to render with a
+different letter style than the embedded default:
 
 ```csharp
 // From a font file on disk
@@ -152,9 +154,8 @@ Example (FIGlet "Standard" font):
 |_| |_|\___|_|_|\___/
 ```
 
-> The library embeds the **Standard** FIGlet font, which is used for simple banners. For custom
-> looks, supply any `.flf` font file or stream. Invalid/missing font paths throw an
-> `ArgumentException`.
+> The library embeds this **Standard** FIGlet font as the default. For a different look, supply any
+> `.flf` font file or stream. Invalid/missing font paths throw an `ArgumentException`.
 
 ---
 

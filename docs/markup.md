@@ -186,8 +186,8 @@ You can mix explicit `[/]` closings with automatic ones:
 ConsolePlus.WriteLine("[Green]Start [Red]Middle[/] End");
 
 // Multiple levels with partial explicit closing
-ConsolePlus.WriteLine("[A]Level1 [B]Level2 [C]Level3[/] Back to B");
-// Level3 closed explicitly, Level2 and Level1 close automatically
+ConsolePlus.WriteLine("[Red]Level1 [Green]Level2 [Blue]Level3[/] Back to Green");
+// Level3 (Blue) closed explicitly, Level2 (Green) and Level1 (Red) close automatically
 ```
 
 > 💡 **Best practice:** Use explicit `[/]` when you need precise control over where colors change,
@@ -230,14 +230,15 @@ ConsolePlus.WriteLine("[Red:Blue:Green]Invalid format");
 // Output: "[Red:Blue:Green]Invalid format" (literal text, no colors)
 
 ConsolePlus.WriteLine("[NotAColor]Unknown color name");
-// Output: "[NotAColor]Unknown color name" (literal text, no colors)
-
-ConsolePlus.WriteLine("Text [/] with unexpected closing");
-// Output: "Text [/] with unexpected closing" (literal text, no colors)
-
-ConsolePlus.WriteLine("[RGB(999,999,999)]Out of range");
-// Output: "[RGB(999,999,999)]Out of range" (literal text, no colors)
+// Output: "[NotAColor]Unknown color name" — only this unresolved tag becomes literal text;
+// text after it keeps parsing normally under the surrounding/inherited style, if any.
 ```
+
+> ⚠️ Two cases that look like errors but are **not**: an unmatched `[/]` (no open tag left on the
+> stack) is silently dropped rather than shown as literal text — `"Text [/] with no opener"` renders
+> as `"Text  with no opener"` (the tag just vanishes). And out-of-range RGB components
+> (`[RGB(999,999,999)]`) do **not** raise an error or fall back to raw text — they're cast to `byte`
+> unchecked, so `999` silently wraps to `231` and a valid (if unexpected) color is applied.
 
 ### Why raw output?
 
@@ -253,24 +254,30 @@ Rendering as raw text when errors occur has several benefits:
 | Error Type | Example | Result |
 |------------|---------|--------|
 | **Invalid color format** | `[Red:Blue:Green]` | Raw text (too many colors) |
-| **Unknown color name** | `[NotARealColor]` | Raw text (color doesn't exist) |
-| **Malformed RGB** | `[RGB(256,300,500)]` | Raw text (values out of range) |
+| **Unknown color name** | `[NotARealColor]` | The unresolved tag is shown as literal text; surrounding text is unaffected |
 | **Invalid HEX** | `[#GGGGGG]` | Raw text (invalid hex digits) |
-| **Unbalanced brackets** | `[Red][Green]text[/]` | Raw text (mismatched tags) |
 | **Empty tags** | `[]text[/]` | Raw text (no color specified) |
+
+> `[Red][Green]text[/]` is **not** an error — it's valid nested markup (`Green` closes explicitly,
+> `Red` auto-closes at the end); see [Nesting and hierarchy](#nesting-and-hierarchy) above.
+> Out-of-range RGB (`[RGB(256,300,500)]`) also does **not** trigger raw output — see the warning
+> above this table's section.
 
 ### Fault-tolerant features
 
-Despite the raw output fallback, ConsolePlus markup is designed to be forgiving:
+Despite the raw output fallback, ConsolePlus markup is designed to be forgiving in some cases —
+but not as broadly as it may first appear:
 
 ```csharp
 // These work fine - parser is lenient
 ConsolePlus.WriteLine("[red]Case insensitive[/]");           // ✅ Works
-ConsolePlus.WriteLine("[Red ]Extra space[/]");                // ✅ Works
-ConsolePlus.WriteLine("[ Red ]Extra spaces[/]");              // ✅ Works
 ConsolePlus.WriteLine("[Red]Auto-close");                      // ✅ Works (auto-closes)
 ConsolePlus.WriteLine("[Red on White]Background[/]");         // ✅ Works
 ConsolePlus.WriteLine("[Red:White]Shorter syntax[/]");        // ✅ Works
+
+// These do NOT work despite looking like reasonable whitespace tolerance
+ConsolePlus.WriteLine("[Red ]Extra space[/]");    // ❌ Falls back to raw text
+ConsolePlus.WriteLine("[ Red ]Extra spaces[/]");  // ❌ Tag rendered literally, not colored
 ```
 
 ### Testing markup before use
@@ -294,14 +301,18 @@ ConsolePlus.WriteLine($"User said: {safe}");
 ### Best practices for robust markup
 
 1. **Validate dynamic colors** — If building markup from variables, validate color values first
-2. **Use constants** — Prefer the `Color` class constants over string literals
+2. **Use constants** — Prefer the `Color` class constants over string literals, and interpolate
+   them with `.ToMarkup()`, not `.ToString()` — for a color with no exact CSS name (e.g. a custom
+   `new Color(r,g,b)`), `ToString()` returns `"#RRGGBB (RGB=r,g,b)"` (with a space and parentheses),
+   which breaks the tag when interpolated; `ToMarkup()` always returns a tag-safe form
+   (`"#RRGGBB"` or the CSS name)
 3. **Test in development** — Run your output once to verify markup renders correctly
 4. **Escape user input** — Always `.EscapeMarkup()` on any user-provided strings
 5. **Keep it simple** — Complex nested markup is harder to debug; consider using `Style` objects instead
 
 ```csharp
-// Good - using Color constants
-ConsolePlus.WriteLine($"[{Color.Red}]Error[/]");
+// Good - using Color.ToMarkup(), not ToString()
+ConsolePlus.WriteLine($"[{Color.Red.ToMarkup()}]Error[/]");
 
 // Good - escaping user input
 string fileName = userInput.EscapeMarkup();
@@ -330,27 +341,26 @@ ConsolePlus.WriteLine("[Green]:check_mark_button: Success[/]");
 ConsolePlus.WriteLine(":fire: :thumbs_up: :red_heart:");
 ```
 
-You can also reference emoji as **strongly-typed constants** from the `Emoji` class:
+You can also reference emoji as **strongly-typed constants**, grouped into one public static class
+per Unicode emoji group (`EmojiActivities`, `EmojiSymbols`, `EmojiTravelAndPlaces`, …):
 
 ```csharp
 using ConsolePlusLibrary;
 
-ConsolePlus.WriteLine($"{Emoji.Rocket} Launching...");
-ConsolePlus.WriteLine($"{Emoji.Fire} {Emoji.ThumbsUp} {Emoji.RedHeart}");
-
-// Or discover them by group with Emoji.Group.Name
-ConsolePlus.WriteLine($"{Emoji.TravelAndPlaces.Rocket} {Emoji.Symbols.CheckMarkButton}");
+ConsolePlus.WriteLine($"{EmojiTravelAndPlaces.Rocket} Launching...");
+ConsolePlus.WriteLine($"{EmojiTravelAndPlaces.Fire} {EmojiPeopleAndBody.ThumbsUp} {EmojiSmileysAndEmotion.RedHeart}");
+ConsolePlus.WriteLine($"{EmojiSymbols.CheckMarkButton} Success");
 ```
 
 | Shortcode | Constant | Glyph |
 |-----------|----------|-------|
-| `:rocket:` | `Emoji.Rocket` | 🚀 |
-| `:fire:` | `Emoji.Fire` | 🔥 |
-| `:thumbs_up:` | `Emoji.ThumbsUp` | 👍 |
-| `:red_heart:` | `Emoji.RedHeart` | ❤️ |
-| `:check_mark_button:` | `Emoji.CheckMarkButton` | ✅ |
-| `:cross_mark:` | `Emoji.CrossMark` | ❌ |
-| `:warning:` | `Emoji.Warning` | ⚠️ |
+| `:rocket:` | `EmojiTravelAndPlaces.Rocket` | 🚀 |
+| `:fire:` | `EmojiTravelAndPlaces.Fire` | 🔥 |
+| `:thumbs_up:` | `EmojiPeopleAndBody.ThumbsUp` | 👍 |
+| `:red_heart:` | `EmojiSmileysAndEmotion.RedHeart` | ❤️ |
+| `:check_mark_button:` | `EmojiSymbols.CheckMarkButton` | ✅ |
+| `:cross_mark:` | `EmojiSymbols.CrossMark` | ❌ |
+| `:warning:` | `EmojiSymbols.Warning` | ⚠️ |
 
 > ⚠️ **Important:** Emoji require Unicode support to display correctly. On terminals without Unicode
 > or emoji-capable fonts, emoji will appear as monochrome symbols, placeholder boxes, or be silently
@@ -360,8 +370,9 @@ ConsolePlus.WriteLine($"{Emoji.TravelAndPlaces.Rocket} {Emoji.Symbols.CheckMarkB
 
 You can optionally prefix a shortcode with its Unicode group, for example
 `:activities/balloon:`. See [Emoji → Group-qualified shortcodes](emoji.md#group-qualified-shortcodes)
-for the full list of groups and the complete catalog. The same grouping is available on the `Emoji`
-class as [group-typed constants](emoji.md#group-typed-constants) (`Emoji.Activities.Balloon`).
+for the full list of groups and the complete catalog. The same grouping is available as
+[group-typed constants](emoji.md#group-typed-constants) — one public class per group
+(`EmojiActivities.Balloon`, not a nested type).
 
 ---
 
@@ -416,7 +427,7 @@ rather than the raw string length.
 value.EscapeMarkup()
 
 // Emoji
-":rocket:"   Emoji.Rocket   Emoji.TravelAndPlaces.Rocket
+":rocket:"   EmojiTravelAndPlaces.Rocket
 
 // Helpers
 text.RemoveMarkup()   text.LengthMarkup()   text.EscapeMarkup()
