@@ -1,20 +1,20 @@
-﻿	<!-- Do not remove this comment, lines and table -->
+	<!-- Do not remove this comment, lines and table -->
 	<!--
 	| Fields | Values |
 | --- | --- |
-| ADR | ADR0001V01R01 |
+| ADR | ADR0001V01R02 |
 | Version | 01 |
-| Revision | 01 |
+| Revision | 02 |
 | Status | Accepted |
 | Created | 2026-07-24 |
-| Changed | 2026-07-24 |
+| Changed | 2026-07-25 |
 | Superseded |  |
 -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
 
-  # ADR0001V01R01
+  # ADR0001V01R02
 </div>
 
 [ADR Index](README.md) • **Next:** [ADR0002 →](ADR0002V01R02-ImmutableCapabilityProfile.md)
@@ -23,11 +23,12 @@
 
 
 
-# ADR0001V01R01 — Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus)
+# ADR0001V01R02 — Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus)
 
 - **Status:** Accepted
-- **Version:** V01 / Revision R01
+- **Version:** V01 / Revision R02
 - **Created:** 2026-07-24
+- **Changed:** 2026-07-25
 
 ## Context
 
@@ -60,6 +61,12 @@ ConsolePlus is the base layer and has **no dependency on PromptPlus**. PromptPlu
 depends on ConsolePlus (one-directional) and reuses the same console driver
 instance (`PromptPlus.Console` is the same as `ConsolePlus.Driver`).
 
+**R02 — 2026-07-25:** this record absorbs the former ADR0011 ("Separation of
+ConsolePlus and PromptPlus"), which restated the same split decision from the
+ongoing-boundary angle without adding a distinct decision of its own. The
+boundary must be kept clean going forward: neither project should leak
+implementation details across the dependency direction established above.
+
 ## Consequences
 
 - **Positive:** ConsolePlus can be consumed standalone for pure rendering; the
@@ -67,10 +74,9 @@ instance (`PromptPlus.Console` is the same as `ConsolePlus.Driver`).
   rendering/interaction boundary is explicit and independently testable.
 - **Negative / trade-off:** two repositories to coordinate when the shared driver
   contract changes; PromptPlus consumers upgrading from 5.x must take on the
-  ConsolePlus dependency.
+  ConsolePlus dependency; the boundary must be actively kept clean to avoid
+  leakage in either direction.
 
 ## Related
 
-- [ADR0011](ADR0011V01R01-SeparationFromPromptPlus.md) details the ongoing
-  boundary and one-directional dependency between the two projects.
 - PromptPlus ADR0001 records the same decision from the interaction side.

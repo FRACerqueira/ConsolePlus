@@ -4,7 +4,7 @@
   # Architecture Decision Records (ADR)
 </div>
 
-[Back to Home](../../README.md) • **First:** [ADR0001 →](ADR0001V01R01-SplitConsolePlusAndPromptPlus.md)
+[Back to Home](../../README.md) • **First:** [ADR0001 →](ADR0001V01R02-SplitConsolePlusAndPromptPlus.md)
 
 ---
 
@@ -45,7 +45,7 @@ projects (ConsolePlus + PromptPlus).
 
 | ADR | Title | Version | Status |
 | --- | --- | --- | --- |
-| [ADR0001V01R01](ADR0001V01R01-SplitConsolePlusAndPromptPlus.md) | Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus) | V01 | Accepted |
+| [ADR0001V01R02](ADR0001V01R02-SplitConsolePlusAndPromptPlus.md) | Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus) | V01 (R02) | Accepted |
 | [ADR0002V01R02](ADR0002V01R02-ImmutableCapabilityProfile.md) | Immutable capability profile | V01 (R02) | Accepted |
 | [ADR0003V01R01](ADR0003V01R01-AutomaticInitializationOnFirstAccess.md) | Automatic initialization on first access | V01 | Accepted |
 | [ADR0004V01R01](ADR0004V01R01-AnsiVsNonAnsiDriverSelection.md) | ANSI vs non-ANSI driver selection | V01 | Accepted |
@@ -55,7 +55,6 @@ projects (ConsolePlus + PromptPlus).
 | [ADR0008V01R01](ADR0008V01R01-ColorDepthModel.md) | Color depth model (`ColorSystem`) | V01 | Accepted |
 | [ADR0009V01R01](ADR0009V01R01-StyleModelColorOnly.md) | Style model: color + overflow only | V01 | Accepted |
 | [ADR0010V01R01](ADR0010V01R01-MarkupLanguage.md) | Inline markup language for styling | V01 | Accepted |
-| [ADR0011V01R01](ADR0011V01R01-SeparationFromPromptPlus.md) | Separation of ConsolePlus and PromptPlus | V01 | Accepted |
 | [ADR0012V01R01](ADR0012V01R01-ShutdownStateRestoration.md) | Shutdown state restoration | V01 | Accepted |
 | [ADR0013V01R01](ADR0013V01R01-EmojiShortcodeModel.md) | Emoji shortcode model with fallback | V01 | Accepted |
 | [ADR0014V01R01](ADR0014V01R01-LowLevelAnsiAndAlternateScreen.md) | Low-level ANSI and alternate-screen API | V01 | Accepted |

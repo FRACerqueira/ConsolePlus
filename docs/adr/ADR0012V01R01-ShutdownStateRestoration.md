@@ -17,7 +17,7 @@
   # ADR0012V01R01
 </div>
 
-[← ADR0011](ADR0011V01R01-SeparationFromPromptPlus.md) • [ADR Index](README.md) • **Next:** [ADR0013 →](ADR0013V01R01-EmojiShortcodeModel.md)
+[← ADR0010](ADR0010V01R01-MarkupLanguage.md) • [ADR Index](README.md) • **Next:** [ADR0013 →](ADR0013V01R01-EmojiShortcodeModel.md)
 
 ---
 

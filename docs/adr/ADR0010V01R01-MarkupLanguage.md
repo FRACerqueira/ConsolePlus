@@ -17,7 +17,7 @@
   # ADR0010V01R01
 </div>
 
-[← ADR0009](ADR0009V01R01-StyleModelColorOnly.md) • [ADR Index](README.md) • **Next:** [ADR0011 →](ADR0011V01R01-SeparationFromPromptPlus.md)
+[← ADR0009](ADR0009V01R01-StyleModelColorOnly.md) • [ADR Index](README.md) • **Next:** [ADR0012 →](ADR0012V01R01-ShutdownStateRestoration.md)
 
 ---
 
