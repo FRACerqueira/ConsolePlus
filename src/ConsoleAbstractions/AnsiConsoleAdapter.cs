@@ -1107,9 +1107,11 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 {
                     _writer.Ansi.HideCursor();
                 }
-                catch (PlatformNotSupportedException)
+                catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
                 {
-                    // Ignore if the platform doesn't support this operation
+                    // Ignore if the platform doesn't support this operation, or there is no real
+                    // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                    // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
                     return false;
                 }
                 _cursorVisible = false;
@@ -1127,9 +1129,11 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 {
                     _writer.Ansi.ShowCursor();
                 }
-                catch (PlatformNotSupportedException)
+                catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
                 {
-                    // Ignore if the platform doesn't support this operation
+                    // Ignore if the platform doesn't support this operation, or there is no real
+                    // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                    // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
                     return false;
                 }
                 _cursorVisible = true;
