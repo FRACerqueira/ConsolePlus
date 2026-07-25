@@ -17,7 +17,7 @@
   # ADR0003V01R01
 </div>
 
-[← ADR0002](ADR0002V01R01-ImmutableCapabilityProfile.md) • [ADR Index](README.md) • **Next:** [ADR0004 →](ADR0004V01R01-AnsiVsNonAnsiDriverSelection.md)
+[← ADR0002](ADR0002V01R02-ImmutableCapabilityProfile.md) • [ADR Index](README.md) • **Next:** [ADR0004 →](ADR0004V01R01-AnsiVsNonAnsiDriverSelection.md)
 
 ---
 

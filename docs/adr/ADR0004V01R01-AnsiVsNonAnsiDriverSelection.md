@@ -17,7 +17,7 @@
   # ADR0004V01R01
 </div>
 
-[← ADR0003](ADR0003V01R01-AutomaticInitializationOnFirstAccess.md) • [ADR Index](README.md) • **Next:** [ADR0005 →](ADR0005V01R01-AnsiconLegacyWindowsSupport.md)
+[← ADR0003](ADR0003V01R01-AutomaticInitializationOnFirstAccess.md) • [ADR Index](README.md) • **Next:** [ADR0005 →](ADR0005V01R02-AnsiconLegacyWindowsSupport.md)
 
 ---
 

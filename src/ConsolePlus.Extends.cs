@@ -67,7 +67,6 @@ namespace ConsolePlusLibrary
 		{
             ConsolePlus.Envlock.Run(() =>
             {
-                console.ClearLine(row, style);
                 row ??= console.CursorTop;
                 var currentstyle = console.CurrentStyle;
                 var effectiveStyle = style ?? currentstyle;

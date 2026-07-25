@@ -40,7 +40,6 @@
 | [IBanner](IBanner.md 'ConsolePlusLibrary\.IBanner') | Represents a banner that can be customized and displayed\. |
 | [IConsole](IConsole.md 'ConsolePlusLibrary\.IConsole') | Interface for abstracting console operations\. |
 | [IProfileReadOnly](IProfileReadOnly.md 'ConsolePlusLibrary\.IProfileReadOnly') | Defines a console profile describing capabilities, dimensions, colors and display behavior for the current console/terminal session\. |
-| [IProfileSetup](IProfileSetup.md 'ConsolePlusLibrary\.IProfileSetup') | Interface for configuring console profiles, allowing for the setup of various console settings such as encoding, color, and interaction capabilities\. |
 | [IStringDash](IStringDash.md 'ConsolePlusLibrary\.IStringDash') | Represents a banner that can be customized and displayed\. |
 | [IWidgets](IWidgets.md 'ConsolePlusLibrary\.IWidgets') | Represents a collection of widgets that can be used in the console application\. |
 

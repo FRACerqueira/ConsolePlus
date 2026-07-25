@@ -62,12 +62,12 @@ namespace ConsolePlusLibrary.Testing
                     return;
 
                 case State.Esc:
-                    if (ch == '[') { _state = State.Csi; _private = false; _params.Clear(); return; }
+                    if (ch == '[') { _state = State.Csi; _private = false; _ = _params.Clear(); return; }
                     throw new NotSupportedException($"ESC {ch} is not supported by the test interpreter.");
 
                 case State.Csi:
                     if (ch == '?' && _params.Length == 0) { _private = true; return; }
-                    if ((ch >= '0' && ch <= '9') || ch == ';') { _params.Append(ch); return; }
+                    if ((ch >= '0' && ch <= '9') || ch == ';') { _ = _params.Append(ch); return; }
                     Dispatch(ch, _params.ToString());
                     _state = State.Normal;
                     return;

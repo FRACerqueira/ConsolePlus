@@ -132,21 +132,24 @@ Emacs-style editing semantics (cursor movement, word operations, kill/yank, case
 in-memory string. Expose it directly when you are building a **custom input loop** and want the same
 editing behavior ConsolePlus uses.
 
-Create one with three options:
+Create one with four options:
 
 - `isreadlonly` — when `true`, the buffer rejects edits (useful for read-only display).
 - `caseOption` — a [`CaseOptions`](reading-input.md#case-transformation-and-length-limits) value
   (`Any`, `Uppercase`, or `Lowercase`) applied to typed characters.
+- `enableEmacsKeys` — when `true`, Emacs-style key bindings (Ctrl+A/E/B/F/K/…, Alt+B/F/…) are
+  active; when `false`, they're no-ops and only plain character entry/navigation works.
 - `validate` — an optional `Func<char, bool>` that filters which characters are accepted.
 
 ```csharp
 using ConsolePlusLibrary;
 using System;
 
-// A digit-only, upper-case buffer
+// A digit-only, upper-case buffer with Emacs key bindings enabled
 var buffer = new EmacsConsoleBuffer(
 	isreadlonly: false,
 	caseOption: CaseOptions.Uppercase,
+	enableEmacsKeys: true,
 	validate: char.IsLetterOrDigit);
 
 // Feed keys from your own read loop
@@ -189,6 +192,8 @@ does — for example when aligning columns that may contain wide (CJK) character
 | `NormalizeNewLines()` | `string` | Converts all line endings to `Environment.NewLine` |
 | `SplitLines()` | `string[]` | Splits text into lines after normalizing line endings |
 | `GetDisplayLength()` | `int[]` | Display width of each line, counting wide characters as 2 columns |
+| `TruncateToDisplayWidth(int maxWidth)` | `string` | Truncates text to fit within `maxWidth` display columns (not character count) |
+| `GetRuneWidth()` (on `Rune`) | `int` | Display width, in columns, of a single `Rune` |
 
 ```csharp
 using ConsolePlusLibrary;
@@ -280,7 +285,7 @@ ConsolePlus.RunAtomic(() => ConsolePlus.WriteLine("one uninterrupted unit"));
 Fragment[] parts = Fragment.FromText("[Red]hi[/]", ConsolePlus.CurrentStyle);
 
 // Custom Emacs input buffer
-var buffer = new EmacsConsoleBuffer(false, CaseOptions.Any, char.IsLetterOrDigit);
+var buffer = new EmacsConsoleBuffer(false, CaseOptions.Any, true, char.IsLetterOrDigit);
 
 // String measuring/normalizing (wide-char aware)
 int[] widths = "Hello\n世界".GetDisplayLength();   // [5, 4]

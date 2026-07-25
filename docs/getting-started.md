@@ -129,8 +129,8 @@ ConsolePlus initializes **automatically** the first time you touch the `ConsoleP
 1. **Attempts to enable ANSI** on legacy Windows versions (using a bundled helper when needed).
    - On legacy Windows systems (pre-Windows 10) that lack native ANSI support, ConsolePlus 
      automatically uses **[ANSICON](https://github.com/adoxa/ansicon)** (bundled with the library)
-   - The injection uses the `LdrLoadDll` approach via `CreateRemoteThread` for 64-bit .NET AnyCPU 
-     processes
+   - It does this by launching the bundled `ansicon.exe` (matching the process architecture,
+     x86 or x64) via `Process.Start(..., "-p")` — no DLL injection involved
    - This provides transparent ANSI escape sequence support without requiring manual installation 
      or configuration
 2. **Captures the original console state** — culture, foreground/background colors, and input/output
@@ -159,11 +159,12 @@ ConsolePlus registers process-exit handlers so your terminal is **left in a clea
 original colors, culture, and encodings are restored automatically, and streams are flushed.
 
 You can also register your own callback to run just before the process exits — for example, to
-print a farewell message or persist state. The callback receives the console instance and a flag
-indicating whether the exit was triggered by <kbd>Ctrl</kbd>+<kbd>C</kbd>:
+print a farewell message or persist state. The callback receives the console instance, any
+exception that caused the exit (`null` on a normal exit), and a flag indicating whether the exit
+was triggered by <kbd>Ctrl</kbd>+<kbd>C</kbd>:
 
 ```csharp
-ConsolePlus.ActionBeforeExist((console, ctrlCPressed) =>
+ConsolePlus.ActionBeforeExit((console, exception, ctrlCPressed) =>
 {
 	console.WriteLine(ctrlCPressed
 		? "[Red]Cancelled by user.[/]"

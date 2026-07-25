@@ -171,9 +171,10 @@ detects this and enables:
 - Text styling (bold, underline, etc.)
 - Screen buffer control
 
-On **legacy Windows** (pre-Windows 10), ConsolePlus automatically injects
-**[ANSICON](https://github.com/adoxa/ansicon)** (bundled) using `LdrLoadDll` via `CreateRemoteThread`
-to provide transparent ANSI support.
+On **legacy Windows** (pre-Windows 10), ConsolePlus automatically launches the bundled
+**[ANSICON](https://github.com/adoxa/ansicon)** executable (`ansicon.exe -p`, matching the process
+architecture) via `Process.Start` — no DLL injection involved — to provide transparent ANSI
+support.
 
 ### Unicode support
 
@@ -201,24 +202,39 @@ Colors are automatically down-sampled if the terminal doesn't support the reques
 
 ## Override detection
 
-You can override the automatic detection if needed by modifying the profile after initialization:
+`ConsolePlus.Profile` is a **read-only snapshot** — there is no supported way to mutate it in code
+after initialization. To override auto-detection, drop a `ConsoleProfile.json` file next to your
+application's executable (same folder as `AppContext.BaseDirectory`); ConsolePlus reads it once,
+**before** any detection runs, so overridden values take full effect (unlike a hypothetical
+post-init mutation, which would arrive too late — several detected values are already cached
+elsewhere in the console pipeline by the time your own code could run):
 
-```csharp
-using ConsolePlusLibrary;
-using ConsolePlusLibrary.Core;
-
-// Force disable ANSI even if detected
-ConsolePlus.Profile.SupportsAnsi = AutoDetect.No;
-
-// Force specific color depth
-ConsolePlus.Profile.ColorDepth = ColorSystem.FourBit;
-
-// Force Unicode support
-ConsolePlus.Profile.SupportUnicode = AutoDetect.Yes;
-
-// Mark as interactive
-ConsolePlus.Profile.Interactive = true;
+```json
+{
+  "SupportsAnsi": "No",
+  "ColorDepth": "FourBit",
+  "SupportUnicode": "Yes",
+  "Interactive": "Detect",
+  "OriginalCulture": "Detect",
+  "DefaultInputEncoding": "Detect",
+  "DefaultOutputEncoding": "Detect",
+  "DefaultBackgroundColor": "Detect",
+  "DefaultForegroundColor": "Detect",
+  "ProfileName": "Detect",
+  "IsTerminal": "Detect"
+}
 ```
+
+- `SupportsAnsi` / `SupportUnicode` — `"Yes"`, `"No"`, or `"Detect"` (keeps auto-detection).
+- `ColorDepth` — `"NoColors"`, `"FourBit"`, `"Standard"`, or `"TrueColor"` (any other value keeps
+  auto-detection).
+- `Interactive` / `IsTerminal` — `"true"`/`"false"`, or `"Detect"`.
+- `DefaultBackgroundColor` / `DefaultForegroundColor` — a hex string (e.g. `"#1E90FF"`), or
+  `"Detect"`.
+- `DefaultInputEncoding` / `DefaultOutputEncoding` — a .NET encoding name (e.g. `"utf-8"`), or
+  `"Detect"`.
+- `OriginalCulture` / `ProfileName` — any string, or `"Detect"`.
+- Only include the keys you actually want to override; omit or use `"Detect"` for the rest.
 
 > ⚠️ **Warning:** Overriding detection should be done carefully, as incorrect settings may result
 > in garbled output or missing features. Use this only when you have specific knowledge about your

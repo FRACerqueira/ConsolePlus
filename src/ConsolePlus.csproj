@@ -94,7 +94,7 @@
 		<EmbeddedResource Include="Figlet\Fonts\Standard.flf" />
 	</ItemGroup>
 
-	<ItemGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+	<ItemGroup Condition="'$(Configuration)' == 'ReleaseDoc' and '$(TargetFramework)' == 'net10.0'">
 		<PackageReference Include="DefaultDocumentation" Version="1.2.5">
 			<!-- <PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>. -->
@@ -108,7 +108,7 @@
 	  </None>
 	</ItemGroup>
 
-	<PropertyGroup Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+	<PropertyGroup Condition="'$(Configuration)' == 'ReleaseDoc' and '$(TargetFramework)' == 'net10.0'">
 		<DefaultDocumentationFolder>..\docs\api</DefaultDocumentationFolder>
 		<DefaultDocumentationGeneratedPages>Assembly, Namespaces , Classes, Interfaces, Events, Enums, Structs, Delegates</DefaultDocumentationGeneratedPages>
 		<DefaultDocumentationFileNameFactory>NameAndMd5Mix</DefaultDocumentationFileNameFactory>
@@ -146,7 +146,7 @@
 		</Task>
 	</UsingTask>
 
-	<Target Name="AddDocIconHeader" AfterTargets="DefaultDocumentation" Condition="'$(Configuration)' == 'Release' and '$(TargetFramework)' == 'net10.0'">
+	<Target Name="AddDocIconHeader" AfterTargets="DefaultDocumentation" Condition="'$(Configuration)' == 'ReleaseDoc' and '$(TargetFramework)' == 'net10.0'">
 		<PropertyGroup>
 			<_DocIconFolder>$([System.IO.Path]::GetFullPath($([System.IO.Path]::Combine('$(MSBuildProjectDirectory)', '$(DefaultDocumentationFolder)'))))</_DocIconFolder>
 		</PropertyGroup>

@@ -10,9 +10,9 @@
 
 ConsolePlus ships with the full Unicode emoji catalog — **1,426** emoji across the **10 official
 Unicode groups**, plus a few legacy aliases. You can drop them into any output using `:shortcode:`
-tokens (just like [markup](markup.md#emoji)), an optional `:group/shortcode:` form, reference them
-as strongly-typed constants on the static `Emoji` class, or use the group-typed
-`Emoji.Group.Name` form.
+tokens (just like [markup](markup.md#emoji)), an optional `:group/shortcode:` form, or reference
+them as strongly-typed constants — one public static class per Unicode group (`EmojiActivities`,
+`EmojiSymbols`, `EmojiTravelAndPlaces`, …).
 
 ## Table of contents
 - [Compatibility considerations](#compatibility-considerations)
@@ -95,7 +95,7 @@ When using emoji in your application:
    where your app is deployed
 2. **Provide text fallbacks** — consider showing both emoji and text for critical information:
    ```csharp
-   ConsolePlus.WriteLine($"{Emoji.Warning} Warning: Low disk space");
+   ConsolePlus.WriteLine($"{EmojiSymbols.Warning} Warning: Low disk space");
    // Fallback: "⚠️  Warning: Low disk space" or just "Warning: Low disk space"
    ```
 3. **Use semantic color markup** — combine emoji with [markup colors](markup.md) for emphasis even
@@ -118,15 +118,15 @@ ConsolePlus.WriteLine(":rocket: Launching...");
 ConsolePlus.WriteLine("[Green]:check_mark_button: Success[/]");
 
 // 2) Strongly-typed constants — great for building strings in code
-ConsolePlus.WriteLine($"{Emoji.Rocket} Launching...");
-ConsolePlus.WriteLine($"{Emoji.Fire} {Emoji.ThumbsUp} {Emoji.RedHeart}");
+ConsolePlus.WriteLine($"{EmojiTravelAndPlaces.Rocket} Launching...");
+ConsolePlus.WriteLine($"{EmojiTravelAndPlaces.Fire} {EmojiPeopleAndBody.ThumbsUp} {EmojiSmileysAndEmotion.RedHeart}");
 ```
 
 Shortcodes are recognized by any method that parses markup — `Write`, `WriteLine`, `WriteFormat`,
 `Banner`, and `Dash`. See the [Markup guide](markup.md#emoji) for how emoji combine with color tags.
 
-> Prefer discovering emoji by group? The same constants are also grouped as `Emoji.Group.Name` —
-> see [Group-typed constants](#group-typed-constants).
+> See [Strongly-typed constants](#strongly-typed-constants) below for the full list of per-group
+> classes.
 
 ---
 
@@ -183,71 +183,64 @@ accepted, so all of these are equivalent:
 
 ## Strongly-typed constants
 
-Every emoji is a `public const string` on the static `Emoji` class, so you get IntelliSense,
-compile-time safety, and no parsing overhead:
+Every emoji is a `public const string`, organized into **one public static class per Unicode
+group** — there is no single flat "all emoji" class; the type that backs all of them internally
+(`Emoji`) is an implementation detail and isn't part of the public API. You get IntelliSense,
+compile-time safety, and no parsing overhead by referencing the group class directly:
 
 ```csharp
 using ConsolePlusLibrary;
 
-string status = $"{Emoji.CheckMarkButton} Done";
-string alert  = $"{Emoji.Warning} Low disk space";
-string love   = Emoji.RedHeart;
+string status = $"{EmojiSymbols.CheckMarkButton} Done";
+string alert  = $"{EmojiSymbols.Warning} Low disk space";
+string love   = EmojiSmileysAndEmotion.RedHeart;
 ```
 
-The `Emoji` type is a single `public static partial class`; the constants are simply organized into
-one source file per Unicode group for maintainability. Each constant carries an XML-doc summary and
-its canonical `Lookup:` shortcode, so hovering a constant shows both the glyph and the shortcode.
+Each constant carries an XML-doc summary and its canonical `Lookup:` shortcode, so hovering a
+constant shows both the glyph and the shortcode.
 
 | Shortcode | Constant | Glyph |
 |-----------|----------|-------|
-| `:rocket:` | `Emoji.Rocket` | 🚀 |
-| `:fire:` | `Emoji.Fire` | 🔥 |
-| `:thumbs_up:` | `Emoji.ThumbsUp` | 👍 |
-| `:red_heart:` | `Emoji.RedHeart` | ❤️ |
-| `:check_mark_button:` | `Emoji.CheckMarkButton` | ✅ |
-| `:cross_mark:` | `Emoji.CrossMark` | ❌ |
-| `:warning:` | `Emoji.Warning` | ⚠️ |
+| `:rocket:` | `EmojiTravelAndPlaces.Rocket` | 🚀 |
+| `:fire:` | `EmojiTravelAndPlaces.Fire` | 🔥 |
+| `:thumbs_up:` | `EmojiPeopleAndBody.ThumbsUp` | 👍 |
+| `:red_heart:` | `EmojiSmileysAndEmotion.RedHeart` | ❤️ |
+| `:check_mark_button:` | `EmojiSymbols.CheckMarkButton` | ✅ |
+| `:cross_mark:` | `EmojiSymbols.CrossMark` | ❌ |
+| `:warning:` | `EmojiSymbols.Warning` | ⚠️ |
 
 ---
 
 ## Group-typed constants
 
-For discoverability, every emoji is **also** exposed as a constant on a nested class named after its
-Unicode group, so you can write `Emoji.Group.Name`. This is the compile-time mirror of the
-[group-qualified shortcode](#group-qualified-shortcodes) form `:group/name:`:
+The per-group class name mirrors the [group-qualified shortcode](#group-qualified-shortcodes) form
+`:group/name:` — pick the class matching the group, then the constant matching the name:
 
 ```csharp
 using ConsolePlusLibrary;
 
-// Group-typed constant  ↔  group-qualified shortcode
-ConsolePlus.WriteLine($"{Emoji.Activities.Balloon}");          // :activities/balloon:  → 🎈
-ConsolePlus.WriteLine($"{Emoji.Symbols.CheckMarkButton}");     // :symbols/check_mark_button: → ✅
-ConsolePlus.WriteLine($"{Emoji.TravelAndPlaces.Rocket}");      // :travel-and-places/rocket: → 🚀
+// Group class constant  ↔  group-qualified shortcode
+ConsolePlus.WriteLine($"{EmojiActivities.Balloon}");          // :activities/balloon:  → 🎈
+ConsolePlus.WriteLine($"{EmojiSymbols.CheckMarkButton}");     // :symbols/check_mark_button: → ✅
+ConsolePlus.WriteLine($"{EmojiTravelAndPlaces.Rocket}");      // :travel-and-places/rocket: → 🚀
 ```
 
-Each nested constant is a **compile-time alias** of the flat constant (`Emoji.Activities.Balloon`
-literally equals `Emoji.Balloon`), so both forms are interchangeable and there is a single source of
-truth for every glyph. Type `Emoji.` then a group name to let IntelliSense narrow the catalog one
-group at a time.
+Type `Emoji` then the group name to let IntelliSense narrow the catalog to that class.
 
-The ten group classes use the PascalCase names of the official Unicode groups:
+The ten group classes use the PascalCase names of the official Unicode groups, prefixed with `Emoji`:
 
 | Group class | Example |
 |-------------|---------|
-| `Emoji.SmileysAndEmotion` | `Emoji.SmileysAndEmotion.GrinningFace` 😀 |
-| `Emoji.PeopleAndBody` | `Emoji.PeopleAndBody.ThumbsUp` 👍 |
-| `Emoji.Component` | `Emoji.Component.LightSkinTone` 🏻 |
-| `Emoji.AnimalsAndNature` | `Emoji.AnimalsAndNature.Dog` 🐶 |
-| `Emoji.FoodAndDrink` | `Emoji.FoodAndDrink.Pizza` 🍕 |
-| `Emoji.TravelAndPlaces` | `Emoji.TravelAndPlaces.Rocket` 🚀 |
-| `Emoji.Activities` | `Emoji.Activities.Balloon` 🎈 |
-| `Emoji.Objects` | `Emoji.Objects.Laptop` 💻 |
-| `Emoji.Symbols` | `Emoji.Symbols.CheckMarkButton` ✅ |
-| `Emoji.Flags` | `Emoji.Flags.ChequeredFlag` 🏁 |
-
-> The flat form (`Emoji.Rocket`) and the group-typed form (`Emoji.TravelAndPlaces.Rocket`) always
-> resolve to the same value; pick whichever reads better in your code. Legacy aliases remain on the
-> flat `Emoji` class only.
+| `EmojiSmileysAndEmotion` | `EmojiSmileysAndEmotion.GrinningFace` 😀 |
+| `EmojiPeopleAndBody` | `EmojiPeopleAndBody.ThumbsUp` 👍 |
+| `EmojiComponent` | `EmojiComponent.LightSkinTone` 🏻 |
+| `EmojiAnimalsAndNature` | `EmojiAnimalsAndNature.Dog` 🐶 |
+| `EmojiFoodAndDrink` | `EmojiFoodAndDrink.Pizza` 🍕 |
+| `EmojiTravelAndPlaces` | `EmojiTravelAndPlaces.Rocket` 🚀 |
+| `EmojiActivities` | `EmojiActivities.Balloon` 🎈 |
+| `EmojiObjects` | `EmojiObjects.Laptop` 💻 |
+| `EmojiSymbols` | `EmojiSymbols.CheckMarkButton` ✅ |
+| `EmojiFlags` | `EmojiFlags.ChequeredFlag` 🏁 |
 
 ---
 
@@ -277,14 +270,20 @@ Each group has its own reference page listing every glyph, constant, and shortco
 
 ## Legacy aliases
 
-A few older names are preserved as aliases so existing code keeps working. They resolve to the
-current canonical emoji:
+A few older names are preserved as **shortcode** aliases so existing text using them keeps
+resolving to the current canonical emoji when parsed as markup:
 
-| Alias | Shortcode | Resolves to |
-|-------|-----------|-------------|
-| `Emoji.HuggingFace` | `:hugging_face:` | `Emoji.SmilingFaceWithOpenHands` 🤗 |
-| `Emoji.KnockedOutFace` | `:knocked_out_face:` | `Emoji.FaceWithCrossedOutEyes` 😵 |
-| `Emoji.PoutingFace` | `:pouting_face:` | `Emoji.EnragedFace` 😡 |
+| Alias shortcode | Resolves to | Glyph |
+|-------|-----------|-------|
+| `:hugging_face:` | `SmilingFaceWithOpenHands` | 🤗 |
+| `:knocked_out_face:` | `FaceWithCrossedOutEyes` | 😵 |
+| `:pouting_face:` | `EnragedFace` | 😡 |
+
+> These aliases only exist as shortcodes today — the constants backing them live on the internal
+> `Emoji` type, not on any of the public per-group classes above, so there is currently no
+> strongly-typed way to reference `HuggingFace`/`KnockedOutFace`/`PoutingFace` in code. Use the
+> canonical name's public constant instead (e.g. `EmojiSmileysAndEmotion.SmilingFaceWithOpenHands`),
+> or the `:hugging_face:` shortcode form.
 
 ---
 
@@ -309,15 +308,13 @@ for detection details and how to override the profile if needed.
 // Group-qualified shortcode (prefix validated against the 10 groups)
 ":activities/balloon:"   ":symbols/check_mark_button:"
 
-// Strongly-typed constant
-Emoji.Rocket   Emoji.RedHeart   Emoji.CheckMarkButton
-
-// Group-typed constant (Emoji.Group.Name)
-Emoji.Activities.Balloon   Emoji.Symbols.CheckMarkButton   Emoji.TravelAndPlaces.Rocket
+// Strongly-typed constant — one public class per group
+EmojiTravelAndPlaces.Rocket   EmojiSmileysAndEmotion.RedHeart   EmojiSymbols.CheckMarkButton
+EmojiActivities.Balloon
 
 // Combine with markup
 "[Green]:check_mark_button: Success[/]"
-$"[Red]{Emoji.CrossMark} Failed[/]"
+$"[Red]{EmojiSymbols.CrossMark} Failed[/]"
 ```
 
 Jump to a group: [Smileys & Emotion](emoji/smileys-and-emotion.md) •

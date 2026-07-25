@@ -1110,12 +1110,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 catch (PlatformNotSupportedException)
                 {
                     // Ignore if the platform doesn't support this operation
+                    return false;
                 }
-                finally
-                {
-                    _cursorVisible = false;
-                }
-                return _cursorVisible;
+                _cursorVisible = false;
+                return true;
             });
         }
 
@@ -1132,12 +1130,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 catch (PlatformNotSupportedException)
                 {
                     // Ignore if the platform doesn't support this operation
+                    return false;
                 }
-                finally
-                {
-                    _cursorVisible = true;
-                }
-                return _cursorVisible;
+                _cursorVisible = true;
+                return true;
             });
         }
 
