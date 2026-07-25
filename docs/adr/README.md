@@ -55,7 +55,7 @@ projects (ConsolePlus + PromptPlus).
 | [ADR0008V01R01](ADR0008V01R01-ColorDepthModel.md) | Color depth model (`ColorSystem`) | V01 | Accepted |
 | [ADR0009V01R01](ADR0009V01R01-StyleModelColorOnly.md) | Style model: color + overflow only | V01 | Accepted |
 | [ADR0010V01R01](ADR0010V01R01-MarkupLanguage.md) | Inline markup language for styling | V01 | Accepted |
-| [ADR0012V01R01](ADR0012V01R01-ShutdownStateRestoration.md) | Shutdown state restoration | V01 | Accepted |
-| [ADR0013V01R01](ADR0013V01R01-EmojiShortcodeModel.md) | Emoji shortcode model with fallback | V01 | Accepted |
-| [ADR0014V01R01](ADR0014V01R01-LowLevelAnsiAndAlternateScreen.md) | Low-level ANSI and alternate-screen API | V01 | Accepted |
-| [ADR0015V01R02](ADR0015V01R02-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits; regeneration gated on `ReleaseDoc` | V01 (R02) | Accepted |
+| [ADR0011V01R01](ADR0011V01R01-ShutdownStateRestoration.md) | Shutdown state restoration | V01 | Accepted |
+| [ADR0012V01R01](ADR0012V01R01-EmojiShortcodeModel.md) | Emoji shortcode model with fallback | V01 | Accepted |
+| [ADR0013V01R01](ADR0013V01R01-LowLevelAnsiAndAlternateScreen.md) | Low-level ANSI and alternate-screen API | V01 | Accepted |
+| [ADR0014V01R02](ADR0014V01R02-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits; regeneration gated on `ReleaseDoc` | V01 (R02) | Accepted |
