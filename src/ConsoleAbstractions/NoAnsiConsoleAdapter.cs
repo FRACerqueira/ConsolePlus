@@ -1033,7 +1033,16 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         }
         private static void Clear()
         {
-            Console.Clear();
+            try
+            {
+                Console.Clear();
+            }
+            catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
+            {
+                // Ignore if the platform doesn't support this operation, or there is no real
+                // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+            }
         }
 
 
@@ -1043,7 +1052,16 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                Console.SetCursorPosition(left, top);
+                try
+                {
+                    Console.SetCursorPosition(left, top);
+                }
+                catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
+                {
+                    // Ignore if the platform doesn't support this operation, or there is no real
+                    // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                    // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+                }
             });
         }
 
@@ -1051,14 +1069,14 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public int CursorLeft
         {
             get { return _lock.Run(() => EnvironmentUtil.GetSafeLeftCursor()); }
-            set { _lock.Run(() => Console.SetCursorPosition(value, CursorTop)); }
+            set { SetCursorPosition(value, CursorTop); }
         }
 
         /// <inheritdoc/>
         public int CursorTop
         {
             get { return _lock.Run(() => EnvironmentUtil.GetSafeTopCursor()); }
-            set { _lock.Run(() => Console.SetCursorPosition(CursorLeft, value)); }
+            set { SetCursorPosition(CursorLeft, value); }
         }
 
         /// <inheritdoc/>
@@ -1170,8 +1188,13 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public async Task<ConsoleKeyInfo?> ReadKeyAsync(bool intercept, CancellationToken cancellationToken)
         {
             ThrowIfDisposed();
-            if (!_profile.Interactive)
+            if (!_profile.Interactive || Console.IsInputRedirected)
             {
+                // A real key press requires a live console input buffer; a redirected input
+                // (file/pipe/SetIn) has no such stream, so fail the same documented way Read()/
+                // ReadLine() already do instead of letting Console.KeyAvailable/ReadKey's own
+                // InvalidOperationException leak through. _profile.Interactive alone only reflects
+                // known CI-provider detection, not real redirection — hence the explicit check.
                 throw new InvalidOperationException("Console is not interactive.");
             }
             return await _lock.RunAsync<ConsoleKeyInfo?>(async () =>
@@ -1264,7 +1287,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 return _lock.Run(() =>
                 {
                     ThrowIfDisposed();
-                    return _profile.Interactive && Console.KeyAvailable;
+                    return _profile.Interactive && !Console.IsInputRedirected && Console.KeyAvailable;
                 });
             }
         }

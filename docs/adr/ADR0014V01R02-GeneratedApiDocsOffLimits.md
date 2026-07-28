@@ -1,8 +1,8 @@
-<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
+	<!-- Do not remove this comment, lines and table -->
+	<!--
+	| Fields | Values |
 | --- | --- |
-| ADR | ADR0015V01R02 |
+| ADR | ADR0014V01R02 |
 | Version | 01 |
 | Revision | 02 |
 | Status | Accepted |
@@ -14,14 +14,14 @@
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
 
-  # ADR0015V01R02
+  # ADR0014V01R02
 </div>
 
-[← ADR0014](ADR0014V01R01-LowLevelAnsiAndAlternateScreen.md) • [ADR Index](README.md)
+[← ADR0013](ADR0013V01R01-LowLevelAnsiAndAlternateScreen.md) • [ADR Index](README.md) • **Next:** [ADR0015 →](ADR0015V01R01-RedirectedConsoleIoContract.md)
 
 ---
 
-# ADR0015V01R02 — Generated API docs are off-limits for manual edits; regeneration is gated on `ReleaseDoc`, not `Release`
+# ADR0014V01R02 — Generated API docs are off-limits for manual edits; regeneration is gated on `ReleaseDoc`, not `Release`
 
 - **Status:** Accepted
 - **Version:** V01 / Revision R02

@@ -1,8 +1,8 @@
-﻿<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
+	<!-- Do not remove this comment, lines and table -->
+	<!--
+	| Fields | Values |
 | --- | --- |
-| ADR | ADR0013V01R01 |
+| ADR | ADR0012V01R01 |
 | Version | 01 |
 | Revision | 01 |
 | Status | Accepted |
@@ -14,16 +14,16 @@
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
 
-  # ADR0013V01R01
+  # ADR0012V01R01
 </div>
 
-[← ADR0012](ADR0012V01R01-ShutdownStateRestoration.md) • [ADR Index](README.md) • **Next:** [ADR0014 →](ADR0014V01R01-LowLevelAnsiAndAlternateScreen.md)
+[← ADR0011](ADR0011V01R01-ShutdownStateRestoration.md) • [ADR Index](README.md) • **Next:** [ADR0013 →](ADR0013V01R01-LowLevelAnsiAndAlternateScreen.md)
 
 ---
 
 
 
-# ADR0013V01R01 — Emoji shortcode model with fallback
+# ADR0012V01R01 — Emoji shortcode model with fallback
 
 - **Status:** Accepted
 - **Version:** V01 / Revision R01

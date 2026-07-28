@@ -258,10 +258,16 @@ while (!ConsolePlus.KeyAvailable)
 var key = ConsolePlus.ReadKey(intercept: true);
 ```
 
-> ⚠️ `ReadKey`/`ReadKeyAsync` throw `InvalidOperationException` ("Console is not interactive.")
-> when `ConsolePlus.Profile.Interactive` is `false` — for example, when input is redirected. Check
-> `IsInputRedirected` (or `Profile.Interactive`) before calling them in code that might run with
-> redirected/piped input.
+> ⚠️ **Redirected or non-interactive input.** `ReadKey`/`ReadKeyAsync` need a live keyboard input
+> buffer, which a redirected input (file/pipe) does not have. They throw `InvalidOperationException`
+> ("Console is not interactive.") when **either** `Profile.Interactive` is `false` **or**
+> `IsInputRedirected` is `true` — check `IsInputRedirected` explicitly before calling them, since
+> `Profile.Interactive` alone only reflects a hardcoded list of known CI providers (see
+> [Environment Detection](environment-detection.md)) and misses plain redirection outside that list.
+> `KeyAvailable` never throws under either condition — it simply returns `false`, so the polling loop
+> above is always safe to use as written. `Read()`/`ReadLine()` are unaffected by `IsInputRedirected`
+> (a redirected stream is a legitimate source for them); they only throw when `Profile.Interactive`
+> is `false`. See [ADR0015](adr/ADR0015V01R01-RedirectedConsoleIoContract.md) for the full contract.
 
 ---
 

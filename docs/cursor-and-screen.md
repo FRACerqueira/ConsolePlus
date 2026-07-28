@@ -82,6 +82,13 @@ ConsolePlus.Clear(ConsoleColor.Blue);   // ConsoleColor implicitly converts to C
 `Clear(Color?)` fills the buffer and sets the background color in one step. See also
 [`ClearLine`](writing-output.md#blank-lines-and-clearing-lines) to clear a single row.
 
+> ℹ️ **Redirected or headless console.** `Clear()`, `SetCursorPosition()`, the `CursorLeft`/`CursorTop`
+> setters, and `HideCursor()`/`ShowCursor()` never throw when there is no real console attached (output
+> redirected to a file/pipe, or a headless/CI process) — they silently do nothing (the two `bool`-returning
+> members return `false`). These are presentation-only operations with nothing meaningful to report when
+> there is no screen to draw on. See [ADR0015](adr/ADR0015V01R01-RedirectedConsoleIoContract.md) for the
+> full redirected-I/O contract, including how key-based **reads** differ (they throw predictably instead).
+
 ---
 
 ## Window size and resize events

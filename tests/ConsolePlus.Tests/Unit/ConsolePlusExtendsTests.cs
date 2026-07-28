@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using ConsolePlusLibrary;
 using ConsolePlusLibrary.Testing;
 using FluentAssertions;
@@ -48,6 +50,77 @@ namespace ConsolePlus.Tests.Unit
 
             vt.TextAt(2, 0, 5).Trim().Should().BeEmpty();
             vt.CurrentStyle.Should().Be(styleBefore);
+        }
+
+        // Ground truth: unlike the tests above, these go through the REAL static ConsolePlus
+        // singleton (not VirtualTerminal, which is its own mock IConsole and never touches
+        // NoAnsiConsoleAdapter). The xUnit test host runs with Console.IsOutputRedirected/
+        // IsInputRedirected == true, so the real singleton picks NoAnsiConsoleAdapter, the same
+        // adapter a headless/piped production process would get. Console.Clear() and
+        // Console.SetCursorPosition() call into the real console handle and used to throw
+        // IOException ("The handle is invalid") here uncaught — found via manual empirical
+        // verification (redirected stdio), not covered by any prior test. Fixed by wrapping both
+        // in the same catch-IOException "Safe" pattern already used by HideCursor/ShowCursor and
+        // EnvironmentUtil's GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+        [Fact]
+        public void Clear_does_not_throw_when_console_io_is_redirected()
+        {
+            var act = () => ConsolePlusLibrary.ConsolePlus.Clear();
+
+            act.Should().NotThrow();
+        }
+
+        [Fact]
+        public void SetCursorPosition_does_not_throw_when_console_io_is_redirected()
+        {
+            var act = () => ConsolePlusLibrary.ConsolePlus.SetCursorPosition(0, 0);
+
+            act.Should().NotThrow();
+        }
+
+        [Fact]
+        public void CursorLeft_and_CursorTop_setters_do_not_throw_when_console_io_is_redirected()
+        {
+            var act = () =>
+            {
+                ConsolePlusLibrary.ConsolePlus.CursorLeft = 0;
+                ConsolePlusLibrary.ConsolePlus.CursorTop = 0;
+            };
+
+            act.Should().NotThrow();
+        }
+
+        [Fact]
+        public void ClearLine_via_real_singleton_does_not_throw_when_console_io_is_redirected()
+        {
+            var act = () => ConsolePlusLibrary.ConsolePlus.ClearLine();
+
+            act.Should().NotThrow();
+        }
+
+        // Ground truth: KeyAvailable/ReadKey(Async) call the raw Console.KeyAvailable/ReadKey APIs,
+        // which require a live console input buffer and throw InvalidOperationException when input
+        // is redirected. The pre-existing guard (`if (!_profile.Interactive) throw ...`) didn't catch
+        // this because _profile.Interactive defaults to true everywhere except a short list of known
+        // CI providers — a real redirected xUnit test host (confirmed empirically:
+        // Console.IsInputRedirected == true here) doesn't match any of them, so the raw call was
+        // reached and threw uncaught. Fixed by also checking Console.IsInputRedirected directly.
+        [Fact]
+        public void KeyAvailable_returns_false_instead_of_throwing_when_console_input_is_redirected()
+        {
+            var act = () => ConsolePlusLibrary.ConsolePlus.KeyAvailable;
+
+            act.Should().NotThrow();
+            ConsolePlusLibrary.ConsolePlus.KeyAvailable.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task ReadKeyAsync_throws_InvalidOperationException_instead_of_the_raw_console_exception_when_input_is_redirected()
+        {
+            Func<Task> act = () => ConsolePlusLibrary.ConsolePlus.ReadKeyAsync(intercept: true);
+
+            await act.Should().ThrowAsync<InvalidOperationException>()
+                .WithMessage("Console is not interactive.");
         }
     }
 }
