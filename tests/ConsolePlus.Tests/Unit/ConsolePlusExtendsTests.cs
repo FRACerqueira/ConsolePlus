@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using ConsolePlusLibrary;
 using ConsolePlusLibrary.Testing;
 using FluentAssertions;
@@ -94,6 +96,31 @@ namespace ConsolePlus.Tests.Unit
             var act = () => ConsolePlusLibrary.ConsolePlus.ClearLine();
 
             act.Should().NotThrow();
+        }
+
+        // Ground truth: KeyAvailable/ReadKey(Async) call the raw Console.KeyAvailable/ReadKey APIs,
+        // which require a live console input buffer and throw InvalidOperationException when input
+        // is redirected. The pre-existing guard (`if (!_profile.Interactive) throw ...`) didn't catch
+        // this because _profile.Interactive defaults to true everywhere except a short list of known
+        // CI providers — a real redirected xUnit test host (confirmed empirically:
+        // Console.IsInputRedirected == true here) doesn't match any of them, so the raw call was
+        // reached and threw uncaught. Fixed by also checking Console.IsInputRedirected directly.
+        [Fact]
+        public void KeyAvailable_returns_false_instead_of_throwing_when_console_input_is_redirected()
+        {
+            var act = () => ConsolePlusLibrary.ConsolePlus.KeyAvailable;
+
+            act.Should().NotThrow();
+            ConsolePlusLibrary.ConsolePlus.KeyAvailable.Should().BeFalse();
+        }
+
+        [Fact]
+        public async Task ReadKeyAsync_throws_InvalidOperationException_instead_of_the_raw_console_exception_when_input_is_redirected()
+        {
+            Func<Task> act = () => ConsolePlusLibrary.ConsolePlus.ReadKeyAsync(intercept: true);
+
+            await act.Should().ThrowAsync<InvalidOperationException>()
+                .WithMessage("Console is not interactive.");
         }
     }
 }

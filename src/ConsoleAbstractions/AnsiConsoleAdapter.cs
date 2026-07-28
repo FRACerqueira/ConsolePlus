@@ -1179,8 +1179,13 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public async Task<ConsoleKeyInfo?> ReadKeyAsync(bool intercept, CancellationToken cancellationToken)
         {
             ThrowIfDisposed();
-            if (!_profile.Interactive)
+            if (!_profile.Interactive || Console.IsInputRedirected)
             {
+                // A real key press requires a live console input buffer; a redirected input
+                // (file/pipe/SetIn) has no such stream, so fail the same documented way Read()/
+                // ReadLine() already do instead of letting Console.KeyAvailable/ReadKey's own
+                // InvalidOperationException leak through. _profile.Interactive alone only reflects
+                // known CI-provider detection, not real redirection — hence the explicit check.
                 throw new InvalidOperationException("Console is not interactive.");
             }
             return await _lock.RunAsync<ConsoleKeyInfo?>(async () =>
@@ -1275,7 +1280,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             {
                 return _lock.Run(() =>
                 {
-                    return _profile.Interactive && Console.KeyAvailable;
+                    return _profile.Interactive && !Console.IsInputRedirected && Console.KeyAvailable;
                 });
             }
         }
