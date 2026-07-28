@@ -59,3 +59,4 @@ projects (ConsolePlus + PromptPlus).
 | [ADR0012V01R01](ADR0012V01R01-EmojiShortcodeModel.md) | Emoji shortcode model with fallback | V01 | Accepted |
 | [ADR0013V01R01](ADR0013V01R01-LowLevelAnsiAndAlternateScreen.md) | Low-level ANSI and alternate-screen API | V01 | Accepted |
 | [ADR0014V01R02](ADR0014V01R02-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits; regeneration gated on `ReleaseDoc` | V01 (R02) | Accepted |
+| [ADR0015V01R01](ADR0015V01R01-RedirectedConsoleIoContract.md) | Redirected/headless console I/O: fail-safe writes, fail-loud reads | V01 | Accepted |
