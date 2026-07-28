@@ -1033,7 +1033,16 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         }
         private static void Clear()
         {
-            Console.Clear();
+            try
+            {
+                Console.Clear();
+            }
+            catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
+            {
+                // Ignore if the platform doesn't support this operation, or there is no real
+                // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+            }
         }
 
 
@@ -1043,7 +1052,16 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                Console.SetCursorPosition(left, top);
+                try
+                {
+                    Console.SetCursorPosition(left, top);
+                }
+                catch (Exception ex) when (ex is PlatformNotSupportedException or IOException)
+                {
+                    // Ignore if the platform doesn't support this operation, or there is no real
+                    // console attached (e.g. headless/redirected process) — same "Safe" pattern
+                    // used by EnvironmentUtil.GetSafeWidth/GetSafeHeight/GetSafeTopCursor/etc.
+                }
             });
         }
 
@@ -1051,14 +1069,14 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public int CursorLeft
         {
             get { return _lock.Run(() => EnvironmentUtil.GetSafeLeftCursor()); }
-            set { _lock.Run(() => Console.SetCursorPosition(value, CursorTop)); }
+            set { SetCursorPosition(value, CursorTop); }
         }
 
         /// <inheritdoc/>
         public int CursorTop
         {
             get { return _lock.Run(() => EnvironmentUtil.GetSafeTopCursor()); }
-            set { _lock.Run(() => Console.SetCursorPosition(CursorLeft, value)); }
+            set { SetCursorPosition(CursorLeft, value); }
         }
 
         /// <inheritdoc/>
