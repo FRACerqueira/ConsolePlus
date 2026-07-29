@@ -4,7 +4,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // ColorExtensions.Weighted (Shared/ColorExtensions.cs) — camada 1, unidade pura.
+    // ColorExtensions.Weighted (Shared/ColorExtensions.cs) — pure unit test, no dependencies.
     public class ColorExtensionsTests
     {
         private static readonly Color Base = new(200, 100, 50);

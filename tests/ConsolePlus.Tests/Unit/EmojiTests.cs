@@ -4,7 +4,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // Emoji.GetByName (Shared/Emoji.cs:51) — camada 1, sem VirtualTerminal.
+    // Emoji.GetByName (Shared/Emoji.cs:51)
     public class EmojiTests
     {
         [Theory]

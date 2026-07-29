@@ -127,10 +127,8 @@ namespace ConsolePlusLibrary.Core
 
         private static bool Detect(bool stdError, bool upgrade)
         {
-            // Running on Windows?
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                // Running under ConEmu?
                 var conEmu = Environment.GetEnvironmentVariable("ConEmuANSI");
                 if (!string.IsNullOrEmpty(conEmu) && conEmu.Equals("On", StringComparison.OrdinalIgnoreCase))
                 {
@@ -145,7 +143,6 @@ namespace ConsolePlusLibrary.Core
 
         private static bool DetectFromTerm()
         {
-            // Check if the terminal is of type ANSI/VT100/xterm compatible.
             var term = Environment.GetEnvironmentVariable("TERM");
             if (!string.IsNullOrWhiteSpace(term))
             {
@@ -198,11 +195,9 @@ namespace ConsolePlusLibrary.Core
                             return false;
                         }
 
-                        // Try enable ANSI support.
                         mode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING | DISABLE_NEWLINE_AUTO_RETURN;
                         if (!SetConsoleMode(@out, mode))
                         {
-                            // Enabling failed.
                             return false;
                         }
                     }

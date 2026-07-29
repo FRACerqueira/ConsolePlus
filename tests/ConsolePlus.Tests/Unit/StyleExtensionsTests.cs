@@ -4,8 +4,8 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // StyleExtensions (Shared/StyleExtensions.cs) — camada 1, unidade pura. Fluent "with"-style
-    // helpers used throughout production to derive one Style from another.
+    // StyleExtensions (Shared/StyleExtensions.cs) — fluent "with"-style helpers used throughout
+    // production to derive one Style from another.
     public class StyleExtensionsTests
     {
         private static readonly Style Base = new(new Color(1, 2, 3), new Color(4, 5, 6), Overflow.Crop);

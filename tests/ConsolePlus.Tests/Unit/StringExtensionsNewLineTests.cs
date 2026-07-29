@@ -5,9 +5,9 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // StringExtensions.NormalizeNewLines/SplitLines (Shared/StringExtensions.cs) — camada 1,
-    // unidade pura, mas com comportamento explicitamente dependente de Environment.NewLine —
-    // asserções usam Environment.NewLine em vez de "\r\n" hardcoded para funcionar em Windows e Linux.
+    // StringExtensions.NormalizeNewLines/SplitLines (Shared/StringExtensions.cs) — behavior is
+    // explicitly dependent on Environment.NewLine, so assertions use Environment.NewLine instead of
+    // a hardcoded "\r\n" to work on both Windows and Linux.
     public class StringExtensionsNewLineTests
     {
         [Fact]

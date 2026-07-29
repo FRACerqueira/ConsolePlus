@@ -91,65 +91,54 @@ namespace ConsolePlusLibrary.Core
 
         public static void ResetState(bool isansi, string originalCulture, ConsoleColor originalForecolor, ConsoleColor originalBackcolor, Encoding originalInputEncoding, Encoding originalOutputEncoding)
         {
+            // Each restore runs in its own try/catch so a single failure doesn't prevent the others from running.
             try
             {
-                // try restore cursor visibility if it was changed
                 Console.CursorVisible = true;
             }
             catch (Exception)
             {
-                //skip Exception
             }
             try
             {
-                // try restore input encoding if it was changed
                 Console.InputEncoding = originalInputEncoding;
             }
             catch (Exception)
             {
-                //skip Exception
             }
             try
             {
-                // try restore output encoding if it was changed
                 Console.OutputEncoding = originalOutputEncoding;
             }
             catch (Exception)
             {
-                //skip Exception
             }
             try
             {
                 if (isansi)
                 {
                     var (left, top) = Console.GetCursorPosition();
-                    // try Exit alternate screen buffer if it was used
                     Console.Write("\u001b[?1049l");
                     Console.SetCursorPosition(left, top);
                 }
             }
             catch (Exception)
             {
-                //skip Exception
             }
             try
             {
-                // try Restore original culture
                 Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(originalCulture);
             }
             catch (Exception)
             {
-                //skip Exception
             }
             try
             {
-                // try Restore original console colors
                 Console.ForegroundColor = originalForecolor;
                 Console.BackgroundColor = originalBackcolor;
             }
             catch (Exception)
             {
-                //skip Exception
             }
         }
 
@@ -429,10 +418,8 @@ namespace ConsolePlusLibrary.Core
         /// <returns>True if the environment has terminal support; otherwise, false.</returns>
         public static bool HasTerminalSupport()
         {
-            // Check if running on Windows
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                // Check for Windows Terminal or ConEmu
                 string? wtSession = Environment.GetEnvironmentVariable("WT_SESSION");
                 string? conEmu = Environment.GetEnvironmentVariable("ConEmuANSI");
 
@@ -465,14 +452,12 @@ namespace ConsolePlusLibrary.Core
                     }
                     catch
                     {
-                        //none;
                     }
                     return true;
                 }
             }
             else
             {
-                // Check terminal type on Unix-like systems
                 string term = Environment.GetEnvironmentVariable("TERM") ?? "";
                 return AnsiDetector.IsValidTerminal(term);
             }

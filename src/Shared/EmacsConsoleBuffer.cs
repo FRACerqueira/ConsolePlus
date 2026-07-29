@@ -97,33 +97,27 @@ namespace ConsolePlusLibrary
 
             switch (keyinfo.Key)
             {
-                //toggle input replacement mode.
                 case ConsoleKey.Insert:
                     {
                         _overwritemode = !_overwritemode;
                     }
                     break;
-                //Emacs keyboard shortcut when when have any text with length > 1
-                //Transpose the previous two characters
+                // Swaps the two characters straddling the cursor (or the last two, if at the end).
                 case ConsoleKey.T when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 1:
                     {
                         TransposeChars();
                     }
                     break;
-                //Emacs keyboard shortcut, when when have any text
-                // Clears the content
                 case ConsoleKey.L when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                     {
                         Clear();
                     }
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Lowers the case of every character from the cursor's position to the end of the current word
+                // Lowercases only up to the next space, not the whole rest of the buffer.
                 case ConsoleKey.L when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Alt && Length > 0:
                     LowerAfterCursor();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                // Clears the line content before the cursor
+                // Rebuilds the buffer from the text after the cursor, discarding everything before it.
                 case ConsoleKey.U when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                     {
                         string aux = ToForward();
@@ -132,13 +126,11 @@ namespace ConsolePlusLibrary
                         Position = 0;
                     }
                     break;
-                //Emacs keyboard shortcut  when when have any text
-                //Upper the case of every character from the cursor's position to the end of the current word
+                // Uppercases only up to the next space, not the whole rest of the buffer.
                 case ConsoleKey.U when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Alt && Length > 0:
                     UpperAfterCursor();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Clears the line content after the cursor
+                // Rebuilds the buffer from the text before the cursor, discarding everything after it.
                 case ConsoleKey.K when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                     {
                         string aux = ToBackward();
@@ -147,63 +139,41 @@ namespace ConsolePlusLibrary
                         Position = Length;
                     }
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Clear the word before the cursor
                 case ConsoleKey.W when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                     RemoveWordBeforeCursor();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Capitalizes the character under the cursor and moves to the end of the word
                 case ConsoleKey.C when _enableEmacsKeys && !_readonly && keyinfo.Modifiers != ConsoleModifiers.Alt && Length > 0:
                     UpperCharMoveEndWord();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                // Clear the word after the cursor
                 case ConsoleKey.D when _enableEmacsKeys && !_readonly &&keyinfo.Modifiers == ConsoleModifiers.Alt && Length > 0:
                     RemoveWordAfterCursor();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                // Moves the cursor forward one word.
                 case ConsoleKey.F when _enableEmacsKeys && keyinfo.Modifiers == ConsoleModifiers.Alt && Length > 0:
                     ForwardWord();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Moves the cursor backward one word.
                 case ConsoleKey.B when _enableEmacsKeys && keyinfo.Modifiers == ConsoleModifiers.Alt && Length > 0:
                     BackwardWord();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Deletes the previous character (same as backspace).
                 case ConsoleKey.H when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                 case ConsoleKey.Backspace when !_readonly && keyinfo.Modifiers == 0 && Length > 0:
                     Backspace();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //(end) moves the cursor to the line end (equivalent to the key End).
                 case ConsoleKey.E when _enableEmacsKeys && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                 case ConsoleKey.End when keyinfo.Modifiers == 0 && Length > 0:
                     ToEnd();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Moves the cursor to the line start (equivalent to the key Home).
                 case ConsoleKey.A when _enableEmacsKeys && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                 case ConsoleKey.Home when keyinfo.Modifiers == 0 && Length > 0:
                     ToStart();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Moves the cursor back one character (equivalent to the key ←).
                 case ConsoleKey.B when _enableEmacsKeys && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                 case ConsoleKey.LeftArrow when keyinfo.Modifiers == 0 && Length > 0:
                     Backward();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Moves the cursor forward one character (equivalent to the key →).
                 case ConsoleKey.F when _enableEmacsKeys && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                 case ConsoleKey.RightArrow when keyinfo.Modifiers == 0 && Length > 0:
                     Forward();
                     break;
-                //Emacs keyboard shortcut when when have any text
-                //Delete the current character (then equivalent to the key Delete).
                 case ConsoleKey.D when _enableEmacsKeys && !_readonly && keyinfo.Modifiers == ConsoleModifiers.Control && Length > 0:
                 case ConsoleKey.Delete when !_readonly && keyinfo.Modifiers == 0 && Length > 0:
                     Delete();

@@ -41,18 +41,16 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             _mainToken = mainToken;
             _lock.Run(() => 
             {
-                // Change the output and input code page to 65001 (UTF-8)
+                // Code page 65001 is UTF-8.
                 Console.OutputEncoding = Encoding.UTF8;
                 Console.InputEncoding = Encoding.UTF8;
 
-                _currentBuffer = TargetScreen.Primary; //ensure we start with the primary buffer
+                _currentBuffer = TargetScreen.Primary;
                 _lastWidth = EnvironmentUtil.GetSafeWidth();
                 _lastHeight = EnvironmentUtil.GetSafeHeight();
                 _consoleForegroundColor = _profile.DefaultForegroundColor;
                 _consoleBackgroundColor = _profile.DefaultBackgroundColor;
-                // Start monitoring console size changes
                 StartSizeMonitoring();
-                // Ensure cursor is visible by default
                 ShowCursor();
 
             });
@@ -1372,7 +1370,6 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             return _lock.Run(() =>
             {
                 ThrowIfDisposed();
-                // Switch to TargetBuffer screen
                 switch (value)
                 {
                     case TargetScreen.Primary:
@@ -1418,7 +1415,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
 
                     if (currentWidth != pendingWidth || currentHeight != pendingHeight)
                     {
-                        // Tamanho ainda está mudando — reinicia o contador de silêncio
+                        // Size is still changing — reset the silence counter.
                         pendingWidth = currentWidth;
                         pendingHeight = currentHeight;
                         silenceMs = 0;
@@ -1430,7 +1427,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
 
                         if (silenceMs >= StabilityThresholdMs)
                         {
-                            // Tamanho estável por StabilityThresholdMs ms — dispara UMA vez
+                            // Size has been stable for StabilityThresholdMs ms — fire the event once.
                             _lastWidth = pendingWidth;
                             _lastHeight = pendingHeight;
 
@@ -1452,11 +1449,11 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
             }
             catch (OperationCanceledException)
             {
-                // Cancelamento esperado — saída limpa
+                // Expected cancellation — clean exit.
             }
             catch
             {
-                // Ignora falhas inesperadas de leitura do console
+                // Ignore unexpected console read failures.
             }
         }
 

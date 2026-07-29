@@ -6,9 +6,9 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // ConsoleKeyInfoExtensions (Shared/ConsoleKeyInfoExtensions.cs) — camada 1, unidade pura.
-    // Decide, para todo controle, se uma tecla "e" Enter/seta/Home/etc; ja tinha 1 bug real conhecido
-    // (IsPressEnterKey diverge Windows/nao-Windows) que motivou esta suite completa.
+    // ConsoleKeyInfoExtensions (Shared/ConsoleKeyInfoExtensions.cs) decides, for every control,
+    // whether a key is Enter/arrow/Home/etc; a real known bug (IsPressEnterKey diverges between
+    // Windows and non-Windows) motivated this full suite.
     public class ConsoleKeyInfoExtensionsTests
     {
         private static ConsoleKeyInfo K(ConsoleKey key, ConsoleModifiers modifiers = 0, char keyChar = '\0')
@@ -66,7 +66,7 @@ namespace ConsolePlus.Tests.Unit
             K(ConsoleKey.X, ConsoleModifiers.Control).IsPressSpecialKey(ConsoleKey.S, ConsoleModifiers.Control).Should().BeFalse();
         }
 
-        // ---- IsPressEnterKey: OS-dependent (the bug found in Fase 1) ----
+        // ---- IsPressEnterKey: OS-dependent ----
 
         [Fact]
         public void Enter_key_alone_is_accepted_on_any_platform()
@@ -88,7 +88,7 @@ namespace ConsolePlus.Tests.Unit
         public void Enter_detection_matches_the_current_platforms_semantics()
         {
             // No Skippable-fact package here on purpose: this runs the branch matching whatever OS
-            // executes it, and the project's own CI matrix (Windows + Linux, TEST-PLAN.md section 8)
+            // executes it, and the project's own CI matrix (Windows + Linux)
             // exercises both branches across the two runners without adding a test dependency.
             if (OperatingSystem.IsWindows())
             {

@@ -15,6 +15,7 @@ Implements [System\.IEquatable&lt;](https://learn.microsoft.com/en-us/dotnet/api
 
 ### Remarks
 Use the primary constructor to specify explicit colors and an [Overflow](Overflow.md 'ConsolePlusLibrary\.Overflow') strategy, or the
+implicit conversion from [Color](Color.md 'ConsolePlusLibrary\.Color') for a quick foreground\-only style with a default background\.
 ### Constructors
 
 <a name='ConsolePlusLibrary.Style.Style(ConsolePlusLibrary.Color,ConsolePlusLibrary.Color,ConsolePlusLibrary.Overflow)'></a>
@@ -48,6 +49,7 @@ Overflow handling strategy applied when content exceeds the target width\.
 
 ### Remarks
 Use the primary constructor to specify explicit colors and an [Overflow](Overflow.md 'ConsolePlusLibrary\.Overflow') strategy, or the
+implicit conversion from [Color](Color.md 'ConsolePlusLibrary\.Color') for a quick foreground\-only style with a default background\.
 ### Properties
 
 <a name='ConsolePlusLibrary.Style.Background'></a>

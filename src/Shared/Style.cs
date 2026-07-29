@@ -16,6 +16,7 @@ namespace ConsolePlusLibrary
     /// </summary>
     /// <remarks>
     /// Use the primary constructor to specify explicit colors and an <see cref="Overflow"/> strategy, or the
+    /// implicit conversion from <see cref="Color"/> for a quick foreground-only style with a default background.
     /// </remarks>
     /// <param name="foreground">Foreground <see cref="Color"/> used when writing content.</param>
     /// <param name="background">Background <see cref="Color"/> used behind the content.</param>

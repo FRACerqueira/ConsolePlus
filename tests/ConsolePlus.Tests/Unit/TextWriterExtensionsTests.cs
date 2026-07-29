@@ -5,10 +5,10 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // TextWriterExtensions (Core/TextWriterExtensions.cs) — camada 1, unidade pura: pure reference
-    // comparison against System.Console.Out/Error. Only reads the singleton (no redirection), so
-    // it is safe against the "avoid touching the ConsolePlus singleton" rule in TEST-PLAN.md — this
-    // is System.Console, a different singleton, and only its getter is read, never mutated.
+    // TextWriterExtensions (Core/TextWriterExtensions.cs) — pure reference comparison against
+    // System.Console.Out/Error. Only reads the singleton (no redirection), so it is safe against
+    // the "avoid touching the ConsolePlus singleton" rule — this is System.Console, a different
+    // singleton, and only its getter is read, never mutated.
     public class TextWriterExtensionsTests
     {
         [Fact]

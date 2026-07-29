@@ -5,8 +5,8 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // EmacsConsoleBuffer (Shared/EmacsConsoleBuffer.cs) — camada 1, unidade pura. Backs the answer
-    // buffer of most interactive controls (Input, and others via BaseControlPrompt's answer viewport).
+    // EmacsConsoleBuffer (Shared/EmacsConsoleBuffer.cs) backs the answer buffer of most interactive
+    // controls (Input, and others via BaseControlPrompt's answer viewport).
     // Every Emacs key binding implemented by TryAcceptedReadlineConsoleKey is covered; exact
     // expected values were confirmed by running each operation and observing the real output
     // (Ctrl+W/Ctrl+T/Alt+U/Alt+L/Alt+D/Alt+F/Alt+B/Ctrl+C have non-obvious boundary behavior that

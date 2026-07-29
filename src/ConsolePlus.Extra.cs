@@ -37,7 +37,7 @@ namespace ConsolePlusLibrary
         /// <summary>
         /// Write lines with line terminator
         /// </summary>
-        /// <param name="steps">Numbers de lines.</param>
+        /// <param name="steps">Number of lines.</param>
         public static void WriteLines(int steps = 1)
         {
             _consoledrive.WriteLines(steps);

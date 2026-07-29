@@ -31,7 +31,7 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 new Tfs(),
                 new Travis()
             ];
-            //overwrite profile properties (Interactive and SupportsAnsi) based on known CI environments, the first that matches will enrich the profile and break the loop
+            // First matching CI environment enriches the profile (Interactive, SupportsAnsi) and stops the search.
             foreach (var itemCI in defaultEnrichers)
             {
                 if (itemCI.TryEnrich(profile))

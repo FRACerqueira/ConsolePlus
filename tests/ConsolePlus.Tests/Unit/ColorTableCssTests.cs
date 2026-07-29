@@ -6,8 +6,8 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // ColorTableCss (Core/ColorTableCss.cs) — camada 1, unidade pura. Tabela de nomes CSS e
-    // resolução de variantes com peso (ex.: "red500").
+    // ColorTableCss (Core/ColorTableCss.cs) — CSS name table and weighted-variant resolution
+    // (e.g. "red500").
     public class ColorTableCssTests
     {
         [Fact]

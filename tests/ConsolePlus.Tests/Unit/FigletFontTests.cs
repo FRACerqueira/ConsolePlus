@@ -9,9 +9,8 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // FigletFont (Figlet/FigletFont.cs) — camada 1, unidade pura. Parser do formato .flf (FIGlet
-    // font). Fixtures são fontes .flf mínimas construídas em memória (Stream), sem tocar o recurso
-    // embutido real nem o disco.
+    // FigletFont (Figlet/FigletFont.cs) — parser for the .flf (FIGlet font) format. Fixtures are
+    // minimal .flf fonts built in memory (Stream), without touching the real embedded resource or disk.
     public class FigletFontTests
     {
         // Minimal valid .flf: signature "flf2a", hardblank '$', Height=1 (one line per glyph),

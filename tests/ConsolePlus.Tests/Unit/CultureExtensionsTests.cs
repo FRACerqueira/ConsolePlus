@@ -4,7 +4,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // CultureExtensions.ExistsCulture (Shared/CultureExtensions.cs) — camada 1, unidade pura.
+    // CultureExtensions.ExistsCulture (Shared/CultureExtensions.cs)
     public class CultureExtensionsTests
     {
         [Fact]

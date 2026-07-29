@@ -31,16 +31,16 @@ namespace ConsolePlusLibrary.Core
                     return true;
                 }
 
-                //  Regras específicas por sistema operacional
+                // OS-specific detection rules
                 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                 {
-                    // Atalho rápido: encodings Unicode explícitos.
+                    // Fast path: known Unicode code pages (UTF-8 = 65001, UTF-16 LE/BE = 1200/1201, UTF-32 LE/BE = 12000/12001).
                     if (encoding.CodePage is 65001 or 1200 or 1201 or 12000 or 12001)
                     {
                         return true;
                     }
 
-                    // Terminais modernos normalmente suportam Unicode
+                    // Presence of these env vars indicates a modern terminal (Windows Terminal / ConEmu), which supports Unicode.
                     var wt = Environment.GetEnvironmentVariable("WT_SESSION");
                     var conEmu = Environment.GetEnvironmentVariable("ConEmuANSI");
 
@@ -52,13 +52,13 @@ namespace ConsolePlusLibrary.Core
                     RuntimeInformation.IsOSPlatform(OSPlatform.FreeBSD) ||
                     RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                 {
-                    // Em Unix, locale UTF-8 é o melhor indicativo
+                    // On Unix, the locale's UTF-8 declaration is the best indicator of Unicode support.
                     var lang = Environment.GetEnvironmentVariable("LC_ALL")
                                ?? Environment.GetEnvironmentVariable("LC_CTYPE")
                                ?? Environment.GetEnvironmentVariable("LANG")
                                ?? string.Empty;
 
-                    // TERM=dumb geralmente não oferece recursos completos de terminal
+                    // TERM=dumb means the terminal generally lacks full terminal capabilities.
                     var term = Environment.GetEnvironmentVariable("TERM") ?? string.Empty;
                     if (term.Equals("dumb", StringComparison.OrdinalIgnoreCase))
                     {
@@ -69,14 +69,13 @@ namespace ConsolePlusLibrary.Core
                            lang.Contains("UTF8", StringComparison.OrdinalIgnoreCase);
                 }
 
-
-                //Capacidade real de codificação (regra principal)
+                // Fallback: probe the actual encoding capability directly.
                 var strict = Encoding.GetEncoding(
                     encoding.CodePage,
                     EncoderFallback.ExceptionFallback,
                     DecoderFallback.ExceptionFallback);
 
-                // Caracteres de planos diferentes (BMP + suplementar)
+                // Deliberately spans multiple Unicode planes (BMP + supplementary) to exercise the encoder fully.
                 _ = strict.GetBytes("✓漢🙂");
 
                 return true;

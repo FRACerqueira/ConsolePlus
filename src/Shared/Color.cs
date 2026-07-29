@@ -113,7 +113,6 @@ namespace ConsolePlusLibrary
         /// </remarks>
         public double GetLuminance()
         {
-            // Convert RGB from 0-255 to 0-1
             double r = R / 255.0;
             double g = G / 255.0;
             double b = B / 255.0;
@@ -123,7 +122,6 @@ namespace ConsolePlusLibrary
             g = g <= 0.03928 ? g / 12.92 : Math.Pow((g + 0.055) / 1.055, 2.4);
             b = b <= 0.03928 ? b / 12.92 : Math.Pow((b + 0.055) / 1.055, 2.4);
 
-            // Calculate relative luminance
             return 0.2126 * r + 0.7152 * g + 0.0722 * b;
         }
 
@@ -161,8 +159,6 @@ namespace ConsolePlusLibrary
         /// </remarks>
         public static Color GetContrastForegroundColor(Color backgroundColor)
         {
-            // Use relative luminance to determine if background is dark or light
-            // If luminance is high (> 0.5), use black; otherwise use white
             double luminance = backgroundColor.GetLuminance();
             return luminance > 0.5 ? Black : White;
         }
@@ -180,10 +176,8 @@ namespace ConsolePlusLibrary
         /// </remarks>
         public Color AdjustForegroundColorForContrast(Color backgroundColor, double minimumContrastRatio = 2.5)
         {
-            // Calculate current contrast
             double currentContrast = GetContrast(backgroundColor);
 
-            // If contrast is already adequate, return the original color
             if (currentContrast >= minimumContrastRatio)
             {
                 return this;

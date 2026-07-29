@@ -5,8 +5,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // Color (Shared/Color.cs) — camada 1, unidade pura: Blend, luminance/contrast (WCAG), hex
-    // parsing, numeric/ConsoleColor conversions.
+    // Color (Shared/Color.cs)
     public class ColorTests
     {
         [Fact]

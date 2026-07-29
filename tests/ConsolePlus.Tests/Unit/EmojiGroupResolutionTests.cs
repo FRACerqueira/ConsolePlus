@@ -4,9 +4,9 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // Emoji.GetByName group-qualified shortcode resolution (Shared/Emoji.cs:51-78,104-157) —
-    // camada 1, unidade pura. Deepens EmojiTests.cs (which only covers plain names) with the
-    // "group/name" form and its compatibility aliases.
+    // Emoji.GetByName group-qualified shortcode resolution (Shared/Emoji.cs:51-78,104-157).
+    // Deepens EmojiTests.cs (which only covers plain names) with the "group/name" form and its
+    // compatibility aliases.
     public class EmojiGroupResolutionTests
     {
         [Fact]

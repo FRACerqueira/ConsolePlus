@@ -6,8 +6,8 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // DashUtil (Core/DashUtil.cs) — camada 1 lógica, mas depende de IConsole.SupportsUnicode,
-    // por isso usa VirtualTerminal (camada 2 mínima) em vez de um double manual.
+    // DashUtil (Core/DashUtil.cs) is pure logic but depends on IConsole.SupportsUnicode, so it uses
+    // a minimal VirtualTerminal instead of a hand-rolled test double.
     public class DashUtilTests
     {
         private static VirtualTerminal Terminal(bool supportsUnicode) => VirtualTerminal.Create(o => o.SupportsUnicode = supportsUnicode);
