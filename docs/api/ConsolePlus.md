@@ -3183,7 +3183,7 @@ public static void WriteLines(int steps=1);
 
 `steps` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
 
-Numbers de lines\.
+Number of lines\.
 
 | Events | |
 | :--- | :--- |
