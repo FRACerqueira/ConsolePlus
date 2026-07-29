@@ -1,6 +1,6 @@
-	<!-- Do not remove this comment, lines and table -->
-	<!--
-	| Fields | Values |
+<!-- Do not remove this comment, lines and table -->
+<!--
+| Fields | Values |
 | --- | --- |
 | ADR | ADR0011V01R01 |
 | Version | 01 |
