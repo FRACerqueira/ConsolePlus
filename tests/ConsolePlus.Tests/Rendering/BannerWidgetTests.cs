@@ -8,9 +8,9 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Rendering
 {
-    // BannerWidget (Figlet/BannerWidget.cs) — camada 2 (precisa de IConsolePlus para Show(), usa
-    // VirtualTerminal). Foco no cálculo de largura da borda em GetSegments (largura = maior linha
-    // renderizada), usando a mesma fonte .flf mínima de FigletFontTests para saída previsível.
+    // BannerWidget (Figlet/BannerWidget.cs) needs IConsolePlus for Show() and uses VirtualTerminal.
+    // Focus is on the border-width calculation in GetSegments (width = widest rendered line), using
+    // the same minimal .flf font as FigletFontTests for predictable output.
     public class BannerWidgetTests
     {
         private static Stream MinimalFont() => new MemoryStream(Encoding.UTF8.GetBytes(

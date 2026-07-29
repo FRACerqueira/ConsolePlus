@@ -5,7 +5,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // Fragment.FromText (Shared/Fragment.cs:74) — camada 1, sem VirtualTerminal.
+    // Fragment.FromText (Shared/Fragment.cs:74)
     public class MarkupTests
     {
         private static readonly Style DefaultStyle = new(Color.White, Color.Black);

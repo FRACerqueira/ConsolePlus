@@ -11,12 +11,12 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // AnsiCommands (ConsoleAbstractions/AnsiCommands.cs) — camada 1, unidade pura: verifica a
-    // string ANSI literal emitida por cada comando. Usa um IConsolePlus fake mínimo em vez de
-    // VirtualTerminal porque AnsiScreenInterpreter só reconhece o subconjunto que a produção
-    // realmente emite (CUP/EL/ED/SGR/cursor/alt-screen) — vários comandos aqui (setas, tabulação,
-    // scroll, save/restore cursor) não são interpretados e lançariam NotSupportedException.
-    // AnsiCommands só toca Out/Error/WriteToErrorOutput em IConsolePlus; todo o resto é stub.
+    // AnsiCommands (ConsoleAbstractions/AnsiCommands.cs) — pure unit test: verifies the literal ANSI
+    // string emitted by each command. Uses a minimal fake IConsolePlus instead of VirtualTerminal
+    // because AnsiScreenInterpreter only recognizes the subset that production actually emits
+    // (CUP/EL/ED/SGR/cursor/alt-screen) — several commands here (arrows, tab, scroll, save/restore
+    // cursor) are not interpreted and would throw NotSupportedException.
+    // AnsiCommands only touches Out/Error/WriteToErrorOutput on IConsolePlus; everything else is a stub.
     public class AnsiCommandsTests
     {
         private sealed class RecordingConsole : IConsolePlus

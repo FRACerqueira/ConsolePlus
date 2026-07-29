@@ -5,7 +5,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // string.GetDisplayLength (Shared/StringExtensions.cs:59) — camada 1, sem VirtualTerminal.
+    // string.GetDisplayLength (Shared/StringExtensions.cs:59)
     public class DisplayLengthTests
     {
         [Fact]

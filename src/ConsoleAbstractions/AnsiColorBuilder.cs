@@ -23,10 +23,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
 
             return system switch
             {
-                ColorSystem.NoColors => [], // No colors
+                ColorSystem.NoColors => [],
                 ColorSystem.TrueColor => GetTrueColor(color, foreground), // 24-bit
                 ColorSystem.Standard => GetEightBit(color, foreground), // 8-bit
-                ColorSystem.FourBit => GetFourBit(color, foreground), // 4-bit
+                ColorSystem.FourBit => GetFourBit(color, foreground),
                 _ => throw new InvalidOperationException("Could not determine ANSI color oe legacy."),
             };
         }

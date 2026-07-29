@@ -7,7 +7,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // CultureInfoJsonConverter (Core/CultureInfoJsonConverter.cs) — camada 1, unidade pura.
+    // CultureInfoJsonConverter (Core/CultureInfoJsonConverter.cs)
     public class CultureInfoJsonConverterTests
     {
         private static JsonSerializerOptions Options() => new() { Converters = { new CultureInfoJsonConverter() } };

@@ -7,7 +7,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // ColorJsonConverter (Core/ColorJsonConverter.cs) — camada 1, unidade pura.
+    // ColorJsonConverter (Core/ColorJsonConverter.cs)
     public class ColorJsonConverterTests
     {
         private static JsonSerializerOptions Options() => new() { Converters = { new ColorJsonConverter() } };

@@ -4,8 +4,8 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // Markup.Escape/Remove/Length (Shared/Markup.cs) — camada 1, unidade pura. Built on top of
-    // MarkupColorTokenizer (already covered in MarkupColorTokenizerTests).
+    // Markup.Escape/Remove/Length (Shared/Markup.cs) — built on top of MarkupColorTokenizer
+    // (already covered in MarkupColorTokenizerTests).
     public class MarkupHelperTests
     {
         [Fact]

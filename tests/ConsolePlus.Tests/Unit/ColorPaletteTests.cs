@@ -6,8 +6,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // ColorPalette (Core/ColorPalette.cs) — camada 1, unidade pura. Casamento exato/mais próximo
-    // de cor para as profundidades FourBit/Standard/TrueColor.
+    // ColorPalette (Core/ColorPalette.cs)
     public class ColorPaletteTests
     {
         [Fact]

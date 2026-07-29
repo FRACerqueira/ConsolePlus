@@ -4,9 +4,9 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // MarkupColorTokenizer (Core/MarkupColorTokenizer.cs) — camada 1, unidade pura. Parser
-    // caractere-a-caractere por trás de Fragment.FromText; fault-tolerant por design (markup
-    // malformado degrada para texto puro em vez de lançar).
+    // MarkupColorTokenizer (Core/MarkupColorTokenizer.cs) — the character-by-character parser
+    // behind Fragment.FromText; fault-tolerant by design (malformed markup degrades to plain text
+    // instead of throwing).
     public class MarkupColorTokenizerTests
     {
         [Fact]

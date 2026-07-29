@@ -10,27 +10,26 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // ProfileExtensions.EnrichersCI (ConsoleAbstractions/ProfileExtensions.cs) — despacha para 14
-    // detectores de CI (RuntimeEnvironment/*.cs), cada um IProfileEnrich.TryEnrich checando uma ou
-    // mais env vars; o primeiro que der match "ganha" e interrompe o loop.
+    // ProfileExtensions.EnrichersCI (ConsoleAbstractions/ProfileExtensions.cs) dispatches to 14 CI
+    // detectors (RuntimeEnvironment/*.cs), each an IProfileEnrich.TryEnrich checking one or more env
+    // vars; the first one that matches "wins" and stops the loop.
     //
-    // Blocker de testabilidade: BaseClassCI cacheia Environment.GetEnvironmentVariables() num campo
-    // private static compartilhado por TODAS as subclasses, populado uma vez e nunca invalidado
-    // (confirmado por probe empírico). Isso impede testar múltiplos cenários de CI no mesmo processo
-    // de teste sem resetar o cache manualmente — daqui o uso de reflection (mesmo padrão já usado
-    // para métodos privados estáticos, ex. MaskEditControl.NormalizeStringMask) para zerar o campo
-    // antes de cada cenário, sem alterar o código de produção.
+    // Testability blocker: BaseClassCI caches Environment.GetEnvironmentVariables() in a private
+    // static field shared by ALL subclasses, populated once and never invalidated (confirmed by
+    // empirical probe). This prevents testing multiple CI scenarios in the same test process without
+    // manually resetting the cache — hence the use of reflection (the same pattern already used for
+    // private static methods, e.g. MaskEditControl.NormalizeStringMask) to zero out the field before
+    // each scenario, without changing production code.
     //
-    // Precisa do GlobalStateCollection (DisableParallelization) porque ConsolePlusExtendsTests
-    // também toca esse mesmo cache indiretamente (via inicialização real do singleton
-    // ConsolePlusLibrary.ConsolePlus) — sem isolamento as duas classes competem pelo mesmo campo
-    // static entre threads paralelas do xUnit (achado real, flake intermitente em CI no macOS,
-    // 2026-07-25).
+    // Needs GlobalStateCollection (DisableParallelization) because ConsolePlusExtendsTests also
+    // touches this same cache indirectly (via real initialization of the ConsolePlusLibrary.ConsolePlus
+    // singleton) — without isolation the two classes race on the same static field across xUnit's
+    // parallel threads (real finding, intermittent flake in CI on macOS, 2026-07-25).
     [Collection(GlobalStateCollection.Name)]
     public class ProfileExtensionsTests : IDisposable
     {
-        // Todas as env vars conhecidas pelos 14 detectores, para isolar cada teste do ambiente real
-        // (inclusive quando este próprio test suite roda dentro de um CI real).
+        // All env vars known to the 14 detectors, to isolate each test from the real environment
+        // (including when this very test suite runs inside a real CI).
         private static readonly string[] AllKnownCiVars =
         [
             "APPVEYOR", "AZURE_PIPELINES", "bamboo_buildNumber",

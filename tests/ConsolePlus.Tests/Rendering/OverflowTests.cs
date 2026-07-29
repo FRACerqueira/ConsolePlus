@@ -6,7 +6,7 @@ using Xunit;
 namespace ConsolePlus.Tests.Rendering
 {
     // ConsoleWriter.WriteOutput(Fragment[]) overflow handling (ConsoleAbstractions/ConsoleWriter.cs:98-181).
-    // Needs a real Width/CursorLeft, hence VirtualTerminal (camada 2) rather than a pure unit test.
+    // Needs a real Width/CursorLeft, hence VirtualTerminal rather than a pure unit test.
     public class OverflowTests
     {
         private static VirtualTerminal MakeTerminal(bool supportsUnicode) => VirtualTerminal.Create(o =>

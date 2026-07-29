@@ -6,7 +6,7 @@ using Xunit;
 
 namespace ConsolePlus.Tests.Unit
 {
-    // AnsiColorBuilder.Build (ConsoleAbstractions/AnsiColorBuilder.cs) — camada 1, sem VirtualTerminal.
+    // AnsiColorBuilder.Build (ConsoleAbstractions/AnsiColorBuilder.cs) — no VirtualTerminal needed.
     // Color(255,0,0) matches palette index 9 in both the Standard and FourBit tables
     // (ColorPalette.cs:128,140 — Color equality only compares R/G/B, ignoring Number).
     public class AnsiColorBuilderTests
