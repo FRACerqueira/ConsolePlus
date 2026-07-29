@@ -1,37 +1,37 @@
-# Guia de Documentação da API
+# API Documentation Guide
 
-Este documento explica como a documentação da API do ConsolePlus é gerada e mantida.
+This document explains how ConsolePlus's API documentation is generated and maintained.
 
-## 🛠️ Ferramenta Utilizada
+## 🛠️ Tool Used
 
-A documentação da API é gerada automaticamente usando **[DefaultDocumentation](https://github.com/Doraku/DefaultDocumentation)** versão 1.2.5.
+The API documentation is generated automatically using **[DefaultDocumentation](https://github.com/Doraku/DefaultDocumentation)** version 1.2.5.
 
-DefaultDocumentation é uma ferramenta que converte os comentários XML do código C# em arquivos Markdown, criando uma documentação navegável e completa da API.
+DefaultDocumentation is a tool that converts C# XML comments in the code into Markdown files, producing complete, navigable API documentation.
 
-## 📁 Estrutura da Documentação
+## 📁 Documentation Structure
 
 ```
 docs/
-├── api/                          # Documentação da API (gerada automaticamente)
-│   ├── ConsolePlus.md           # Página principal do assembly
-│   ├── ConsolePlusLibrary.*.md  # Páginas de tipos e membros
-│   └── links.json               # Links externos (opcional)
-├── getting-started.md           # Guias manuais
+├── api/                          # API documentation (generated automatically)
+│   ├── ConsolePlus.md           # Assembly main page
+│   ├── ConsolePlusLibrary.*.md  # Type and member pages
+│   └── links.json               # External links (optional)
+├── getting-started.md           # Manual guides
 ├── colors.md
 └── ...
 ```
 
-## ⚙️ Configuração
+## ⚙️ Configuration
 
-A configuração do DefaultDocumentation está no arquivo `src/ConsolePlus.csproj`:
+The DefaultDocumentation configuration lives in `src/ConsolePlus.csproj`:
 
 ```xml
 <PropertyGroup>
-	<!-- Gera XML de documentação -->
+	<!-- Generates the documentation XML file -->
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
 </PropertyGroup>
 
-<!-- DefaultDocumentation APENAS em ReleaseDoc e no target net10.0 -->
+<!-- DefaultDocumentation ONLY in ReleaseDoc and on the net10.0 target -->
 <ItemGroup Condition="'$(Configuration)' == 'ReleaseDoc' and '$(TargetFramework)' == 'net10.0'">
 	<PackageReference Include="DefaultDocumentation" Version="1.2.5">
 		<!-- <PrivateAssets>all</PrivateAssets>
@@ -50,65 +50,65 @@ A configuração do DefaultDocumentation está no arquivo `src/ConsolePlus.cspro
 </PropertyGroup>
 ```
 
-> ℹ️ Após a geração, uma task MSBuild (`PrependDocIconHeader`) adiciona o cabeçalho com o ícone
-> (`DocIconUrl` / `DocIconWidth`) no topo de cada arquivo `.md` gerado em `docs/api`. Note que o
-> `PrivateAssets`/`IncludeAssets` do `PackageReference` está comentado no projeto real — deixado como
-> referência caso seja necessário reativar, não como configuração ativa.
+> ℹ️ After generation, an MSBuild task (`PrependDocIconHeader`) adds the header with the icon
+> (`DocIconUrl` / `DocIconWidth`) to the top of every `.md` file generated in `docs/api`. Note that the
+> `PrivateAssets`/`IncludeAssets` of the `PackageReference` are commented out in the actual project — left
+> as a reference in case they ever need to be re-enabled, not as active configuration.
 
-### Opções de Configuração
+### Configuration Options
 
-| Propriedade | Valor | Descrição |
+| Property | Value | Description |
 |-------------|-------|-----------|
-| `Condition` | `ReleaseDoc` + `net10.0` | **Documentação gerada APENAS em builds da configuração `ReleaseDoc` no target net10.0** (não em `Release`, que é usado para empacotar o NuGet sem regenerar docs) |
-| `DefaultDocumentationFolder` | `../docs/api` | Pasta de saída para os arquivos Markdown |
-| `DefaultDocumentationGeneratedPages` | `Assembly, Namespaces, Classes, Interfaces, Events, Enums, Structs, Delegates` | Páginas geradas |
-| `DefaultDocumentationFileNameFactory` | `NameAndMd5Mix` | Estratégia de nomeação dos arquivos gerados |
-| `DefaultDocumentationGeneratedAccessModifiers` | `Public` | Documenta apenas membros públicos |
-| `DefaultDocumentationAssemblyPageName` | `ConsolePlus` | Nome da página principal do assembly (`ConsolePlus.md`) |
-| `DocIconUrl` / `DocIconWidth` | icon.png / `120` | Cabeçalho com ícone adicionado a cada `.md` gerado |
+| `Condition` | `ReleaseDoc` + `net10.0` | **Documentation is generated ONLY on builds of the `ReleaseDoc` configuration on the net10.0 target** (not on `Release`, which is used to pack the NuGet without regenerating docs) |
+| `DefaultDocumentationFolder` | `../docs/api` | Output folder for the Markdown files |
+| `DefaultDocumentationGeneratedPages` | `Assembly, Namespaces, Classes, Interfaces, Events, Enums, Structs, Delegates` | Pages generated |
+| `DefaultDocumentationFileNameFactory` | `NameAndMd5Mix` | Naming strategy for the generated files |
+| `DefaultDocumentationGeneratedAccessModifiers` | `Public` | Documents public members only |
+| `DefaultDocumentationAssemblyPageName` | `ConsolePlus` | Name of the assembly's main page (`ConsolePlus.md`) |
+| `DocIconUrl` / `DocIconWidth` | icon.png / `120` | Icon header added to each generated `.md` file |
 
-## 🔄 Regenerando a Documentação
+## 🔄 Regenerating the Documentation
 
-A documentação é regenerada automaticamente toda vez que você compila o projeto na configuração
-**ReleaseDoc** para o target **net10.0**:
+The documentation is regenerated automatically every time you build the project in the
+**ReleaseDoc** configuration for the **net10.0** target:
 
 ### Via Visual Studio
-1. Abra a solução no Visual Studio
-2. Mude para configuração **ReleaseDoc**
+1. Open the solution in Visual Studio
+2. Switch to the **ReleaseDoc** configuration
 3. Build → Build Solution (Ctrl+Shift+B)
-4. Os arquivos Markdown serão atualizados em `docs/api/`
+4. The Markdown files will be updated in `docs/api/`
 
-**Nota**: Em builds **Debug** ou **Release** (ou em targets diferentes de net10.0), a documentação
-**não** é gerada — `Release` é usado apenas para empacotar o NuGet, sem o custo do DefaultDocumentation.
+**Note**: On **Debug** or **Release** builds (or on targets other than net10.0), the documentation
+is **not** generated — `Release` is used only to pack the NuGet, without paying the cost of running DefaultDocumentation.
 
-### Via Linha de Comando
+### Via Command Line
 ```bash
-# Na raiz do repositório - APENAS ReleaseDoc gera documentação (target net10.0)
+# From the repository root - ONLY ReleaseDoc generates documentation (net10.0 target)
 dotnet build src/ConsolePlus.csproj -c ReleaseDoc -f net10.0
 
-# Build Debug ou Release NÃO gera documentação
+# Debug or Release builds do NOT generate documentation
 dotnet build src/ConsolePlus.csproj -c Debug
 dotnet build src/ConsolePlus.csproj -c Release
 ```
 
-### Verificando os arquivos gerados
+### Checking the Generated Files
 ```powershell
-# Verificar arquivos gerados
+# Check generated files
 Get-ChildItem ..\docs\api\*.md | Select-Object Name, LastWriteTime
 ```
 
-## ✍️ Escrevendo Comentários XML
+## ✍️ Writing XML Comments
 
-Para que a documentação seja gerada corretamente, adicione comentários XML no código:
+For the documentation to be generated correctly, add XML comments in the code:
 
 ```csharp
 /// <summary>
-/// Escreve o texto especificado no console.
+/// Writes the specified text to the console.
 /// </summary>
-/// <param name="text">O texto a ser escrito.</param>
+/// <param name="text">The text to write.</param>
 /// <remarks>
-/// Este método suporta markup inline para estilização.
-/// Exemplo: <c>[red]Texto vermelho[/]</c>
+/// This method supports inline markup for styling.
+/// Example: <c>[red]Red text[/]</c>
 /// </remarks>
 /// <example>
 /// <code>
@@ -117,52 +117,52 @@ Para que a documentação seja gerada corretamente, adicione comentários XML no
 /// </example>
 public static void WriteLine(string text)
 {
-	// implementação
+	// implementation
 }
 ```
 
-### Tags XML Suportadas
+### Supported XML Tags
 
-| Tag | Uso |
+| Tag | Usage |
 |-----|-----|
-| `<summary>` | Descrição breve do membro |
-| `<param>` | Descrição de parâmetros |
-| `<returns>` | Descrição do valor de retorno |
-| `<remarks>` | Informações adicionais |
-| `<example>` | Exemplos de uso |
-| `<code>` | Blocos de código |
-| `<see>` | Referências cruzadas |
-| `<seealso>` | Ver também |
-| `<exception>` | Exceções que podem ser lançadas |
+| `<summary>` | Brief description of the member |
+| `<param>` | Description of parameters |
+| `<returns>` | Description of the return value |
+| `<remarks>` | Additional information |
+| `<example>` | Usage examples |
+| `<code>` | Code blocks |
+| `<see>` | Cross-references |
+| `<seealso>` | See also |
+| `<exception>` | Exceptions that may be thrown |
 
-## 📝 Boas Práticas
+## 📝 Best Practices
 
-1. **Seja Conciso**: Mantenha o `<summary>` em uma linha
-2. **Documente Tudo Público**: Todos os membros públicos devem ter documentação
-3. **Use Exemplos**: Adicione `<example>` para métodos complexos
-4. **Referencie Outros Tipos**: Use `<see cref="ClassName"/>` para criar links
-5. **Documente Exceções**: Use `<exception>` para documentar erros possíveis
-6. **Markdown nos Comentários**: Você pode usar markdown dentro de `<remarks>`
+1. **Be Concise**: Keep the `<summary>` to a single line
+2. **Document Everything Public**: Every public member should have documentation
+3. **Use Examples**: Add an `<example>` for complex methods
+4. **Reference Other Types**: Use `<see cref="ClassName"/>` to create links
+5. **Document Exceptions**: Use `<exception>` to document possible errors
+6. **Markdown in Comments**: You can use Markdown inside `<remarks>`
 
-## 🔍 Verificando a Qualidade
+## 🔍 Checking Quality
 
-### Avisos de Documentação
+### Documentation Warnings
 
-Para garantir que toda a API pública está documentada, você pode habilitar avisos:
+To make sure the entire public API is documented, you can enable warnings:
 
 ```xml
 <PropertyGroup>
-	<!-- Avisos para membros públicos sem documentação -->
+	<!-- Warnings for public members without documentation -->
 	<GenerateDocumentationFile>True</GenerateDocumentationFile>
-	<NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Remover para ver avisos -->
+	<NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Remove to see warnings -->
 </PropertyGroup>
 ```
 
-Remova `;CS1591` de `NoWarn` para ver avisos de documentação faltando.
+Remove `;CS1591` from `NoWarn` to see warnings about missing documentation.
 
-## 🌐 Links Externos (Opcional)
+## 🌐 External Links (Optional)
 
-O arquivo `docs/api/links.json` permite configurar links externos para tipos do .NET Framework:
+The `docs/api/links.json` file lets you configure external links for .NET Framework types:
 
 ```json
 {
@@ -172,77 +172,77 @@ O arquivo `docs/api/links.json` permite configurar links externos para tipos do 
 }
 ```
 
-Adicione novos tipos conforme necessário para melhorar os links da documentação.
+Add new types as needed to improve the documentation's links.
 
-## 🚀 Publicando a Documentação
+## 🚀 Publishing the Documentation
 
 ### GitHub Pages
 
-Para publicar a documentação no GitHub Pages:
+To publish the documentation on GitHub Pages:
 
-1. Configure o repositório para usar GitHub Pages
-2. Aponte para a branch/pasta que contém os arquivos Markdown
-3. A documentação estará disponível em `https://username.github.io/ConsolePlus/`
+1. Configure the repository to use GitHub Pages
+2. Point it to the branch/folder that contains the Markdown files
+3. The documentation will be available at `https://username.github.io/ConsolePlus/`
 
-### ReadTheDocs ou Outras Plataformas
+### ReadTheDocs or Other Platforms
 
-Os arquivos Markdown gerados podem ser usados com qualquer plataforma de documentação que suporte Markdown.
+The generated Markdown files can be used with any documentation platform that supports Markdown.
 
-## 🐛 Solução de Problemas
+## 🐛 Troubleshooting
 
-### Documentação Não Está Sendo Gerada
+### Documentation Is Not Being Generated
 
-1. Verifique se `GenerateDocumentationFile` está `True`
-2. Confirme que o pacote DefaultDocumentation está instalado
-3. Faça um Clean + Rebuild da solução
-4. Verifique erros de build no Output
+1. Check that `GenerateDocumentationFile` is `True`
+2. Confirm that the DefaultDocumentation package is installed
+3. Do a Clean + Rebuild of the solution
+4. Check for build errors in the Output
 
-### Avisos de Build
+### Build Warnings
 
-Se ver avisos relacionados ao DefaultDocumentation, verifique:
-- A versão do pacote é compatível com seu .NET SDK
-- Todas as propriedades de configuração estão corretas
-- Não há conflitos com outros analisadores
+If you see warnings related to DefaultDocumentation, check that:
+- The package version is compatible with your .NET SDK
+- All configuration properties are correct
+- There are no conflicts with other analyzers
 
-### Links Quebrados
+### Broken Links
 
-Se houver links quebrados na documentação:
-- Verifique se os namespaces/tipos referenciados existem
-- Atualize `links.json` para tipos externos
-- Use `<see cref="">` corretamente nos comentários XML
+If there are broken links in the documentation:
+- Check that the referenced namespaces/types exist
+- Update `links.json` for external types
+- Use `<see cref="">` correctly in the XML comments
 
-## 📦 Controle de Versão
+## 📦 Version Control
 
-### O que Commitar
+### What to Commit
 
-✅ **Commitar**:
-- Arquivos de configuração (`ConsolePlus.csproj`)
-- Comentários XML no código-fonte
-- `links.json` (se usado)
+✅ **Commit**:
+- Configuration files (`ConsolePlus.csproj`)
+- XML comments in the source code
+- `links.json` (if used)
 
-❓ **Opcional**:
-- Arquivos `.md` gerados em `docs/api/`
-  - **Commitar**: Para ter histórico e facilitar revisão em PRs
-  - **Não commitar**: Se preferir gerar sob demanda (adicionar `docs/api/*.md` ao `.gitignore`)
+❓ **Optional**:
+- Generated `.md` files in `docs/api/`
+  - **Commit**: To keep a history and make PR review easier
+  - **Don't commit**: If you prefer to generate them on demand (add `docs/api/*.md` to `.gitignore`)
 
-A escolha depende da preferência da equipe. Commitar permite ver mudanças na documentação em PRs.
+The choice depends on the team's preference. Committing lets you see documentation changes in PRs.
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Ao fazer um Pull Request que adiciona ou modifica API pública:
+When submitting a Pull Request that adds or modifies public API:
 
-1. ✅ Adicione comentários XML completos
-2. ✅ Inclua exemplos quando apropriado
-3. ✅ Regenere a documentação (build)
-4. ✅ Verifique se os arquivos `.md` foram atualizados
-5. ✅ Revise a documentação gerada para qualidade
+1. ✅ Add complete XML comments
+2. ✅ Include examples where appropriate
+3. ✅ Regenerate the documentation (build)
+4. ✅ Check that the `.md` files were updated
+5. ✅ Review the generated documentation for quality
 
-## 📚 Recursos
+## 📚 Resources
 
-- [DefaultDocumentation no GitHub](https://github.com/Doraku/DefaultDocumentation)
+- [DefaultDocumentation on GitHub](https://github.com/Doraku/DefaultDocumentation)
 - [XML Documentation Comments (Microsoft)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/)
 - [Recommended XML Tags (Microsoft)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags)
 
 ---
 
-**Última atualização**: Este guia foi criado junto com a configuração inicial do DefaultDocumentation para o ConsolePlus.
+**Last updated**: This guide was created together with the initial DefaultDocumentation setup for ConsolePlus.
