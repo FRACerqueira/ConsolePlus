@@ -142,6 +142,35 @@ bool CursorVisible { get; set; }
 #### Property Value
 [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
 
+<a name='ConsolePlusLibrary.IConsole.DemoModeActive'></a>
+
+## IConsole\.DemoModeActive Property
+
+Gets a value indicating whether demo mode is currently active, i\.e\. [DemoModeEnabled](IConsole.md#ConsolePlusLibrary.IConsole.DemoModeEnabled 'ConsolePlusLibrary\.IConsole\.DemoModeEnabled')
+is [true](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/bool 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/builtin\-types/bool') and there are scripted keys queued\.
+
+```csharp
+bool DemoModeActive { get; }
+```
+
+#### Property Value
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+<a name='ConsolePlusLibrary.IConsole.DemoModeEnabled'></a>
+
+## IConsole\.DemoModeEnabled Property
+
+Gets or sets a value indicating whether demo mode \(scripted keyboard input\) is enabled\.
+Default: false\. This is purely additive — when false, key reading behaves exactly as
+without this feature, even if scripted keys are queued\.
+
+```csharp
+bool DemoModeEnabled { get; set; }
+```
+
+#### Property Value
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
 <a name='ConsolePlusLibrary.IConsole.EnabledEmacs'></a>
 
 ## IConsole\.EnabledEmacs Property
@@ -194,6 +223,19 @@ ConsolePlusLibrary.Color ForegroundRgbColor { get; set; }
 
 #### Property Value
 [Color](Color.md 'ConsolePlusLibrary\.Color')
+
+<a name='ConsolePlusLibrary.IConsole.HasScriptedInput'></a>
+
+## IConsole\.HasScriptedInput Property
+
+Gets a value indicating whether there are scripted keys queued, regardless of [DemoModeEnabled](IConsole.md#ConsolePlusLibrary.IConsole.DemoModeEnabled 'ConsolePlusLibrary\.IConsole\.DemoModeEnabled')\.
+
+```csharp
+bool HasScriptedInput { get; }
+```
+
+#### Property Value
+[System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
 
 <a name='ConsolePlusLibrary.IConsole.Height'></a>
 
@@ -325,6 +367,19 @@ ConsolePlusLibrary.IProfileReadOnly Profile { get; }
 #### Property Value
 [IProfileReadOnly](IProfileReadOnly.md 'ConsolePlusLibrary\.IProfileReadOnly')
 
+<a name='ConsolePlusLibrary.IConsole.ScriptedDelayMs'></a>
+
+## IConsole\.ScriptedDelayMs Property
+
+Gets or sets the delay, in milliseconds, applied between consumed scripted keys \(typing\-effect pacing\)\.
+
+```csharp
+int ScriptedDelayMs { get; set; }
+```
+
+#### Property Value
+[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
 <a name='ConsolePlusLibrary.IConsole.SupportsAnsi'></a>
 
 ## IConsole\.SupportsAnsi Property
@@ -391,6 +446,143 @@ void Clear(System.Nullable<ConsolePlusLibrary.Color> backgroundcolor=null);
 `backgroundcolor` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[Color](Color.md 'ConsolePlusLibrary\.Color')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
 
 The background color to use when clearing the console\.
+
+<a name='ConsolePlusLibrary.IConsole.ClearScriptedInput()'></a>
+
+## IConsole\.ClearScriptedInput\(\) Method
+
+Removes all pending scripted keys from the queue\.
+
+```csharp
+void ClearScriptedInput();
+```
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKey,bool,bool,bool,System.Nullable_int_)'></a>
+
+## IConsole\.EnqueueKey\(ConsoleKey, bool, bool, bool, Nullable\<int\>\) Method
+
+Enqueues a scripted key press built from a [System\.ConsoleKey](https://learn.microsoft.com/en-us/dotnet/api/system.consolekey 'System\.ConsoleKey') and optional modifiers\.
+
+```csharp
+void EnqueueKey(System.ConsoleKey key, bool shift=false, bool alt=false, bool ctrl=false, System.Nullable<int> delayMs=null);
+```
+#### Parameters
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKey,bool,bool,bool,System.Nullable_int_).key'></a>
+
+`key` [System\.ConsoleKey](https://learn.microsoft.com/en-us/dotnet/api/system.consolekey 'System\.ConsoleKey')
+
+The key to enqueue\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKey,bool,bool,bool,System.Nullable_int_).shift'></a>
+
+`shift` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+Whether Shift is held\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKey,bool,bool,bool,System.Nullable_int_).alt'></a>
+
+`alt` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+Whether Alt is held\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKey,bool,bool,bool,System.Nullable_int_).ctrl'></a>
+
+`ctrl` [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
+
+Whether Control is held\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKey,bool,bool,bool,System.Nullable_int_).delayMs'></a>
+
+`delayMs` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+The delay, in milliseconds, applied before this key is consumed\. When [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null'), [ScriptedDelayMs](IConsole.md#ConsolePlusLibrary.IConsole.ScriptedDelayMs 'ConsolePlusLibrary\.IConsole\.ScriptedDelayMs') is used instead\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKeyInfo,System.Nullable_int_)'></a>
+
+## IConsole\.EnqueueKey\(ConsoleKeyInfo, Nullable\<int\>\) Method
+
+Enqueues a scripted key press to be consumed by [KeyAvailable](IConsole.md#ConsolePlusLibrary.IConsole.KeyAvailable 'ConsolePlusLibrary\.IConsole\.KeyAvailable')/[ReadKey\(bool\)](IConsole.md#ConsolePlusLibrary.IConsole.ReadKey(bool) 'ConsolePlusLibrary\.IConsole\.ReadKey\(bool\)')/[ReadKeyAsync\(bool, CancellationToken\)](IConsole.md#ConsolePlusLibrary.IConsole.ReadKeyAsync(bool,System.Threading.CancellationToken) 'ConsolePlusLibrary\.IConsole\.ReadKeyAsync\(bool, System\.Threading\.CancellationToken\)') when demo mode is active\.
+
+```csharp
+void EnqueueKey(System.ConsoleKeyInfo key, System.Nullable<int> delayMs=null);
+```
+#### Parameters
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKeyInfo,System.Nullable_int_).key'></a>
+
+`key` [System\.ConsoleKeyInfo](https://learn.microsoft.com/en-us/dotnet/api/system.consolekeyinfo 'System\.ConsoleKeyInfo')
+
+The key press to enqueue\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKey(System.ConsoleKeyInfo,System.Nullable_int_).delayMs'></a>
+
+`delayMs` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+The delay, in milliseconds, applied before this key is consumed\. When [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null'), [ScriptedDelayMs](IConsole.md#ConsolePlusLibrary.IConsole.ScriptedDelayMs 'ConsolePlusLibrary\.IConsole\.ScriptedDelayMs') is used instead\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKeys(int,System.ConsoleKeyInfo[])'></a>
+
+## IConsole\.EnqueueKeys\(int, ConsoleKeyInfo\[\]\) Method
+
+Enqueues multiple scripted key presses, in order, all sharing the same explicit delay\.
+
+```csharp
+void EnqueueKeys(int delayMs, params System.ConsoleKeyInfo[] keys);
+```
+#### Parameters
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKeys(int,System.ConsoleKeyInfo[]).delayMs'></a>
+
+`delayMs` [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')
+
+The delay, in milliseconds, applied before each key is consumed\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKeys(int,System.ConsoleKeyInfo[]).keys'></a>
+
+`keys` [System\.ConsoleKeyInfo](https://learn.microsoft.com/en-us/dotnet/api/system.consolekeyinfo 'System\.ConsoleKeyInfo')[\[\]](https://learn.microsoft.com/en-us/dotnet/api/system.array 'System\.Array')
+
+The key presses to enqueue\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKeys(System.ConsoleKeyInfo[])'></a>
+
+## IConsole\.EnqueueKeys\(ConsoleKeyInfo\[\]\) Method
+
+Enqueues multiple scripted key presses, in order\.
+
+```csharp
+void EnqueueKeys(params System.ConsoleKeyInfo[] keys);
+```
+#### Parameters
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueKeys(System.ConsoleKeyInfo[]).keys'></a>
+
+`keys` [System\.ConsoleKeyInfo](https://learn.microsoft.com/en-us/dotnet/api/system.consolekeyinfo 'System\.ConsoleKeyInfo')[\[\]](https://learn.microsoft.com/en-us/dotnet/api/system.array 'System\.Array')
+
+The key presses to enqueue\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueText(string,System.Nullable_int_)'></a>
+
+## IConsole\.EnqueueText\(string, Nullable\<int\>\) Method
+
+Enqueues scripted key presses representing the characters of the specified text, in order\.
+
+```csharp
+void EnqueueText(string text, System.Nullable<int> delayMs=null);
+```
+#### Parameters
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueText(string,System.Nullable_int_).text'></a>
+
+`text` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
+
+The text to enqueue as key presses\.
+
+<a name='ConsolePlusLibrary.IConsole.EnqueueText(string,System.Nullable_int_).delayMs'></a>
+
+`delayMs` [System\.Nullable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')[System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.nullable-1 'System\.Nullable\`1')
+
+The delay, in milliseconds, applied before each key is consumed\. When [null](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/null 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/null'), [ScriptedDelayMs](IConsole.md#ConsolePlusLibrary.IConsole.ScriptedDelayMs 'ConsolePlusLibrary\.IConsole\.ScriptedDelayMs') is used instead\.
 
 <a name='ConsolePlusLibrary.IConsole.GetCursorPosition()'></a>
 

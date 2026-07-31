@@ -267,7 +267,12 @@ var key = ConsolePlus.ReadKey(intercept: true);
 > `KeyAvailable` never throws under either condition — it simply returns `false`, so the polling loop
 > above is always safe to use as written. `Read()`/`ReadLine()` are unaffected by `IsInputRedirected`
 > (a redirected stream is a legitimate source for them); they only throw when `Profile.Interactive`
-> is `false`. See [ADR0015](adr/ADR0015V01R01-RedirectedConsoleIoContract.md) for the full contract.
+> is `false`. See [ADR0015](adr/ADR0015V01R02-RedirectedConsoleIoContract.md) for the full contract.
+>
+> This whole paragraph describes the fallback path once the [Demo Mode](demo-mode.md) scripted-key
+> queue is empty. While `DemoModeActive` is `true` (Demo Mode enabled **and** a scripted key
+> currently queued), `ReadKey`/`ReadKeyAsync` return the scripted key instead of throwing, and
+> `KeyAvailable` returns `true` instead of `false` — even under redirected input.
 
 ---
 

@@ -56,6 +56,16 @@ namespace ConsolePlus.Tests.Unit
             public Encoding OutputEncoding { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
             public TextReader In => throw new NotImplementedException();
             public TargetScreen CurrentBuffer => throw new NotImplementedException();
+            public bool DemoModeEnabled { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public bool DemoModeActive => throw new NotImplementedException();
+            public bool HasScriptedInput => throw new NotImplementedException();
+            public int ScriptedDelayMs { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+            public void EnqueueKey(ConsoleKeyInfo key, int? delayMs = null) => throw new NotImplementedException();
+            public void EnqueueKey(ConsoleKey key, bool shift = false, bool alt = false, bool ctrl = false, int? delayMs = null) => throw new NotImplementedException();
+            public void EnqueueKeys(params ConsoleKeyInfo[] keys) => throw new NotImplementedException();
+            public void EnqueueKeys(int delayMs, params ConsoleKeyInfo[] keys) => throw new NotImplementedException();
+            public void EnqueueText(string text, int? delayMs = null) => throw new NotImplementedException();
+            public void ClearScriptedInput() => throw new NotImplementedException();
 
             public void Write(char value) => throw new NotImplementedException();
             public void Write(char value, Style style) => throw new NotImplementedException();

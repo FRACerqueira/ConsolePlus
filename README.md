@@ -40,6 +40,7 @@ management — all behind one clean, static entry point: `ConsolePlus`.
 | 🔤 **ANSI** | Low-level `IAnsiCommands` emitter for direct escape-sequence control |
 | 🪟 **Legacy Windows** | Automatic ANSI support on pre-Windows 10 via bundled [ANSICON](https://github.com/adoxa/ansicon) |
 | ♿ **Accessibility** | WCAG luminance/contrast helpers to keep text readable |
+| 🎬 **Demo Mode** | Scripted keyboard input (opt-in) to auto-record GIFs/videos of console apps — see [Demo Mode](docs/demo-mode.md) |
 
 ---
 
@@ -122,6 +123,7 @@ Start here and follow the guides in order, or jump straight to the topic you nee
 
 ### Advanced
 - **[Advanced API](docs/advanced-api.md)** — driver access, thread-safe output, fragments, the Emacs buffer, and string/culture/key helpers
+- **[Demo Mode](docs/demo-mode.md)** — scripted keyboard input for recording GIFs/videos of console apps
 
 ### Development
 - **[Test Driver Maintenance](docs/testing-driver-maintenance.md)** — how the `VirtualTerminal` test driver is kept in sync with PromptPlus (contributor-facing, not part of the public API)
