@@ -14,8 +14,9 @@ keyboard — with optional per-key delays that reproduce a natural typing rhythm
 a human at the keyboard. It is purely additive and opt-in: when disabled, every input member behaves
 exactly as if Demo Mode did not exist, even if scripted keys happen to be queued.
 
-> 🎬 This is exactly how the demo video in [PromptPlus's README](https://github.com/FRACerqueira/PromptPlus)
-> was produced — see the runnable
+> 🎬 This is exactly how the demo GIF in [PromptPlus's README](https://github.com/FRACerqueira/PromptPlus)
+> was produced (recorded as video, then converted to GIF for reliable autoplay/loop on GitHub) — see
+> the runnable
 > [`AutoDemoSamples`](https://github.com/FRACerqueira/PromptPlus/tree/main/samples/AutoDemoSamples)
 > sample project and PromptPlus's own [Demo Mode guide](https://github.com/FRACerqueira/PromptPlus/blob/main/docs/demo-mode.md)
 > for the control-level view.
