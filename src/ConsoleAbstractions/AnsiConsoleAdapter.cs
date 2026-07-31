@@ -30,6 +30,9 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         private readonly ILock _lock;
         private readonly CancellationToken _mainToken;
         private bool _enabledEmacs;
+        private readonly System.Collections.Concurrent.ConcurrentQueue<(ConsoleKeyInfo Key, int? DelayMs)> _scriptedKeys = new();
+        private volatile bool _demoModeEnabled;
+        private int _scriptedDelayMs;
 
 
         /// <inheritdoc/>
@@ -1177,6 +1180,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         public async Task<ConsoleKeyInfo?> ReadKeyAsync(bool intercept, CancellationToken cancellationToken)
         {
             ThrowIfDisposed();
+            if (_demoModeEnabled && _scriptedKeys.TryDequeue(out var scripted))
+            {
+                return await ConsumeScriptedKeyAsync(scripted, cancellationToken);
+            }
             if (!_profile.Interactive || Console.IsInputRedirected)
             {
                 // A real key press requires a live console input buffer; a redirected input
@@ -1191,7 +1198,10 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                 using var linkedCts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken, _mainToken);
                 while (true)
                 {
-                   
+                    if (_demoModeEnabled && _scriptedKeys.TryDequeue(out var scriptedLoop))
+                    {
+                        return await ConsumeScriptedKeyAsync(scriptedLoop, linkedCts.Token);
+                    }
                     if (!Console.KeyAvailable)
                     {
                         try
@@ -1211,6 +1221,23 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
                     }
                 }
             });
+        }
+
+        private async Task<ConsoleKeyInfo?> ConsumeScriptedKeyAsync((ConsoleKeyInfo Key, int? DelayMs) entry, CancellationToken cancellationToken)
+        {
+            var delay = entry.DelayMs ?? _scriptedDelayMs;
+            if (delay > 0)
+            {
+                try
+                {
+                    await Task.Delay(delay, cancellationToken);
+                }
+                catch (OperationCanceledException)
+                {
+                    return null;
+                }
+            }
+            return entry.Key;
         }
 
         /// <inheritdoc/>
@@ -1272,15 +1299,76 @@ namespace ConsolePlusLibrary.ConsoleAbstractions
         }
 
         /// <inheritdoc/>
-        public bool KeyAvailable 
-        { 
-            get 
+        public bool KeyAvailable
+        {
+            get
             {
                 return _lock.Run(() =>
                 {
-                    return _profile.Interactive && !Console.IsInputRedirected && Console.KeyAvailable;
+                    return (_demoModeEnabled && !_scriptedKeys.IsEmpty)
+                        || (_profile.Interactive && !Console.IsInputRedirected && Console.KeyAvailable);
                 });
             }
+        }
+
+        /// <inheritdoc/>
+        public bool DemoModeEnabled
+        {
+            get => _demoModeEnabled;
+            set => _demoModeEnabled = value;
+        }
+
+        /// <inheritdoc/>
+        public bool DemoModeActive => _demoModeEnabled && !_scriptedKeys.IsEmpty;
+
+        /// <inheritdoc/>
+        public bool HasScriptedInput => !_scriptedKeys.IsEmpty;
+
+        /// <inheritdoc/>
+        public int ScriptedDelayMs
+        {
+            get => _scriptedDelayMs;
+            set => _lock.Run(() => _scriptedDelayMs = value);
+        }
+
+        /// <inheritdoc/>
+        public void EnqueueKey(ConsoleKeyInfo key, int? delayMs = null) => _scriptedKeys.Enqueue((key, delayMs));
+
+        /// <inheritdoc/>
+        public void EnqueueKey(ConsoleKey key, bool shift = false, bool alt = false, bool ctrl = false, int? delayMs = null)
+            => _scriptedKeys.Enqueue((ScriptedKeyFactory.FromKey(key, shift, alt, ctrl), delayMs));
+
+        /// <inheritdoc/>
+        public void EnqueueKeys(params ConsoleKeyInfo[] keys)
+        {
+            foreach (var key in keys)
+            {
+                _scriptedKeys.Enqueue((key, null));
+            }
+        }
+
+        /// <inheritdoc/>
+        public void EnqueueKeys(int delayMs, params ConsoleKeyInfo[] keys)
+        {
+            foreach (var key in keys)
+            {
+                _scriptedKeys.Enqueue((key, delayMs));
+            }
+        }
+
+        /// <inheritdoc/>
+        public void EnqueueText(string text, int? delayMs = null)
+        {
+            foreach (var key in ScriptedKeyFactory.FromText(text))
+            {
+                _scriptedKeys.Enqueue((key, delayMs));
+            }
+        }
+
+        /// <inheritdoc/>
+        public void ClearScriptedInput()
+        {
+            while (_scriptedKeys.TryDequeue(out _)) { }
         }
 
         /// <inheritdoc/>

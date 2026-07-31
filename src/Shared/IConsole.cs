@@ -872,6 +872,70 @@ namespace ConsolePlusLibrary
         /// <returns>True if the buffer was successfully swapped; otherwise, false.</returns>
         bool SwapBuffer(TargetScreen value);
 
+        /// <summary>
+        /// Gets or sets a value indicating whether demo mode (scripted keyboard input) is enabled.
+        /// Default: false. This is purely additive — when false, key reading behaves exactly as
+        /// without this feature, even if scripted keys are queued.
+        /// </summary>
+        bool DemoModeEnabled { get; set; }
+
+        /// <summary>
+        /// Gets a value indicating whether demo mode is currently active, i.e. <see cref="DemoModeEnabled"/>
+        /// is <see langword="true"/> and there are scripted keys queued.
+        /// </summary>
+        bool DemoModeActive { get; }
+
+        /// <summary>
+        /// Gets a value indicating whether there are scripted keys queued, regardless of <see cref="DemoModeEnabled"/>.
+        /// </summary>
+        bool HasScriptedInput { get; }
+
+        /// <summary>
+        /// Gets or sets the delay, in milliseconds, applied between consumed scripted keys (typing-effect pacing).
+        /// </summary>
+        int ScriptedDelayMs { get; set; }
+
+        /// <summary>
+        /// Enqueues a scripted key press to be consumed by <see cref="KeyAvailable"/>/<see cref="ReadKey"/>/<see cref="ReadKeyAsync"/> when demo mode is active.
+        /// </summary>
+        /// <param name="key">The key press to enqueue.</param>
+        /// <param name="delayMs">The delay, in milliseconds, applied before this key is consumed. When <see langword="null"/>, <see cref="ScriptedDelayMs"/> is used instead.</param>
+        void EnqueueKey(ConsoleKeyInfo key, int? delayMs = null);
+
+        /// <summary>
+        /// Enqueues a scripted key press built from a <see cref="ConsoleKey"/> and optional modifiers.
+        /// </summary>
+        /// <param name="key">The key to enqueue.</param>
+        /// <param name="shift">Whether Shift is held.</param>
+        /// <param name="alt">Whether Alt is held.</param>
+        /// <param name="ctrl">Whether Control is held.</param>
+        /// <param name="delayMs">The delay, in milliseconds, applied before this key is consumed. When <see langword="null"/>, <see cref="ScriptedDelayMs"/> is used instead.</param>
+        void EnqueueKey(ConsoleKey key, bool shift = false, bool alt = false, bool ctrl = false, int? delayMs = null);
+
+        /// <summary>
+        /// Enqueues multiple scripted key presses, in order.
+        /// </summary>
+        /// <param name="keys">The key presses to enqueue.</param>
+        void EnqueueKeys(params ConsoleKeyInfo[] keys);
+
+        /// <summary>
+        /// Enqueues multiple scripted key presses, in order, all sharing the same explicit delay.
+        /// </summary>
+        /// <param name="delayMs">The delay, in milliseconds, applied before each key is consumed.</param>
+        /// <param name="keys">The key presses to enqueue.</param>
+        void EnqueueKeys(int delayMs, params ConsoleKeyInfo[] keys);
+
+        /// <summary>
+        /// Enqueues scripted key presses representing the characters of the specified text, in order.
+        /// </summary>
+        /// <param name="text">The text to enqueue as key presses.</param>
+        /// <param name="delayMs">The delay, in milliseconds, applied before each key is consumed. When <see langword="null"/>, <see cref="ScriptedDelayMs"/> is used instead.</param>
+        void EnqueueText(string text, int? delayMs = null);
+
+        /// <summary>
+        /// Removes all pending scripted keys from the queue.
+        /// </summary>
+        void ClearScriptedInput();
 
     }
 }

@@ -4,7 +4,7 @@
   # Advanced API
 </div>
 
-[← ConsolePlus + PromptPlus](promptplus.md) • [Back to Home](../README.md)
+[← ConsolePlus + PromptPlus](promptplus.md) • [Back to Home](../README.md) • **Next:** [Demo Mode →](demo-mode.md)
 
 ---
 
@@ -297,4 +297,4 @@ bool ok = "pt-BR".ExistsCulture();
 
 ---
 
-[← ConsolePlus + PromptPlus](promptplus.md) • [Back to Home](../README.md)
+[← ConsolePlus + PromptPlus](promptplus.md) • [Back to Home](../README.md) • **Next:** [Demo Mode →](demo-mode.md)

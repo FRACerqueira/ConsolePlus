@@ -86,7 +86,7 @@ ConsolePlus.Clear(ConsoleColor.Blue);   // ConsoleColor implicitly converts to C
 > setters, and `HideCursor()`/`ShowCursor()` never throw when there is no real console attached (output
 > redirected to a file/pipe, or a headless/CI process) — they silently do nothing (the two `bool`-returning
 > members return `false`). These are presentation-only operations with nothing meaningful to report when
-> there is no screen to draw on. See [ADR0015](adr/ADR0015V01R01-RedirectedConsoleIoContract.md) for the
+> there is no screen to draw on. See [ADR0015](adr/ADR0015V01R02-RedirectedConsoleIoContract.md) for the
 > full redirected-I/O contract, including how key-based **reads** differ (they throw predictably instead).
 
 ---
