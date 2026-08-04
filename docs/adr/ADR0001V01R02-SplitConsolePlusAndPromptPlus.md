@@ -17,7 +17,7 @@
   # ADR0001V01R02
 </div>
 
-[ADR Index](README.md) • **Next:** [ADR0002 →](ADR0002V01R02-ImmutableCapabilityProfile.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

@@ -17,7 +17,7 @@
   # ADR0002V01R02
 </div>
 
-[← ADR0001](ADR0001V01R02-SplitConsolePlusAndPromptPlus.md) • [ADR Index](README.md) • **Next:** [ADR0003 →](ADR0003V01R01-AutomaticInitializationOnFirstAccess.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

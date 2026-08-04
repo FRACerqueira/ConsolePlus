@@ -17,7 +17,7 @@
   # ADR0011V01R01
 </div>
 
-[← ADR0010](ADR0010V01R01-MarkupLanguage.md) • [ADR Index](README.md) • **Next:** [ADR0012 →](ADR0012V01R01-EmojiShortcodeModel.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

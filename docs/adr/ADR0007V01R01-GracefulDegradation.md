@@ -17,7 +17,7 @@
   # ADR0007V01R01
 </div>
 
-[← ADR0006](ADR0006V01R01-AutoDetectTriState.md) • [ADR Index](README.md) • **Next:** [ADR0008 →](ADR0008V01R01-ColorDepthModel.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

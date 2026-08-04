@@ -17,7 +17,7 @@
   # ADR0015V01R02
 </div>
 
-[← ADR0014](ADR0014V01R02-GeneratedApiDocsOffLimits.md) • [ADR Index](README.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 
