@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using ConsolePlusLibrary;
 using ConsolePlusLibrary.Testing;
@@ -114,10 +115,29 @@ namespace ConsolePlus.Tests.Unit
             ConsolePlusLibrary.ConsolePlus.KeyAvailable.Should().BeFalse();
         }
 
+        // Ground truth: this test's premise only holds when the test host's Console.IsInputRedirected
+        // is true (verified empirically for the CI/automated runners this suite targets), which is
+        // what makes the adapter's guard throw immediately. _profile.Interactive is captured once and
+        // immutable (ADR0002), so there is no test seam to force the guard's other condition instead.
+        // Confirmed empirically (2026-08-04, VS2026 local run): with a real, non-redirected console
+        // attached, the guard does not trip and ReadKeyAsync falls through to its real key-polling
+        // loop — per ADR0015, that loop only exits via cancellation, with no independent timeout, and
+        // on cancellation it returns null rather than throwing (by design, so a caller's own
+        // cancellation isn't reported as a console error) — so the assertion below would either hang
+        // forever (no token) or complete with no exception thrown (bounded token), never the
+        // InvalidOperationException this test exists to verify. Skipping is the honest outcome: this
+        // environment cannot exercise the code path being tested, rather than asserting on it anyway.
         [Fact]
         public async Task ReadKeyAsync_throws_InvalidOperationException_instead_of_the_raw_console_exception_when_input_is_redirected()
         {
-            Func<Task> act = () => ConsolePlusLibrary.ConsolePlus.ReadKeyAsync(intercept: true);
+            if (!Console.IsInputRedirected)
+            {
+                Assert.Skip("Requires a redirected console input (Console.IsInputRedirected == true) " +
+                    "to exercise the guard being tested; this test host has a real console attached.");
+            }
+
+            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+            Func<Task> act = () => ConsolePlusLibrary.ConsolePlus.ReadKeyAsync(intercept: true, cts.Token);
 
             await act.Should().ThrowAsync<InvalidOperationException>()
                 .WithMessage("Console is not interactive.");

@@ -1,15 +1,15 @@
-<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0002V01R02 |
-| Version | 01 |
-| Revision | 02 |
-| Status | Accepted |
-| Created | 2026-07-24 |
-| Changed | 2026-07-25 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|Immutable capability profile|
+|Version|01|
+|Revision|02|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-24)|
+|Changed|Accepted (2026-07-25)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -22,12 +22,6 @@
 ---
 
 # ADR0002V01R02 — Immutable capability profile
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R02
-- **Created:** 2026-07-24
-- **Changed:** 2026-07-25 (R02 — documented the real override path; removed a dead API that
-  contradicted this decision)
 
 ## Context
 
@@ -73,3 +67,4 @@ pre-1.0/Beta, so this is not considered a breaking change).
   color support) are not reflected; acceptable because such changes are rare and
   restart-scoped. Overriding via `ConsoleProfile.json` requires a restart to take effect (the file
   is only read at startup) — there is no live-reload.
+

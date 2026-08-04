@@ -1,15 +1,15 @@
-<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0015V01R02 |
-| Version | 01 |
-| Revision | 02 |
-| Status | Accepted |
-| Created | 2026-07-28 |
-| Changed | 2026-07-31 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|Redirected/headless console I/O: fail-safe writes, fail-loud reads|
+|Version|01|
+|Revision|02|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-28)|
+|Changed|Accepted (2026-07-31)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -22,13 +22,6 @@
 ---
 
 # ADR0015V01R02 — Redirected/headless console I/O: fail-safe writes, fail-loud reads
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R02
-- **Created:** 2026-07-28
-- **Changed:** 2026-07-31 (R02 — carved out the [Demo Mode](../demo-mode.md) scripted-input
-  exception: the contract below is the fallback path once the scripted-key queue is empty, not an
-  unconditional guarantee)
 
 ## Context
 
@@ -97,11 +90,11 @@ redirected/headless I/O, split by what the member does:
   Demo Mode is active and keys are queued, in which case it becomes `true` exactly as scripted. This
   is correct for `KeyAvailable`'s own non-throwing contract, but any code built on top of it (such as
   PromptPlus's interactive controls) must add its **own** upfront `IsInputRedirected` check if it
-  wants to fail fast instead of hanging — see PromptPlus's
-  [ADR0023 — Guard interactive controls against redirected console input](https://github.com/FRACerqueira/PromptPlus/blob/main/docs/adr/ADR0023V01R02-GuardInteractiveControlsAgainstRedirectedInput.md),
-  which does exactly that on top of this contract (and itself carves out the same Demo Mode
-  exception).
+  wants to fail fast instead of hanging — see PromptPlus's ADR0023 — "Guard interactive
+  controls against redirected console input" — which does exactly that on top of this
+  contract (and itself carves out the same Demo Mode exception).
 - **Dependency (R02):** a script driving a redirected/headless run under Demo Mode must keep the
   scripted-key queue non-empty for the entire duration a consuming control needs it — the exception
   above is evaluated per read call, not latched for the whole run. See
   [Demo Mode → Demo Mode and redirected/headless input](../demo-mode.md#demo-mode-and-redirectedheadless-input).
+

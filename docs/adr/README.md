@@ -31,11 +31,17 @@ ADR{seq:0000}V{version:00}R{revision:00}-DecisionTitle.md
 ```
 
 - `ADR0001V01R01-...` — created
-- `ADR0001V02R01-...` — after a version bump (new decision that supersedes the prior version)
+- `ADR0001V02R01-...` — after a version bump (a new decision that replaces the prior version)
 - `ADR0001V03R02-...` — after a revision within a version
 
-Status labels: **Proposed** → **Accepted** / **Rejected**, and **Superseded**
-when a successor version replaces it.
+Status labels: **Proposed** → **Accepted** / **Rejected**. **Superseded** is set by the
+`supersede` command — a *different* decision, under a new sequence number, entirely
+replacing this one — not by a version bump. Verified against `adrplus` v1.0.0-beta4: a
+version bump (`version` command) leaves the predecessor's header at its last real status
+(Accepted/Rejected) with a blank `Superseded` field; only the successor sequence-number
+case populates it. The succession from a version bump is documented in prose only (the
+predecessor's `Status:` bullet and this index's Status column), not in its machine-readable
+header table.
 
 Numbering is **per project** and independent from the PromptPlus ADR sequence.
 ADR0001 records the foundational decision to split PromptPlus 5.x into two
@@ -58,5 +64,5 @@ projects (ConsolePlus + PromptPlus).
 | [ADR0011V01R01](ADR0011V01R01-ShutdownStateRestoration.md) | Shutdown state restoration | V01 | Accepted |
 | [ADR0012V01R01](ADR0012V01R01-EmojiShortcodeModel.md) | Emoji shortcode model with fallback | V01 | Accepted |
 | [ADR0013V01R01](ADR0013V01R01-LowLevelAnsiAndAlternateScreen.md) | Low-level ANSI and alternate-screen API | V01 | Accepted |
-| [ADR0014V01R02](ADR0014V01R02-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits; regeneration gated on `ReleaseDoc` | V01 (R02) | Accepted |
+| [ADR0014V01R02](ADR0014V01R02-GeneratedApiDocsOffLimits.md) | Generated API docs are off-limits for manual edits; regeneration is gated on `ReleaseDoc`, not `Release` | V01 (R02) | Accepted |
 | [ADR0015V01R02](ADR0015V01R02-RedirectedConsoleIoContract.md) | Redirected/headless console I/O: fail-safe writes, fail-loud reads | V01 (R02) | Accepted |
