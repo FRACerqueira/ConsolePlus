@@ -1,15 +1,15 @@
-﻿<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0008V01R01 |
-| Version | 01 |
-| Revision | 01 |
-| Status | Accepted |
-| Created | 2026-07-24 |
-| Changed | 2026-07-24 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|Color depth model (`ColorSystem`)|
+|Version|01|
+|Revision|01|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-24)|
+|Changed|Accepted (2026-07-24)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -24,10 +24,6 @@
 
 
 # ADR0008V01R01 — Color depth model (`ColorSystem`)
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R01
-- **Created:** 2026-07-24
 
 ## Context
 
@@ -55,3 +51,4 @@ and requested colors are down-mapped to the terminal's supported depth.
   detected capability explicit and queryable.
 - **Negative / trade-off:** color fidelity varies by terminal; the down-mapping
   from true color to 256/16 colors is approximate.
+

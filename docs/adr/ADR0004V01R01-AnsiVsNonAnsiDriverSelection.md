@@ -1,15 +1,15 @@
-﻿<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0004V01R01 |
-| Version | 01 |
-| Revision | 01 |
-| Status | Accepted |
-| Created | 2026-07-24 |
-| Changed | 2026-07-24 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|ANSI vs non-ANSI driver selection|
+|Version|01|
+|Revision|01|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-24)|
+|Changed|Accepted (2026-07-24)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -24,10 +24,6 @@
 
 
 # ADR0004V01R01 — ANSI vs non-ANSI driver selection
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R01
-- **Created:** 2026-07-24
 
 ## Context
 
@@ -52,3 +48,4 @@ identical regardless of terminal.
   isolated in the driver.
 - **Negative / trade-off:** two adapters to maintain; feature parity between them
   is limited by what the non-ANSI console can express.
+

@@ -1,15 +1,15 @@
-﻿<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0003V01R01 |
-| Version | 01 |
-| Revision | 01 |
-| Status | Accepted |
-| Created | 2026-07-24 |
-| Changed | 2026-07-24 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|Automatic initialization on first access|
+|Version|01|
+|Revision|01|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-24)|
+|Changed|Accepted (2026-07-24)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -24,10 +24,6 @@
 
 
 # ADR0003V01R01 — Automatic initialization on first access
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R01
-- **Created:** 2026-07-24
 
 ## Context
 
@@ -49,3 +45,4 @@ driver. No initialize method is exposed.
   first render.
 - **Negative / trade-off:** the one-time cost is hidden on first access; startup
   side effects (encoding capture) happen implicitly and must be documented.
+

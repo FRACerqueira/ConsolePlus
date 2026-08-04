@@ -1,15 +1,15 @@
-<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0005V01R02 |
-| Version | 01 |
-| Revision | 02 |
-| Status | Accepted |
-| Created | 2026-07-24 |
-| Changed | 2026-07-25 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|ANSICON launch (not injection) for legacy Windows|
+|Version|01|
+|Revision|02|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-24)|
+|Changed|Accepted (2026-07-25)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -22,12 +22,6 @@
 ---
 
 # ADR0005V01R02 — ANSICON launch (not injection) for legacy Windows
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R02
-- **Created:** 2026-07-24
-- **Changed:** 2026-07-25 (R02 — corrected the mechanism description; the original text described
-  DLL injection, but the real implementation never did that)
 
 ## Context
 
@@ -59,3 +53,4 @@ configuration.
   architecture, which some environments/AV tooling may flag merely for being an
   unfamiliar bundled binary; scoped strictly to legacy Windows where native
   ANSI is absent.
+

@@ -1,15 +1,15 @@
-<!-- Do not remove this comment, lines and table -->
-<!--
-| Fields | Values |
-| --- | --- |
-| ADR | ADR0001V01R02 |
-| Version | 01 |
-| Revision | 02 |
-| Status | Accepted |
-| Created | 2026-07-24 |
-| Changed | 2026-07-25 |
-| Superseded |  |
--->
+<!-- Do not remove this comment, lines and table (1-12) -->
+|Adr-Plus Fields|Values Migrated <!-- Migrated -->|
+|--|--|
+|ADR|Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus)|
+|Version|01|
+|Revision|02|
+|Scope||
+|Domain||
+|Created|Proposed (2026-07-24)|
+|Changed|Accepted (2026-07-25)|
+|Superseded||
+<!-- Do not remove this comment, lines and table (1-12) -->
 
 <div align="center">
   <img src="../../icon.png" alt="ConsolePlus" width="120" height="120" />
@@ -24,11 +24,6 @@
 
 
 # ADR0001V01R02 — Split PromptPlus 5.x into two projects (ConsolePlus + PromptPlus)
-
-- **Status:** Accepted
-- **Version:** V01 / Revision R02
-- **Created:** 2026-07-24
-- **Changed:** 2026-07-25
 
 ## Context
 
@@ -61,11 +56,13 @@ ConsolePlus is the base layer and has **no dependency on PromptPlus**. PromptPlu
 depends on ConsolePlus (one-directional) and reuses the same console driver
 instance (`PromptPlus.Console` is the same as `ConsolePlus.Driver`).
 
-**R02 — 2026-07-25:** this record absorbs the former ADR0011 ("Separation of
-ConsolePlus and PromptPlus"), which restated the same split decision from the
-ongoing-boundary angle without adding a distinct decision of its own. The
-boundary must be kept clean going forward: neither project should leak
-implementation details across the dependency direction established above.
+**R02 — 2026-07-25:** this record absorbs a now-retired record titled "Separation of
+ConsolePlus and PromptPlus" (formerly numbered ADR0011, before renumbering freed
+that number for the unrelated decision now at [ADR0011](ADR0011V01R01-ShutdownStateRestoration.md)),
+which restated the same split decision from the ongoing-boundary angle without
+adding a distinct decision of its own. The boundary must be kept clean going
+forward: neither project should leak implementation details across the
+dependency direction established above.
 
 ## Consequences
 
@@ -80,3 +77,4 @@ implementation details across the dependency direction established above.
 ## Related
 
 - PromptPlus ADR0001 records the same decision from the interaction side.
+
