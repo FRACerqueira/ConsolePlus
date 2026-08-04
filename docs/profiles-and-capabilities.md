@@ -74,8 +74,10 @@ ConsolePlus.WriteLine($"ColorDepth  : {p.ColorDepth}");        // ColorSystem
 | `ProfileName` | `string` | Logical name of the detected terminal/config |
 | `IsTerminal` | `bool` | `true` when the output is an interactive terminal (TTY) |
 | `Interactive` | `bool` | `true` when the console supports interaction |
-| `SupportUnicode` | `AutoDetect` | Whether Unicode output is supported |
-| `SupportsAnsi` | `AutoDetect` | Whether ANSI escape sequences are supported |
+| `SupportUnicode` | `AutoDetect` | Whether Unicode output is supported (`Yes`/`No`/`Detect`) |
+| `SupportsAnsi` | `AutoDetect` | Whether ANSI escape sequences are supported (`Yes`/`No`/`Detect`) |
+| `DetectedUnicodeSupport` | `bool` | The raw Unicode-probe result. Only meaningful when `SupportUnicode` is `Detect` — an explicit `Yes`/`No` (set via code or `ConsoleProfile.json`) skips the probe entirely |
+| `DetectedAnsiSupport` | `bool` | The raw ANSI-probe result. Same relationship to `SupportsAnsi` as `DetectedUnicodeSupport` has to `SupportUnicode` |
 | `ColorDepth` | `ColorSystem` | Detected color capability |
 | `OriginalCulture` | `string` | Culture captured at startup |
 | `DefaultForegroundColor` / `DefaultBackgroundColor` | `Color` | Default colors |
@@ -84,7 +86,8 @@ ConsolePlus.WriteLine($"ColorDepth  : {p.ColorDepth}");        // ColorSystem
 
 `IProfileReadOnly` is genuinely **read-only** — there is no fluent setter API on it or on
 `ConsolePlus.Profile`. To override any of these values, use a `ConsoleProfile.json` file, read once
-before detection runs; see [Environment Detection → Override detection](environment-detection.md#override-detection).
+right after CI/CD provider enrichment but before terminal-capability probing (ANSI/Unicode/color
+depth); see [Environment Detection → Override detection](environment-detection.md#override-detection).
 
 ---
 

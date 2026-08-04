@@ -47,13 +47,13 @@ management — all behind one clean, static entry point: `ConsolePlus`.
 ## 📦 Installation
 
 ```bash
-dotnet add package ConsolePlus
+dotnet add package ConsolePlus.net
 ```
 
 Or via the Package Manager Console:
 
 ```powershell
-Install-Package ConsolePlus
+Install-Package ConsolePlus.net
 ```
 
 **Supported target frameworks:** `.NET 8`, `.NET 9`, `.NET 10`.
@@ -127,6 +127,7 @@ Start here and follow the guides in order, or jump straight to the topic you nee
 
 ### Development
 - **[Test Driver Maintenance](docs/testing-driver-maintenance.md)** — how the `VirtualTerminal` test driver is kept in sync with PromptPlus (contributor-facing, not part of the public API)
+- **[API Documentation Guide](docs/api-documentation-guide.md)** — how `docs/api/` is generated and regenerated (contributor-facing, not part of the public API)
 
 ---
 

@@ -18,6 +18,7 @@ support.
 - [Asynchronous key reads](#asynchronous-key-reads)
 - [The Emacs-style line editor](#the-emacs-style-line-editor)
   - [Key bindings](#key-bindings)
+  - [Enable or disable Emacs letter shortcuts](#enable-or-disable-emacs-letter-shortcuts)
   - [ReadLineEmacs vs. ReadInlineEmacs](#readlineemacs-vs-readinlineemacs)
   - [Filtering input](#filtering-input)
   - [Case transformation and length limits](#case-transformation-and-length-limits)
@@ -143,6 +144,12 @@ buffer ignores `Home`/`End`/arrows/`Ctrl+A`/`Ctrl+E`/etc. entirely, not just del
 > ℹ️ The `caseOptions` parameter forces the case of newly typed characters, while `Alt+U`, `Alt+L`,
 > and `Ctrl+C` transform characters that are already in the buffer.
 
+> ⚠️ **`Ctrl+C` never actually reaches this binding in a real interactive terminal.** ConsolePlus
+> subscribes to `Console.CancelKeyPress` at startup and always calls `Environment.Exit` on it (it
+> never sets `e.Cancel = true` and never honors `TreatControlCAsInput`), so pressing `Ctrl+C`
+> terminates the process before any Emacs buffer sees the keystroke. The binding above only fires
+> in hosts where `Console.CancelKeyPress` isn't wired the same way (e.g. some test harnesses).
+
 ### Enable or disable Emacs letter shortcuts
 
 If your terminal captures `Ctrl`/`Alt` combinations (common on some Linux terminal setups), you can
@@ -218,6 +225,9 @@ string code = ConsolePlus.ReadLineEmacs(
 > `caseOptions: CaseOptions.Uppercase` combined with `acceptInput: char.IsLower`) will silently
 > reject every character, since it never sees a lowercase char to accept. Write `acceptInput`
 > predicates that are case-insensitive (or that expect the target case) when using `caseOptions`.
+
+> `maxlength` must be a positive number — `ReadLineEmacs`/`ReadInlineEmacs` (and their async
+> variants) throw `ArgumentOutOfRangeException` if `maxlength` is zero or negative.
 
 ### Async and cancellation
 

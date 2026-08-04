@@ -78,10 +78,14 @@ Recorded so nobody re-proposes these without re-deriving the same tradeoff:
 
 - [ ] Change applied to both `ConsolePlus/tests/_driver-src` and `PromptPlus/tests/_driver-src`
 - [ ] Both test suites pass locally
-- [ ] Diff between the two `_driver-src` folders is empty
-- [ ] If the change reflects a ConsolePlus API change, confirm PromptPlus's reference to ConsolePlus
-      (`PromptPlus.csproj`, `ProjectReference` in Debug vs `PackageReference` in Release) resolves a
-      version that actually has the new API
+- [ ] Diff between the two `_driver-src` folders is empty **after normalizing line endings** (e.g.
+      `git diff --no-index -w`, or `diff -q -B`) — PromptPlus's copies are CRLF and ConsolePlus's are
+      LF, so a byte-for-byte diff always reports every file as different even when the content is
+      identical; that's a tooling false positive, not real drift.
+- [ ] If the change reflects a ConsolePlus API change, confirm PromptPlus's `PromptPlus.csproj`
+      `PackageReference` to `ConsolePlus.net` is pinned to a version that actually has the new API
+      (see `PromptPlus/docs/consoleplus-dependency.md`, not a clickable link here since it lives in a
+      separate repo)
 
 ---
 

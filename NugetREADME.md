@@ -29,13 +29,13 @@ ConsolePlus is a .NET library that makes it easier to create **beautiful, cross-
 ## 📦 Installation
 
 ```bash
-dotnet add package ConsolePlus
+dotnet add package ConsolePlus.net
 ```
 
 Or via the Package Manager Console:
 
 ```powershell
-Install-Package ConsolePlus
+Install-Package ConsolePlus.net
 ```
 
 **Supported frameworks:** `.NET 8`, `.NET 9`, `.NET 10`

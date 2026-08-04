@@ -116,8 +116,8 @@ ConsolePlus.SizeChanged += (sender, e) =>
 | `Height` | Current console height (rows) |
 | `SizeChanged` | Event raised (with `ConsoleSizeChangedEventArgs`) when the size changes |
 
-> The resize event is debounced. The delay (default **300 ms**, range 100–1000 ms) is part of the
-> [profile configuration](profiles-and-capabilities.md).
+> The resize event is debounced by a fixed **150 ms** delay. This is a hardcoded implementation
+> detail, not a configurable part of the [profile](profiles-and-capabilities.md).
 
 ---
 
@@ -190,9 +190,11 @@ A selection of what `IAnsiCommands` offers:
 | **Screen** | `EnterAltScreen()`, `ExitAltScreen()` |
 | **Tabs** | `CursorHorizontalTabulation(n)`, `CursorBackwardTabulation(n)` |
 
-> The ANSI emitter only produces effects on ANSI-capable terminals. On non-ANSI terminals the
-> high-level members (`Clear`, `SetCursorPosition`, `SwapBuffer`, …) remain the safe choice, because
-> the [driver falls back](profiles-and-capabilities.md) automatically.
+> ⚠️ **`ConsolePlus.Ansi` throws `NotImplementedException` on non-ANSI terminals** — it is not a
+> safe no-op. Check `Profile.SupportsAnsi` (or [Environment Detection](environment-detection.md))
+> before using it, or stick to the high-level members (`Clear`, `SetCursorPosition`, `SwapBuffer`,
+> …), which remain safe on every terminal because the [driver falls back](profiles-and-capabilities.md)
+> automatically.
 
 ---
 

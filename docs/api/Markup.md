@@ -75,7 +75,7 @@ The markup text to calculate the length for\.
 
 #### Returns
 [System\.Int32](https://learn.microsoft.com/en-us/dotnet/api/system.int32 'System\.Int32')  
-The length of the text without markup\.
+The display width, in terminal columns, of the text without markup\.
 
 <a name='ConsolePlusLibrary.Markup.LengthMarkup(thisstring)'></a>
 

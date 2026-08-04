@@ -17,9 +17,10 @@ style-aware and adapt their border characters to the terminal's Unicode support.
   - [Dash options (borders)](#dash-options-borders)
   - [Extra lines and background fill](#extra-lines-and-background-fill)
 - [Banners](#banners)
-  - [Simple banners](#simple-banners)
-  - [FIGlet banners](#figlet-banners)
+  - [Banner with the default (embedded) font](#banner-with-the-default-embedded-font)
+  - [Banner with a custom font](#banner-with-a-custom-font)
 - [Fluent widget builders](#fluent-widget-builders)
+- [Widgets through PromptPlus](#widgets-through-promptplus)
 - [Cheat sheet](#cheat-sheet)
 
 ---
@@ -89,7 +90,11 @@ Heavy heading
 ### Extra lines and background fill
 
 - **`extralines`** appends blank lines after the dash — handy for vertical spacing.
-- **`applycolorbackground`** paints the style's background color across the full width of the line.
+- **`applycolorbackground`** does **not** affect the dash line itself (its background already
+  extends to the full line width by default, regardless of this flag). Instead, once the dash has
+  been written, it sets the console's *ambient* foreground/background color to the given `style`'s
+  colors — affecting whatever you write **next**. It's a silent no-op if you don't pass an explicit
+  `style` (the default `null`, which falls back to `console.CurrentStyle`, doesn't count).
 
 ```csharp
 ConsolePlus.Dash(
@@ -137,11 +142,11 @@ different letter style than the embedded default:
 
 ```csharp
 // From a font file on disk
-ConsolePlus.Banner("HELLO", @"fonts/Standard.flf", Color.Gold, DashOptions.None);
+ConsolePlus.Banner("Hello", @"fonts/Standard.flf", Color.Gold, DashOptions.None);
 
 // From a stream (e.g., an embedded resource)
 using Stream fontStream = File.OpenRead("fonts/Standard.flf");
-ConsolePlus.Banner("HELLO", fontStream, Color.Gold, DashOptions.None);
+ConsolePlus.Banner("Hello", fontStream, Color.Gold, DashOptions.None);
 ```
 
 Example (FIGlet "Standard" font):
@@ -155,7 +160,40 @@ Example (FIGlet "Standard" font):
 ```
 
 > The library embeds this **Standard** FIGlet font as the default. For a different look, supply any
-> `.flf` font file or stream. Invalid/missing font paths throw an `ArgumentException`.
+> `.flf` font file or stream. A null/empty/nonexistent **path** throws `ArgumentException` — but a
+> path or stream that exists with **malformed** FIGlet content (e.g. a missing `flf2a` header) throws
+> `FileNotFoundException` (path overload) or `InvalidDataException` (stream overload) instead.
+
+---
+
+## Fluent widget builders
+
+`ConsolePlus.Widgets` exposes an alternative, fluent way to build the same two widgets, useful when
+you want to configure a banner/dash conditionally across several steps instead of one static call:
+
+```csharp
+using ConsolePlusLibrary;
+
+ConsolePlus.Widgets
+    .Banner("ConsolePlus", Color.Teal)
+    .Border(DashOptions.SingleBorderUpDown)
+    .Show();
+
+ConsolePlus.Widgets
+    .Dash("Section", Color.Yellow)
+    .Border(DashOptions.DoubleBorderUpDown)
+    .Extralines(1)
+    .Show();
+```
+
+| Type | Fluent methods | Purpose |
+|------|-----------------|---------|
+| `IBanner` | `FromFont(string)` / `FromFont(Stream)`, `Border(DashOptions)`, `Show()` | Builds and renders a banner |
+| `IStringDash` | `Border(DashOptions)`, `Extralines(int)`, `Show()` | Builds and renders a dash separator |
+
+Nothing renders until you call `Show()`. `ConsolePlus.Widgets.Banner(text, style)` and
+`ConsolePlus.Widgets.Dash(text, style)` are the entry points (both take the text and an optional
+`Style` up front); everything else is configured by chaining before `Show()`.
 
 ---
 

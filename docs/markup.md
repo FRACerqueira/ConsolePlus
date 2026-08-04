@@ -51,7 +51,8 @@ ConsolePlus.WriteLine("[Red on White]Red text on white background[/]");
 ConsolePlus.WriteLine("[Red:White]Same thing, shorter[/]");
 ```
 
-Both forms are equivalent. Visual result (foreground/background):
+Both forms are equivalent **when both a foreground and a background are given**. Visual result
+(foreground/background):
 
 | Markup | Renders as |
 |--------|-----------|
@@ -64,6 +65,11 @@ You can also set **only** a background by starting with `on`:
 ```csharp
 ConsolePlus.WriteLine("[on Yellow]Highlighted[/]");
 ```
+
+> ⚠️ The colon shorthand has no background-only equivalent: `[:Yellow]` does **not** work like
+> `[on Yellow]` — an empty foreground before the colon fails to resolve, so the whole tag falls
+> back to literal text (`"[:Yellow]"`) instead of setting the background. Use `[on Yellow]` for a
+> background-only tag.
 
 ---
 
@@ -256,10 +262,11 @@ Rendering as raw text when errors occur has several benefits:
 | **Invalid color format** | `[Red:Blue:Green]` | Raw text (too many colors) |
 | **Unknown color name** | `[NotARealColor]` | The unresolved tag is shown as literal text; surrounding text is unaffected |
 | **Invalid HEX** | `[#GGGGGG]` | Raw text (invalid hex digits) |
-| **Empty tags** | `[]text[/]` | Raw text (no color specified) |
+| **Empty tags** | `[]text[/]` | Not raw output — `[]` becomes literal text and the unmatched `[/]` is silently dropped, rendering `"[]text"` |
 
 > `[Red][Green]text[/]` is **not** an error — it's valid nested markup (`Green` closes explicitly,
-> `Red` auto-closes at the end); see [Nesting and hierarchy](#nesting-and-hierarchy) above.
+> `Red` auto-closes at the end); see [Nesting tags](#nesting-tags) and
+> [Color hierarchy and automatic closing](#color-hierarchy-and-automatic-closing) above.
 > Out-of-range RGB (`[RGB(256,300,500)]`) also does **not** trigger raw output — see the warning
 > above this table's section.
 
