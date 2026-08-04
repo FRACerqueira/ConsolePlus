@@ -78,5 +78,45 @@ namespace ConsolePlus.Tests.Unit
             "[hello]".EscapeMarkup().Should().Be(Markup.Escape("[hello]"));
             "[red]Hi[/]".LengthMarkup().Should().Be(Markup.Length("[red]Hi[/]"));
         }
+
+        [Fact]
+        public void Length_counts_display_width_not_utf16_units_for_wide_characters()
+        {
+            // Each CJK character occupies 2 terminal columns, not 1 UTF-16 unit.
+            Markup.Length("你好").Should().Be(4);
+            Markup.Length("[red]你好[/]").Should().Be(4);
+        }
+
+        [Fact]
+        public void Remove_of_an_unresolved_color_name_keeps_the_tag_as_literal_text()
+        {
+            // Matches Fragment.FromText: a tag whose (single, non-explicit-syntax) color doesn't
+            // resolve is not markup — it's literal text, brackets included.
+            Markup.Remove("[NotAColor]x").Should().Be("[NotAColor]x");
+        }
+
+        [Fact]
+        public void Length_of_an_unresolved_color_name_counts_the_literal_brackets()
+        {
+            Markup.Length("[NotAColor]x").Should().Be(12);
+        }
+
+        [Fact]
+        public void Remove_falls_back_to_the_whole_raw_text_for_an_invalid_hex_token()
+        {
+            // Matches Fragment.FromText: explicit color syntax (# / rgb) that fails to parse
+            // reverts the ENTIRE input to raw text, not just the offending tag.
+            const string text = "[#zz]Hi[/]";
+            Markup.Remove(text).Should().Be(text);
+            Markup.Length(text).Should().Be(text.Length);
+        }
+
+        [Fact]
+        public void Remove_falls_back_to_the_whole_raw_text_when_a_non_first_color_part_is_invalid()
+        {
+            const string text = "[red BogusColor]Hi[/]";
+            Markup.Remove(text).Should().Be(text);
+            Markup.Length(text).Should().Be(text.Length);
+        }
     }
 }

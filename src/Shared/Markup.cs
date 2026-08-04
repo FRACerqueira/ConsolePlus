@@ -94,20 +94,32 @@ namespace ConsolePlusLibrary
                 return markup;
             }
 
-            // Tokenizer is fault-tolerant and returns malformed markup as text,
-            // so no exception fallback is needed here.
+            var result = new StringBuilder(markup.Length);
+            var tokenizer = new MarkupColorTokenizer(markup);
+            while (tokenizer.MoveNext() && tokenizer.Current != null)
             {
-                var result = new StringBuilder(markup.Length);
-                var tokenizer = new MarkupColorTokenizer(markup);
-                while (tokenizer.MoveNext() && tokenizer.Current != null)
+                switch (tokenizer.Current.Kind)
                 {
-                    if (tokenizer.Current.Kind == MarkupColorKind.Text)
-                    {
+                    case MarkupColorKind.Text:
                         result.Append(tokenizer.Current.Value);
-                    }
+                        break;
+                    case MarkupColorKind.Open:
+                        // Match Fragment.FromText: a tag whose color can't be resolved is not
+                        // stripped — it's either kept as literal "[value]" text, or (for an
+                        // unparsable explicit hex/rgb token, or a non-first bad part) the whole
+                        // input reverts to raw, untouched text.
+                        switch (Fragment.ClassifyTag(tokenizer.Current.Value))
+                        {
+                            case Fragment.TagResolution.LiteralTag:
+                                result.Append('[').Append(tokenizer.Current.Value).Append(']');
+                                break;
+                            case Fragment.TagResolution.RawFallback:
+                                return markup;
+                        }
+                        break;
                 }
-                return result.ToString();
             }
+            return result.ToString();
         }
 
         /// <summary>
@@ -124,7 +136,7 @@ namespace ConsolePlusLibrary
         /// Calculates the length of the text without markup in the specified markup text.
         /// </summary>
         /// <param name="markup">The markup text to calculate the length for.</param>
-        /// <returns>The length of the text without markup.</returns>
+        /// <returns>The display width, in terminal columns, of the text without markup.</returns>
         public static int Length(string? markup)
         {
             if (string.IsNullOrWhiteSpace(markup))
@@ -132,24 +144,50 @@ namespace ConsolePlusLibrary
                 return 0;
             }
 
-            // Fast path: no '[' or ']' means the visible length equals the raw length.
+            // Fast path: no '[' or ']' means the visible text equals the raw text.
             // Avoids allocating the tokenizer for plain text.
             if (markup.AsSpan().IndexOfAny('[', ']') < 0)
             {
-                return markup.Length;
+                return DisplayWidth(markup);
             }
 
             int result = 0;
             var tokenizer = new MarkupColorTokenizer(markup);
             while (tokenizer.MoveNext() && tokenizer.Current != null)
             {
-                if (tokenizer.Current.Kind == MarkupColorKind.Text)
+                switch (tokenizer.Current.Kind)
                 {
-                    result += tokenizer.Current.Value.Length;
+                    case MarkupColorKind.Text:
+                        result += DisplayWidth(tokenizer.Current.Value);
+                        break;
+                    case MarkupColorKind.Open:
+                        // Match Fragment.FromText — see Remove(string?) above for the full rationale.
+                        switch (Fragment.ClassifyTag(tokenizer.Current.Value))
+                        {
+                            case Fragment.TagResolution.LiteralTag:
+                                result += DisplayWidth(tokenizer.Current.Value) + 2; // + the two brackets
+                                break;
+                            case Fragment.TagResolution.RawFallback:
+                                return DisplayWidth(markup);
+                        }
+                        break;
                 }
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// Sums the terminal display width (in columns) of every rune in <paramref name="text"/>.
+        /// </summary>
+        private static int DisplayWidth(string text)
+        {
+            int width = 0;
+            foreach (Rune rune in text.EnumerateRunes())
+            {
+                width += rune.GetRuneWidth();
+            }
+            return width;
         }
     }
 }

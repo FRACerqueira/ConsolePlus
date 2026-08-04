@@ -276,6 +276,56 @@ namespace ConsolePlusLibrary
         }
 
         /// <summary>
+        /// How an open-tag's content would be handled by <see cref="FromText"/>.
+        /// </summary>
+        internal enum TagResolution
+        {
+            /// <summary>Every color part resolved; the tag pushes a style as usual.</summary>
+            Resolved,
+            /// <summary>The first color part didn't resolve; the tag is emitted as literal <c>[value]</c> text.</summary>
+            LiteralTag,
+            /// <summary>Explicit color syntax failed to parse, or a non-first part didn't resolve; the whole input reverts to raw text.</summary>
+            RawFallback
+        }
+
+        /// <summary>
+        /// Classifies an open-tag's content the same way <see cref="FromText"/> would, without
+        /// building any <see cref="Style"/>. Used by <see cref="Markup"/>'s RemoveMarkup/LengthMarkup
+        /// so they treat unresolved tags identically to the real renderer. Keep in sync with the
+        /// open-tag handling in <see cref="FromText"/> above.
+        /// </summary>
+        /// <param name="tagValue">The open tag's raw content (without the surrounding brackets).</param>
+        /// <returns>How <see cref="FromText"/> would resolve this tag.</returns>
+        internal static TagResolution ClassifyTag(string tagValue)
+        {
+            string[] parts = tagValue.Split([' ']);
+            if (parts.Length == 1 && parts[0].Contains(':'))
+            {
+                int index = parts[0].IndexOf(':');
+                parts = [parts[0][..index], "on", parts[0][(index + 1)..]];
+            }
+
+            bool first = true;
+            foreach (string part in parts)
+            {
+                if (part.Equals("on", StringComparison.OrdinalIgnoreCase))
+                {
+                    continue;
+                }
+
+                Color? color = ResolveColorToken(part, out bool isColorSyntax);
+                if (color == null)
+                {
+                    return isColorSyntax || !first ? TagResolution.RawFallback : TagResolution.LiteralTag;
+                }
+
+                first = false;
+            }
+
+            return TagResolution.Resolved;
+        }
+
+        /// <summary>
         /// Resolves a color token from CSS name, weighted CSS name (for example <c>Blue500</c> or
         /// <c>Red300</c>), hexadecimal notation, or <c>rgb(r,g,b)</c> notation.
         /// </summary>

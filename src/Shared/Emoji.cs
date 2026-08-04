@@ -98,6 +98,12 @@ namespace ConsolePlusLibrary
                 AddLookup(result, ToSnakeCase(field.Name), emoji);
             }
 
+            // Ordinal-numeral shortcodes can't be expressed as C# identifiers (an identifier
+            // can't start with a digit), so the reflection scan above can never produce them.
+            AddLookup(result, "1st_place_medal", FirstPlaceMedal);
+            AddLookup(result, "2nd_place_medal", SecondPlaceMedal);
+            AddLookup(result, "3rd_place_medal", ThirdPlaceMedal);
+
             return new ReadOnlyDictionary<string, string>(result);
         }
 
