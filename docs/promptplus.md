@@ -135,10 +135,10 @@ var env = PromptPlus.Controls
 	.Run();
 
 var proceed = PromptPlus.Controls
-	.Confirm($"Deploy [Yellow]{name.Value}[/] to [Aqua]{env.Value}[/]?")
+	.Confirm($"Deploy [Yellow]{name.Content}[/] to [Aqua]{env.Content}[/]?")
 	.Run();
 
-PromptPlus.Console.WriteLine(proceed.Value
+PromptPlus.Console.WriteLine(proceed.Content
 	? "[Green]:CheckMarkButton: Deploying...[/]"
 	: "[Red]:CrossMark: Cancelled[/]");
 ```
