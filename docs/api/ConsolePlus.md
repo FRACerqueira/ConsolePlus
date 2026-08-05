@@ -413,6 +413,19 @@ public static bool SupportsUnicode { get; }
 #### Property Value
 [System\.Boolean](https://learn.microsoft.com/en-us/dotnet/api/system.boolean 'System\.Boolean')
 
+<a name='ConsolePlusLibrary.ConsolePlus.Widgets'></a>
+
+## ConsolePlus\.Widgets Property
+
+Gets a fluent builder factory for banners and dash separators\.
+
+```csharp
+public static ConsolePlusLibrary.IWidgets Widgets { get; }
+```
+
+#### Property Value
+[IWidgets](IWidgets.md 'ConsolePlusLibrary\.IWidgets')
+
 <a name='ConsolePlusLibrary.ConsolePlus.Width'></a>
 
 ## ConsolePlus\.Width Property

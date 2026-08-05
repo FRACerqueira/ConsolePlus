@@ -3833,6 +3833,10 @@ namespace ConsolePlusLibrary
         /// </summary>
         Pizza,
         /// <summary>
+        /// Emoji identifier for <c>Piñata</c>.
+        /// </summary>
+        Piñata,
+        /// <summary>
         /// Emoji identifier for <c>Placard</c>.
         /// </summary>
         Placard,

@@ -17,7 +17,7 @@
   # ADR0008V01R01
 </div>
 
-[← ADR0007](ADR0007V01R01-GracefulDegradation.md) • [ADR Index](README.md) • **Next:** [ADR0009 →](ADR0009V01R01-StyleModelColorOnly.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

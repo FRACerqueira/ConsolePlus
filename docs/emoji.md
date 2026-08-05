@@ -20,6 +20,7 @@ them as strongly-typed constants — one public static class per Unicode group (
 - [Shortcodes and normalization](#shortcodes-and-normalization)
 - [Group-qualified shortcodes](#group-qualified-shortcodes)
 - [Strongly-typed constants](#strongly-typed-constants)
+- [Flat catalog: `EmojiName`/`EmojiValue`](#flat-catalog-emojinameemojivalue)
 - [Group-typed constants](#group-typed-constants)
 - [Emoji groups](#emoji-groups)
 - [Legacy aliases](#legacy-aliases)
@@ -184,9 +185,11 @@ accepted, so all of these are equivalent:
 ## Strongly-typed constants
 
 Every emoji is a `public const string`, organized into **one public static class per Unicode
-group** — there is no single flat "all emoji" class; the type that backs all of them internally
-(`Emoji`) is an implementation detail and isn't part of the public API. You get IntelliSense,
-compile-time safety, and no parsing overhead by referencing the group class directly:
+group**. The type that backs all of them internally (`Emoji`) is an implementation detail and isn't
+part of the public API — but a flat, enum-based alternative to it *is* public; see
+[Flat catalog: `EmojiName`/`EmojiValue`](#flat-catalog-emojinameemojivalue) below. For everyday use,
+you get IntelliSense, compile-time safety, and no parsing overhead by referencing the group class
+directly:
 
 ```csharp
 using ConsolePlusLibrary;
@@ -208,6 +211,28 @@ constant shows both the glyph and the shortcode.
 | `:check_mark_button:` | `EmojiSymbols.CheckMarkButton` | ✅ |
 | `:cross_mark:` | `EmojiSymbols.CrossMark` | ❌ |
 | `:warning:` | `EmojiSymbols.Warning` | ⚠️ |
+
+---
+
+## Flat catalog: `EmojiName`/`EmojiValue`
+
+If you want a single flat enumeration of every emoji instead of one class per group — for example
+to bind a dropdown, iterate all emoji, or store a choice as data — use the public `EmojiName` enum
+together with `EmojiValue`:
+
+```csharp
+using ConsolePlusLibrary;
+
+EmojiValue rocket = EmojiName.Rocket;   // implicit EmojiName -> EmojiValue
+string glyph = rocket;                   // implicit EmojiValue -> string
+
+ConsolePlus.WriteLine($"{(EmojiValue)EmojiName.Rocket} Launching...");
+```
+
+`EmojiValue` is a thin wrapper: assign it an `EmojiName` (implicit conversion), then read it as a
+`string` (also implicit) to get the real glyph — resolved through the same lookup the `:shortcode:`
+parser uses, keyed off the enum member's name. There's no direct `EmojiName` → `string` conversion;
+it always goes through `EmojiValue`.
 
 ---
 

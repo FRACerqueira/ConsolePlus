@@ -39,13 +39,13 @@ ConsolePlus targets `net8.0`, `net9.0`, and `net10.0`, with nullable reference t
 Add the package with the .NET CLI:
 
 ```bash
-dotnet add package ConsolePlus
+dotnet add package ConsolePlus.net
 ```
 
 Or with the Package Manager Console in Visual Studio:
 
 ```powershell
-Install-Package ConsolePlus
+Install-Package ConsolePlus.net
 ```
 
 ---
@@ -57,7 +57,7 @@ Create a new console project and replace `Program.cs`:
 ```bash
 dotnet new console -n HelloConsolePlus
 cd HelloConsolePlus
-dotnet add package ConsolePlus
+dotnet add package ConsolePlus.net
 ```
 
 ```csharp

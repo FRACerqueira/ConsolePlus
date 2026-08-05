@@ -174,7 +174,7 @@ Color nearest = Color.FromHex("#1E90FF").ExactOrClosest(ColorSystem.FourBit);
 | Expression | Result swatch |
 |------------|---------------|
 | `Color.Red` | ![](https://placehold.co/13x13/FF0000/FF0000.png) |
-| `Color.Red.Blend(Color.Blue, 0.5f)` | ![](https://placehold.co/13x13/800080/800080.png) |
+| `Color.Red.Blend(Color.Blue, 0.5f)` | ![](https://placehold.co/13x13/7F007F/7F007F.png) |
 | `Color.Blue` | ![](https://placehold.co/13x13/0000FF/0000FF.png) |
 
 ---

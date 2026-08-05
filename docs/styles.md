@@ -120,7 +120,7 @@ ConsolePlus.WriteLine("Selected", ConsolePlus.StyleInvert());
 |-------|----------|-------------------------------|
 | `None` | Wrap: extra characters continue on the next line | `A very long line that…` wraps to the next row |
 | `Crop` | Truncate at the edge; extra characters are discarded | `A very long line that ` (cut off) |
-| `Ellipsis` | Truncate and append `…` to signal more content | `A very long line th…` |
+| `Ellipsis` | Truncate and append `…` to signal more content (falls back to `_` on non-Unicode terminals) | `A very long line th…` |
 
 ```csharp
 using ConsolePlusLibrary;
@@ -129,8 +129,12 @@ string longText = "This is a very long status message that will not fit on one l
 
 ConsolePlus.WriteLine(longText, ConsolePlus.CurrentStyle.Overflow(Overflow.None));     // wraps
 ConsolePlus.WriteLine(longText, ConsolePlus.CurrentStyle.Overflow(Overflow.Crop));     // cropped
-ConsolePlus.WriteLine(longText, ConsolePlus.CurrentStyle.Overflow(Overflow.Ellipsis)); // …
+ConsolePlus.WriteLine(longText, ConsolePlus.CurrentStyle.Overflow(Overflow.Ellipsis)); // … (or _ without Unicode support)
 ```
+
+> `Ellipsis`'s marker character depends on `Profile.SupportUnicode`: `…` on Unicode-capable
+> terminals, a plain underscore `_` otherwise — this is a silent, terminal-dependent fallback, not a
+> fixed `…`.
 
 > `Crop` and `Ellipsis` are ideal for single-line UI regions (status bars, table cells, list rows)
 > where wrapping would break the layout.

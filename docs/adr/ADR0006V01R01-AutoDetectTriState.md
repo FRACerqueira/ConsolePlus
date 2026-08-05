@@ -17,7 +17,7 @@
   # ADR0006V01R01
 </div>
 
-[← ADR0005](ADR0005V01R02-AnsiconLegacyWindowsSupport.md) • [ADR Index](README.md) • **Next:** [ADR0007 →](ADR0007V01R01-GracefulDegradation.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

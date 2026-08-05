@@ -17,7 +17,7 @@
   # ADR0005V01R02
 </div>
 
-[← ADR0004](ADR0004V01R01-AnsiVsNonAnsiDriverSelection.md) • [ADR Index](README.md) • **Next:** [ADR0006 →](ADR0006V01R01-AutoDetectTriState.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

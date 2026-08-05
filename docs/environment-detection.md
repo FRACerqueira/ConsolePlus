@@ -20,6 +20,7 @@ interactive terminal, a CI/CD pipeline, or a redirected output stream.
 - [Terminal capabilities](#terminal-capabilities)
 - [Override detection](#override-detection)
 - [Checking the detected environment](#checking-the-detected-environment)
+- [Implementation details](#implementation-details)
 
 ---
 
@@ -28,13 +29,17 @@ interactive terminal, a CI/CD pipeline, or a redirected output stream.
 During the static initialization of `ConsolePlus`, the library performs automatic environment
 detection by:
 
-1. **Scanning environment variables** — Each CI/CD provider sets specific environment variables that
-   ConsolePlus recognizes
-2. **Detecting terminal capabilities** — Checks for TTY (interactive terminal), ANSI support, and
-   Unicode support
-3. **Determining color depth** — Automatically detects whether the environment supports no colors,
-   4-bit, 8-bit (256 colors), or 24-bit TrueColor
-4. **Enriching the profile** — Applies environment-specific settings to the console profile
+1. **Setting baseline defaults** — `Interactive = true`, ANSI/Unicode support left as "auto-detect".
+2. **Scanning environment variables for a CI/CD provider match** — the first of the 14 recognized
+   providers whose environment variables are present overrides `Interactive`, `ColorDepth`, and
+   sometimes `SupportsAnsi` (see [CI/CD providers](#cicd-providers)).
+3. **Applying a `ConsoleProfile.json` override, if present** — read once, before any further
+   detection; explicit values here win over the CI enrichment from step 2 (see
+   [Override detection](#override-detection)).
+4. **Detecting real terminal capabilities** — for anything still left as "auto-detect" (i.e. not
+   already set by steps 2–3), probes ANSI support and Unicode support.
+5. **Determining color depth** — unless already overridden, resolves the final color depth from
+   ANSI support and the `NO_COLOR` environment variable (see [Terminal capabilities](#terminal-capabilities)).
 
 The detection happens **once** and automatically; you don't need to configure anything manually.
 
@@ -59,8 +64,6 @@ ConsolePlus distinguishes between several types of environments:
 | **CI/CD Pipeline** | Automated build/test environment, non-interactive | GitHub Actions, Azure Pipelines, Jenkins |
 | **Redirected Output** | Output piped to file or another process | `myapp.exe > output.txt` |
 | **Legacy Console** | Pre-Windows 10 console without native ANSI | Windows 7/8 Command Prompt |
-| **SSH Session** | Remote terminal session | PuTTY, SSH clients |
-| **Docker Container** | Containerized environment | Docker, Kubernetes pods |
 
 The detection process identifies which environment your application is running in and configures
 output accordingly.
@@ -142,16 +145,24 @@ profile.ColorDepth = ColorSystem.FourBit;  // safe color level
 
 ### Redirected output
 
+Plain redirection (`myapp.exe > output.txt`, no CI provider matched, no `ConsoleProfile.json`
+override) does **not** by itself flip `Interactive` to `false` — that only happens via CI-provider
+enrichment or an explicit override. What redirection actually changes is ANSI/color detection:
+
 ```csharp
-// Minimal formatting, clean text output
-profile.Interactive = false;
-profile.SupportsAnsi = AutoDetect.No;
-profile.ColorDepth = ColorSystem.NoColors;
+// profile.Interactive is still true — redirection alone never changes it.
+// profile.SupportsAnsi stays AutoDetect.Detect (the raw enum value is unchanged);
+// the cached DetectedAnsiSupport resolves to false, because ANSI probing short-circuits
+// to "no support" whenever the standard output stream is redirected.
+profile.DetectedAnsiSupport = false;
+// ColorDepth resolves to Standard (256 colors), not NoColors — unless the NO_COLOR
+// environment variable is set, in which case it resolves to NoColors.
+profile.ColorDepth = ColorSystem.Standard;
 ```
 
 **Features:**
-- No colors (plain text)
-- No ANSI escape sequences
+- ANSI escape sequences are not emitted (no real terminal to render them)
+- Colors still resolve to `Standard` (256-color) by default — set `NO_COLOR` to force plain text
 - Clean, parseable output
 - Suitable for file storage or piping
 
@@ -205,9 +216,11 @@ Colors are automatically down-sampled if the terminal doesn't support the reques
 `ConsolePlus.Profile` is a **read-only snapshot** — there is no supported way to mutate it in code
 after initialization. To override auto-detection, drop a `ConsoleProfile.json` file next to your
 application's executable (same folder as `AppContext.BaseDirectory`); ConsolePlus reads it once,
-**before** any detection runs, so overridden values take full effect (unlike a hypothetical
-post-init mutation, which would arrive too late — several detected values are already cached
-elsewhere in the console pipeline by the time your own code could run):
+**right after CI/CD provider enrichment but before any terminal-capability probing (ANSI/Unicode/color
+depth)** — see [How detection works](#how-detection-works) — so an override here always wins over
+CI enrichment, and overridden values take full effect (unlike a hypothetical post-init mutation,
+which would arrive too late — several detected values are already cached elsewhere in the console
+pipeline by the time your own code could run):
 
 ```json
 {

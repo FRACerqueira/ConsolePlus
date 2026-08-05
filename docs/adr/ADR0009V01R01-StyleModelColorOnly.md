@@ -17,7 +17,7 @@
   # ADR0009V01R01
 </div>
 
-[← ADR0008](ADR0008V01R01-ColorDepthModel.md) • [ADR Index](README.md) • **Next:** [ADR0010 →](ADR0010V01R01-MarkupLanguage.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

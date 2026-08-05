@@ -1,4 +1,12 @@
-# API Documentation Guide
+<div align="center">
+  <img src="../icon.png" alt="ConsolePlus" width="120" height="120" />
+
+  # API Documentation Guide
+</div>
+
+[← Back to Home](../README.md)
+
+---
 
 This document explains how ConsolePlus's API documentation is generated and maintained.
 
@@ -14,8 +22,9 @@ DefaultDocumentation is a tool that converts C# XML comments in the code into Ma
 docs/
 ├── api/                          # API documentation (generated automatically)
 │   ├── ConsolePlus.md           # Assembly main page
-│   ├── ConsolePlusLibrary.*.md  # Type and member pages
-│   └── links.json               # External links (optional)
+│   ├── ConsolePlusLibrary.md    # ConsolePlusLibrary namespace page
+│   ├── Color.md, Style.md, ...  # One page per public type, named after the bare type name
+│   └── links.json               # External links (optional — not currently present in this repo)
 ├── getting-started.md           # Manual guides
 ├── colors.md
 └── ...
@@ -28,7 +37,7 @@ The DefaultDocumentation configuration lives in `src/ConsolePlus.csproj`:
 ```xml
 <PropertyGroup>
 	<!-- Generates the documentation XML file -->
-	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 </PropertyGroup>
 
 <!-- DefaultDocumentation ONLY in ReleaseDoc and on the net10.0 target -->
@@ -153,7 +162,7 @@ To make sure the entire public API is documented, you can enable warnings:
 ```xml
 <PropertyGroup>
 	<!-- Warnings for public members without documentation -->
-	<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	<NoWarn>$(NoWarn);CS1591</NoWarn> <!-- Remove to see warnings -->
 </PropertyGroup>
 ```
@@ -162,7 +171,9 @@ Remove `;CS1591` from `NoWarn` to see warnings about missing documentation.
 
 ## 🌐 External Links (Optional)
 
-The `docs/api/links.json` file lets you configure external links for .NET Framework types:
+`docs/api/links.json` **does not currently exist in this repo** — DefaultDocumentation supports it,
+but it hasn't been added yet. If you need it, create it at that path with this shape to configure
+external links for .NET Framework types:
 
 ```json
 {
@@ -192,7 +203,7 @@ The generated Markdown files can be used with any documentation platform that su
 
 ### Documentation Is Not Being Generated
 
-1. Check that `GenerateDocumentationFile` is `True`
+1. Check that `GenerateDocumentationFile` is `true`
 2. Confirm that the DefaultDocumentation package is installed
 3. Do a Clean + Rebuild of the solution
 4. Check for build errors in the Output
@@ -226,6 +237,9 @@ If there are broken links in the documentation:
   - **Don't commit**: If you prefer to generate them on demand (add `docs/api/*.md` to `.gitignore`)
 
 The choice depends on the team's preference. Committing lets you see documentation changes in PRs.
+This repo commits them. See
+[ADR0014V01R02 — Generated API docs are off-limits for manual edits](adr/ADR0014V01R02-GeneratedApiDocsOffLimits.md)
+for the related (but distinct) decision that these files must never be hand-edited, only regenerated.
 
 ## 🤝 Contributing
 
@@ -243,6 +257,8 @@ When submitting a Pull Request that adds or modifies public API:
 - [XML Documentation Comments (Microsoft)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/)
 - [Recommended XML Tags (Microsoft)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/recommended-tags)
 
+**Last updated**: This guide was created together with the initial DefaultDocumentation setup for ConsolePlus.
+
 ---
 
-**Last updated**: This guide was created together with the initial DefaultDocumentation setup for ConsolePlus.
+[← Back to Home](../README.md)

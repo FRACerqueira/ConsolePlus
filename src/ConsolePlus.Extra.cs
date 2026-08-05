@@ -3,6 +3,7 @@
 // The maintenance and evolution is maintained by the ConsolePlus project under MIT license
 // ***************************************************************************************
 
+using ConsolePlusLibrary.Core;
 using System;
 using System.IO;
 using System.Threading;
@@ -16,6 +17,11 @@ namespace ConsolePlusLibrary
         /// Gets the underlying <see cref="IConsole"/> driver instance backing the static console facade.
         /// </summary>
         public static IConsole Driver => _consoledrive;
+
+        /// <summary>
+        /// Gets a fluent builder factory for banners and dash separators.
+        /// </summary>
+        public static IWidgets Widgets => new ConsolePlusWidgets(_consoledrive);
 
         /// <summary>
         /// Runs the specified action inside the console's global synchronization scope, ensuring that

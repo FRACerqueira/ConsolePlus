@@ -73,8 +73,13 @@ Just like `ConsolePlus`, `PromptPlus` is a static facade. It exposes four member
 |--------|------|---------|
 | `PromptPlus.Console` | `IConsole` | The shared ConsolePlus console driver |
 | `PromptPlus.Controls` | `IControls` | Factory for interactive controls |
-| `PromptPlus.Widgets` | `IWidgets` | Banners, dashes, calendar and other visual widgets |
+| `PromptPlus.Widgets` | `PromptPlusLibrary.IWidgets` | Banners, dashes, calendar and other visual widgets |
 | `PromptPlus.Config` | `IPromptPlusConfig` | Global configuration (themes, behavior) |
+
+> ⚠️ `PromptPlusLibrary.IWidgets` is a **different type** from the `ConsolePlusLibrary.IWidgets`
+> covered in [Widgets](widgets.md) — same name, different namespace, different (larger) API surface.
+> Its `Dash` overload, for example, takes 5 parameters (`value, style, dashOptions, extralines,
+> applycolorbackground`), unlike ConsolePlus's own 2-parameter `Dash(text, style)`.
 
 ```csharp
 using ConsolePlusLibrary;

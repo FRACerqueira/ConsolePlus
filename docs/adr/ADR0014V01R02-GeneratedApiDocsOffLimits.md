@@ -17,7 +17,7 @@
   # ADR0014V01R02
 </div>
 
-[← ADR0013](ADR0013V01R01-LowLevelAnsiAndAlternateScreen.md) • [ADR Index](README.md) • **Next:** [ADR0015 →](ADR0015V01R02-RedirectedConsoleIoContract.md)
+[↑ ADR Index](indexadrs.md)
 
 ---
 

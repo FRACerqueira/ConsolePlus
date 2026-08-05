@@ -5742,2840 +5742,2846 @@ Emoji identifier for `Pisces`\.
 
 Emoji identifier for `Pizza`\.
 
+<a name='ConsolePlusLibrary.EmojiName.Piñata'></a>
+
+`Piñata` 955
+
+Emoji identifier for `Piñata`\.
+
 <a name='ConsolePlusLibrary.EmojiName.Placard'></a>
 
-`Placard` 955
+`Placard` 956
 
 Emoji identifier for `Placard`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PlaceOfWorship'></a>
 
-`PlaceOfWorship` 956
+`PlaceOfWorship` 957
 
 Emoji identifier for `PlaceOfWorship`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PlayButton'></a>
 
-`PlayButton` 957
+`PlayButton` 958
 
 Emoji identifier for `PlayButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PlaygroundSlide'></a>
 
-`PlaygroundSlide` 958
+`PlaygroundSlide` 959
 
 Emoji identifier for `PlaygroundSlide`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PlayOrPauseButton'></a>
 
-`PlayOrPauseButton` 959
+`PlayOrPauseButton` 960
 
 Emoji identifier for `PlayOrPauseButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PleadingFace'></a>
 
-`PleadingFace` 960
+`PleadingFace` 961
 
 Emoji identifier for `PleadingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Plunger'></a>
 
-`Plunger` 961
+`Plunger` 962
 
 Emoji identifier for `Plunger`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Plus'></a>
 
-`Plus` 962
+`Plus` 963
 
 Emoji identifier for `Plus`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoliceCar'></a>
 
-`PoliceCar` 963
+`PoliceCar` 964
 
 Emoji identifier for `PoliceCar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoliceCarLight'></a>
 
-`PoliceCarLight` 964
+`PoliceCarLight` 965
 
 Emoji identifier for `PoliceCarLight`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoliceOfficer'></a>
 
-`PoliceOfficer` 965
+`PoliceOfficer` 966
 
 Emoji identifier for `PoliceOfficer`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Poodle'></a>
 
-`Poodle` 966
+`Poodle` 967
 
 Emoji identifier for `Poodle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Pool8Ball'></a>
 
-`Pool8Ball` 967
+`Pool8Ball` 968
 
 Emoji identifier for `Pool8Ball`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Popcorn'></a>
 
-`Popcorn` 968
+`Popcorn` 969
 
 Emoji identifier for `Popcorn`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PostalHorn'></a>
 
-`PostalHorn` 969
+`PostalHorn` 970
 
 Emoji identifier for `PostalHorn`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Postbox'></a>
 
-`Postbox` 970
+`Postbox` 971
 
 Emoji identifier for `Postbox`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PostOffice'></a>
 
-`PostOffice` 971
+`PostOffice` 972
 
 Emoji identifier for `PostOffice`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PotableWater'></a>
 
-`PotableWater` 972
+`PotableWater` 973
 
 Emoji identifier for `PotableWater`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Potato'></a>
 
-`Potato` 973
+`Potato` 974
 
 Emoji identifier for `Potato`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PotOfFood'></a>
 
-`PotOfFood` 974
+`PotOfFood` 975
 
 Emoji identifier for `PotOfFood`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PottedPlant'></a>
 
-`PottedPlant` 975
+`PottedPlant` 976
 
 Emoji identifier for `PottedPlant`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoultryLeg'></a>
 
-`PoultryLeg` 976
+`PoultryLeg` 977
 
 Emoji identifier for `PoultryLeg`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoundBanknote'></a>
 
-`PoundBanknote` 977
+`PoundBanknote` 978
 
 Emoji identifier for `PoundBanknote`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PouringLiquid'></a>
 
-`PouringLiquid` 978
+`PouringLiquid` 979
 
 Emoji identifier for `PouringLiquid`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoutingCat'></a>
 
-`PoutingCat` 979
+`PoutingCat` 980
 
 Emoji identifier for `PoutingCat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PoutingFace'></a>
 
-`PoutingFace` 980
+`PoutingFace` 981
 
 Emoji identifier for `PoutingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PrayerBeads'></a>
 
-`PrayerBeads` 981
+`PrayerBeads` 982
 
 Emoji identifier for `PrayerBeads`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PregnantMan'></a>
 
-`PregnantMan` 982
+`PregnantMan` 983
 
 Emoji identifier for `PregnantMan`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PregnantPerson'></a>
 
-`PregnantPerson` 983
+`PregnantPerson` 984
 
 Emoji identifier for `PregnantPerson`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PregnantWoman'></a>
 
-`PregnantWoman` 984
+`PregnantWoman` 985
 
 Emoji identifier for `PregnantWoman`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Pretzel'></a>
 
-`Pretzel` 985
+`Pretzel` 986
 
 Emoji identifier for `Pretzel`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Prince'></a>
 
-`Prince` 986
+`Prince` 987
 
 Emoji identifier for `Prince`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Princess'></a>
 
-`Princess` 987
+`Princess` 988
 
 Emoji identifier for `Princess`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Printer'></a>
 
-`Printer` 988
+`Printer` 989
 
 Emoji identifier for `Printer`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Prohibited'></a>
 
-`Prohibited` 989
+`Prohibited` 990
 
 Emoji identifier for `Prohibited`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PurpleCircle'></a>
 
-`PurpleCircle` 990
+`PurpleCircle` 991
 
 Emoji identifier for `PurpleCircle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PurpleHeart'></a>
 
-`PurpleHeart` 991
+`PurpleHeart` 992
 
 Emoji identifier for `PurpleHeart`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PurpleSquare'></a>
 
-`PurpleSquare` 992
+`PurpleSquare` 993
 
 Emoji identifier for `PurpleSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Purse'></a>
 
-`Purse` 993
+`Purse` 994
 
 Emoji identifier for `Purse`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Pushpin'></a>
 
-`Pushpin` 994
+`Pushpin` 995
 
 Emoji identifier for `Pushpin`\.
 
 <a name='ConsolePlusLibrary.EmojiName.PuzzlePiece'></a>
 
-`PuzzlePiece` 995
+`PuzzlePiece` 996
 
 Emoji identifier for `PuzzlePiece`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rabbit'></a>
 
-`Rabbit` 996
+`Rabbit` 997
 
 Emoji identifier for `Rabbit`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RabbitFace'></a>
 
-`RabbitFace` 997
+`RabbitFace` 998
 
 Emoji identifier for `RabbitFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Raccoon'></a>
 
-`Raccoon` 998
+`Raccoon` 999
 
 Emoji identifier for `Raccoon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RacingCar'></a>
 
-`RacingCar` 999
+`RacingCar` 1000
 
 Emoji identifier for `RacingCar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Radio'></a>
 
-`Radio` 1000
+`Radio` 1001
 
 Emoji identifier for `Radio`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Radioactive'></a>
 
-`Radioactive` 1001
+`Radioactive` 1002
 
 Emoji identifier for `Radioactive`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RadioButton'></a>
 
-`RadioButton` 1002
+`RadioButton` 1003
 
 Emoji identifier for `RadioButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RailwayCar'></a>
 
-`RailwayCar` 1003
+`RailwayCar` 1004
 
 Emoji identifier for `RailwayCar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RailwayTrack'></a>
 
-`RailwayTrack` 1004
+`RailwayTrack` 1005
 
 Emoji identifier for `RailwayTrack`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rainbow'></a>
 
-`Rainbow` 1005
+`Rainbow` 1006
 
 Emoji identifier for `Rainbow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RaisedBackOfHand'></a>
 
-`RaisedBackOfHand` 1006
+`RaisedBackOfHand` 1007
 
 Emoji identifier for `RaisedBackOfHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RaisedFist'></a>
 
-`RaisedFist` 1007
+`RaisedFist` 1008
 
 Emoji identifier for `RaisedFist`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RaisedHand'></a>
 
-`RaisedHand` 1008
+`RaisedHand` 1009
 
 Emoji identifier for `RaisedHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RaisingHands'></a>
 
-`RaisingHands` 1009
+`RaisingHands` 1010
 
 Emoji identifier for `RaisingHands`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Ram'></a>
 
-`Ram` 1010
+`Ram` 1011
 
 Emoji identifier for `Ram`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rat'></a>
 
-`Rat` 1011
+`Rat` 1012
 
 Emoji identifier for `Rat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Razor'></a>
 
-`Razor` 1012
+`Razor` 1013
 
 Emoji identifier for `Razor`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Receipt'></a>
 
-`Receipt` 1013
+`Receipt` 1014
 
 Emoji identifier for `Receipt`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RecordButton'></a>
 
-`RecordButton` 1014
+`RecordButton` 1015
 
 Emoji identifier for `RecordButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RecyclingSymbol'></a>
 
-`RecyclingSymbol` 1015
+`RecyclingSymbol` 1016
 
 Emoji identifier for `RecyclingSymbol`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedApple'></a>
 
-`RedApple` 1016
+`RedApple` 1017
 
 Emoji identifier for `RedApple`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedCircle'></a>
 
-`RedCircle` 1017
+`RedCircle` 1018
 
 Emoji identifier for `RedCircle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedEnvelope'></a>
 
-`RedEnvelope` 1018
+`RedEnvelope` 1019
 
 Emoji identifier for `RedEnvelope`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedExclamationMark'></a>
 
-`RedExclamationMark` 1019
+`RedExclamationMark` 1020
 
 Emoji identifier for `RedExclamationMark`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedHair'></a>
 
-`RedHair` 1020
+`RedHair` 1021
 
 Emoji identifier for `RedHair`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedHeart'></a>
 
-`RedHeart` 1021
+`RedHeart` 1022
 
 Emoji identifier for `RedHeart`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedPaperLantern'></a>
 
-`RedPaperLantern` 1022
+`RedPaperLantern` 1023
 
 Emoji identifier for `RedPaperLantern`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedQuestionMark'></a>
 
-`RedQuestionMark` 1023
+`RedQuestionMark` 1024
 
 Emoji identifier for `RedQuestionMark`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedSquare'></a>
 
-`RedSquare` 1024
+`RedSquare` 1025
 
 Emoji identifier for `RedSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedTrianglePointedDown'></a>
 
-`RedTrianglePointedDown` 1025
+`RedTrianglePointedDown` 1026
 
 Emoji identifier for `RedTrianglePointedDown`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RedTrianglePointedUp'></a>
 
-`RedTrianglePointedUp` 1026
+`RedTrianglePointedUp` 1027
 
 Emoji identifier for `RedTrianglePointedUp`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorA'></a>
 
-`RegionalIndicatorA` 1027
+`RegionalIndicatorA` 1028
 
 Emoji identifier for `RegionalIndicatorA`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorB'></a>
 
-`RegionalIndicatorB` 1028
+`RegionalIndicatorB` 1029
 
 Emoji identifier for `RegionalIndicatorB`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorC'></a>
 
-`RegionalIndicatorC` 1029
+`RegionalIndicatorC` 1030
 
 Emoji identifier for `RegionalIndicatorC`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorD'></a>
 
-`RegionalIndicatorD` 1030
+`RegionalIndicatorD` 1031
 
 Emoji identifier for `RegionalIndicatorD`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorE'></a>
 
-`RegionalIndicatorE` 1031
+`RegionalIndicatorE` 1032
 
 Emoji identifier for `RegionalIndicatorE`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorF'></a>
 
-`RegionalIndicatorF` 1032
+`RegionalIndicatorF` 1033
 
 Emoji identifier for `RegionalIndicatorF`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorG'></a>
 
-`RegionalIndicatorG` 1033
+`RegionalIndicatorG` 1034
 
 Emoji identifier for `RegionalIndicatorG`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorH'></a>
 
-`RegionalIndicatorH` 1034
+`RegionalIndicatorH` 1035
 
 Emoji identifier for `RegionalIndicatorH`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorI'></a>
 
-`RegionalIndicatorI` 1035
+`RegionalIndicatorI` 1036
 
 Emoji identifier for `RegionalIndicatorI`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorJ'></a>
 
-`RegionalIndicatorJ` 1036
+`RegionalIndicatorJ` 1037
 
 Emoji identifier for `RegionalIndicatorJ`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorK'></a>
 
-`RegionalIndicatorK` 1037
+`RegionalIndicatorK` 1038
 
 Emoji identifier for `RegionalIndicatorK`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorL'></a>
 
-`RegionalIndicatorL` 1038
+`RegionalIndicatorL` 1039
 
 Emoji identifier for `RegionalIndicatorL`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorM'></a>
 
-`RegionalIndicatorM` 1039
+`RegionalIndicatorM` 1040
 
 Emoji identifier for `RegionalIndicatorM`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorN'></a>
 
-`RegionalIndicatorN` 1040
+`RegionalIndicatorN` 1041
 
 Emoji identifier for `RegionalIndicatorN`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorO'></a>
 
-`RegionalIndicatorO` 1041
+`RegionalIndicatorO` 1042
 
 Emoji identifier for `RegionalIndicatorO`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorP'></a>
 
-`RegionalIndicatorP` 1042
+`RegionalIndicatorP` 1043
 
 Emoji identifier for `RegionalIndicatorP`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorQ'></a>
 
-`RegionalIndicatorQ` 1043
+`RegionalIndicatorQ` 1044
 
 Emoji identifier for `RegionalIndicatorQ`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorR'></a>
 
-`RegionalIndicatorR` 1044
+`RegionalIndicatorR` 1045
 
 Emoji identifier for `RegionalIndicatorR`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorS'></a>
 
-`RegionalIndicatorS` 1045
+`RegionalIndicatorS` 1046
 
 Emoji identifier for `RegionalIndicatorS`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorT'></a>
 
-`RegionalIndicatorT` 1046
+`RegionalIndicatorT` 1047
 
 Emoji identifier for `RegionalIndicatorT`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorU'></a>
 
-`RegionalIndicatorU` 1047
+`RegionalIndicatorU` 1048
 
 Emoji identifier for `RegionalIndicatorU`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorV'></a>
 
-`RegionalIndicatorV` 1048
+`RegionalIndicatorV` 1049
 
 Emoji identifier for `RegionalIndicatorV`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorW'></a>
 
-`RegionalIndicatorW` 1049
+`RegionalIndicatorW` 1050
 
 Emoji identifier for `RegionalIndicatorW`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorX'></a>
 
-`RegionalIndicatorX` 1050
+`RegionalIndicatorX` 1051
 
 Emoji identifier for `RegionalIndicatorX`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorY'></a>
 
-`RegionalIndicatorY` 1051
+`RegionalIndicatorY` 1052
 
 Emoji identifier for `RegionalIndicatorY`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RegionalIndicatorZ'></a>
 
-`RegionalIndicatorZ` 1052
+`RegionalIndicatorZ` 1053
 
 Emoji identifier for `RegionalIndicatorZ`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Registered'></a>
 
-`Registered` 1053
+`Registered` 1054
 
 Emoji identifier for `Registered`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RelievedFace'></a>
 
-`RelievedFace` 1054
+`RelievedFace` 1055
 
 Emoji identifier for `RelievedFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ReminderRibbon'></a>
 
-`ReminderRibbon` 1055
+`ReminderRibbon` 1056
 
 Emoji identifier for `ReminderRibbon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RepeatButton'></a>
 
-`RepeatButton` 1056
+`RepeatButton` 1057
 
 Emoji identifier for `RepeatButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RepeatSingleButton'></a>
 
-`RepeatSingleButton` 1057
+`RepeatSingleButton` 1058
 
 Emoji identifier for `RepeatSingleButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RescueWorkersHelmet'></a>
 
-`RescueWorkersHelmet` 1058
+`RescueWorkersHelmet` 1059
 
 Emoji identifier for `RescueWorkersHelmet`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Restroom'></a>
 
-`Restroom` 1059
+`Restroom` 1060
 
 Emoji identifier for `Restroom`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ReverseButton'></a>
 
-`ReverseButton` 1060
+`ReverseButton` 1061
 
 Emoji identifier for `ReverseButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RevolvingHearts'></a>
 
-`RevolvingHearts` 1061
+`RevolvingHearts` 1062
 
 Emoji identifier for `RevolvingHearts`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rhinoceros'></a>
 
-`Rhinoceros` 1062
+`Rhinoceros` 1063
 
 Emoji identifier for `Rhinoceros`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Ribbon'></a>
 
-`Ribbon` 1063
+`Ribbon` 1064
 
 Emoji identifier for `Ribbon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RiceBall'></a>
 
-`RiceBall` 1064
+`RiceBall` 1065
 
 Emoji identifier for `RiceBall`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RiceCracker'></a>
 
-`RiceCracker` 1065
+`RiceCracker` 1066
 
 Emoji identifier for `RiceCracker`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightAngerBubble'></a>
 
-`RightAngerBubble` 1066
+`RightAngerBubble` 1067
 
 Emoji identifier for `RightAngerBubble`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightArrow'></a>
 
-`RightArrow` 1067
+`RightArrow` 1068
 
 Emoji identifier for `RightArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightArrowCurvingDown'></a>
 
-`RightArrowCurvingDown` 1068
+`RightArrowCurvingDown` 1069
 
 Emoji identifier for `RightArrowCurvingDown`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightArrowCurvingLeft'></a>
 
-`RightArrowCurvingLeft` 1069
+`RightArrowCurvingLeft` 1070
 
 Emoji identifier for `RightArrowCurvingLeft`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightArrowCurvingUp'></a>
 
-`RightArrowCurvingUp` 1070
+`RightArrowCurvingUp` 1071
 
 Emoji identifier for `RightArrowCurvingUp`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightFacingFist'></a>
 
-`RightFacingFist` 1071
+`RightFacingFist` 1072
 
 Emoji identifier for `RightFacingFist`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightwardsHand'></a>
 
-`RightwardsHand` 1072
+`RightwardsHand` 1073
 
 Emoji identifier for `RightwardsHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RightwardsPushingHand'></a>
 
-`RightwardsPushingHand` 1073
+`RightwardsPushingHand` 1074
 
 Emoji identifier for `RightwardsPushingHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Ring'></a>
 
-`Ring` 1074
+`Ring` 1075
 
 Emoji identifier for `Ring`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RingBuoy'></a>
 
-`RingBuoy` 1075
+`RingBuoy` 1076
 
 Emoji identifier for `RingBuoy`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RingedPlanet'></a>
 
-`RingedPlanet` 1076
+`RingedPlanet` 1077
 
 Emoji identifier for `RingedPlanet`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RoastedSweetPotato'></a>
 
-`RoastedSweetPotato` 1077
+`RoastedSweetPotato` 1078
 
 Emoji identifier for `RoastedSweetPotato`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Robot'></a>
 
-`Robot` 1078
+`Robot` 1079
 
 Emoji identifier for `Robot`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rock'></a>
 
-`Rock` 1079
+`Rock` 1080
 
 Emoji identifier for `Rock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rocket'></a>
 
-`Rocket` 1080
+`Rocket` 1081
 
 Emoji identifier for `Rocket`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RolledUpNewspaper'></a>
 
-`RolledUpNewspaper` 1081
+`RolledUpNewspaper` 1082
 
 Emoji identifier for `RolledUpNewspaper`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RollerCoaster'></a>
 
-`RollerCoaster` 1082
+`RollerCoaster` 1083
 
 Emoji identifier for `RollerCoaster`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RollerSkate'></a>
 
-`RollerSkate` 1083
+`RollerSkate` 1084
 
 Emoji identifier for `RollerSkate`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RollingOnTheFloorLaughing'></a>
 
-`RollingOnTheFloorLaughing` 1084
+`RollingOnTheFloorLaughing` 1085
 
 Emoji identifier for `RollingOnTheFloorLaughing`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RollOfPaper'></a>
 
-`RollOfPaper` 1085
+`RollOfPaper` 1086
 
 Emoji identifier for `RollOfPaper`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rooster'></a>
 
-`Rooster` 1086
+`Rooster` 1087
 
 Emoji identifier for `Rooster`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RootVegetable'></a>
 
-`RootVegetable` 1087
+`RootVegetable` 1088
 
 Emoji identifier for `RootVegetable`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rose'></a>
 
-`Rose` 1088
+`Rose` 1089
 
 Emoji identifier for `Rose`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Rosette'></a>
 
-`Rosette` 1089
+`Rosette` 1090
 
 Emoji identifier for `Rosette`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RoundPushpin'></a>
 
-`RoundPushpin` 1090
+`RoundPushpin` 1091
 
 Emoji identifier for `RoundPushpin`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RugbyFootball'></a>
 
-`RugbyFootball` 1091
+`RugbyFootball` 1092
 
 Emoji identifier for `RugbyFootball`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RunningShirt'></a>
 
-`RunningShirt` 1092
+`RunningShirt` 1093
 
 Emoji identifier for `RunningShirt`\.
 
 <a name='ConsolePlusLibrary.EmojiName.RunningShoe'></a>
 
-`RunningShoe` 1093
+`RunningShoe` 1094
 
 Emoji identifier for `RunningShoe`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SadButRelievedFace'></a>
 
-`SadButRelievedFace` 1094
+`SadButRelievedFace` 1095
 
 Emoji identifier for `SadButRelievedFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SafetyPin'></a>
 
-`SafetyPin` 1095
+`SafetyPin` 1096
 
 Emoji identifier for `SafetyPin`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SafetyVest'></a>
 
-`SafetyVest` 1096
+`SafetyVest` 1097
 
 Emoji identifier for `SafetyVest`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sagittarius'></a>
 
-`Sagittarius` 1097
+`Sagittarius` 1098
 
 Emoji identifier for `Sagittarius`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sailboat'></a>
 
-`Sailboat` 1098
+`Sailboat` 1099
 
 Emoji identifier for `Sailboat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sake'></a>
 
-`Sake` 1099
+`Sake` 1100
 
 Emoji identifier for `Sake`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Salt'></a>
 
-`Salt` 1100
+`Salt` 1101
 
 Emoji identifier for `Salt`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SalutingFace'></a>
 
-`SalutingFace` 1101
+`SalutingFace` 1102
 
 Emoji identifier for `SalutingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sandwich'></a>
 
-`Sandwich` 1102
+`Sandwich` 1103
 
 Emoji identifier for `Sandwich`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SantaClaus'></a>
 
-`SantaClaus` 1103
+`SantaClaus` 1104
 
 Emoji identifier for `SantaClaus`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sari'></a>
 
-`Sari` 1104
+`Sari` 1105
 
 Emoji identifier for `Sari`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Satellite'></a>
 
-`Satellite` 1105
+`Satellite` 1106
 
 Emoji identifier for `Satellite`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SatelliteAntenna'></a>
 
-`SatelliteAntenna` 1106
+`SatelliteAntenna` 1107
 
 Emoji identifier for `SatelliteAntenna`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sauropod'></a>
 
-`Sauropod` 1107
+`Sauropod` 1108
 
 Emoji identifier for `Sauropod`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Saxophone'></a>
 
-`Saxophone` 1108
+`Saxophone` 1109
 
 Emoji identifier for `Saxophone`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Scarf'></a>
 
-`Scarf` 1109
+`Scarf` 1110
 
 Emoji identifier for `Scarf`\.
 
 <a name='ConsolePlusLibrary.EmojiName.School'></a>
 
-`School` 1110
+`School` 1111
 
 Emoji identifier for `School`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Scissors'></a>
 
-`Scissors` 1111
+`Scissors` 1112
 
 Emoji identifier for `Scissors`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Scorpio'></a>
 
-`Scorpio` 1112
+`Scorpio` 1113
 
 Emoji identifier for `Scorpio`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Scorpion'></a>
 
-`Scorpion` 1113
+`Scorpion` 1114
 
 Emoji identifier for `Scorpion`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Screwdriver'></a>
 
-`Screwdriver` 1114
+`Screwdriver` 1115
 
 Emoji identifier for `Screwdriver`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Scroll'></a>
 
-`Scroll` 1115
+`Scroll` 1116
 
 Emoji identifier for `Scroll`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Seal'></a>
 
-`Seal` 1116
+`Seal` 1117
 
 Emoji identifier for `Seal`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Seat'></a>
 
-`Seat` 1117
+`Seat` 1118
 
 Emoji identifier for `Seat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SecondPlaceMedal'></a>
 
-`SecondPlaceMedal` 1118
+`SecondPlaceMedal` 1119
 
 Emoji identifier for `SecondPlaceMedal`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Seedling'></a>
 
-`Seedling` 1119
+`Seedling` 1120
 
 Emoji identifier for `Seedling`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SeeNoEvilMonkey'></a>
 
-`SeeNoEvilMonkey` 1120
+`SeeNoEvilMonkey` 1121
 
 Emoji identifier for `SeeNoEvilMonkey`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Selfie'></a>
 
-`Selfie` 1121
+`Selfie` 1122
 
 Emoji identifier for `Selfie`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SevenOClock'></a>
 
-`SevenOClock` 1122
+`SevenOClock` 1123
 
 Emoji identifier for `SevenOClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SevenThirty'></a>
 
-`SevenThirty` 1123
+`SevenThirty` 1124
 
 Emoji identifier for `SevenThirty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SewingNeedle'></a>
 
-`SewingNeedle` 1124
+`SewingNeedle` 1125
 
 Emoji identifier for `SewingNeedle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShakingFace'></a>
 
-`ShakingFace` 1125
+`ShakingFace` 1126
 
 Emoji identifier for `ShakingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShallowPanOfFood'></a>
 
-`ShallowPanOfFood` 1126
+`ShallowPanOfFood` 1127
 
 Emoji identifier for `ShallowPanOfFood`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shamrock'></a>
 
-`Shamrock` 1127
+`Shamrock` 1128
 
 Emoji identifier for `Shamrock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shark'></a>
 
-`Shark` 1128
+`Shark` 1129
 
 Emoji identifier for `Shark`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShavedIce'></a>
 
-`ShavedIce` 1129
+`ShavedIce` 1130
 
 Emoji identifier for `ShavedIce`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SheafOfRice'></a>
 
-`SheafOfRice` 1130
+`SheafOfRice` 1131
 
 Emoji identifier for `SheafOfRice`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shield'></a>
 
-`Shield` 1131
+`Shield` 1132
 
 Emoji identifier for `Shield`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShintoShrine'></a>
 
-`ShintoShrine` 1132
+`ShintoShrine` 1133
 
 Emoji identifier for `ShintoShrine`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Ship'></a>
 
-`Ship` 1133
+`Ship` 1134
 
 Emoji identifier for `Ship`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShootingStar'></a>
 
-`ShootingStar` 1134
+`ShootingStar` 1135
 
 Emoji identifier for `ShootingStar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShoppingBags'></a>
 
-`ShoppingBags` 1135
+`ShoppingBags` 1136
 
 Emoji identifier for `ShoppingBags`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShoppingCart'></a>
 
-`ShoppingCart` 1136
+`ShoppingCart` 1137
 
 Emoji identifier for `ShoppingCart`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shortcake'></a>
 
-`Shortcake` 1137
+`Shortcake` 1138
 
 Emoji identifier for `Shortcake`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shorts'></a>
 
-`Shorts` 1138
+`Shorts` 1139
 
 Emoji identifier for `Shorts`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shovel'></a>
 
-`Shovel` 1139
+`Shovel` 1140
 
 Emoji identifier for `Shovel`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shower'></a>
 
-`Shower` 1140
+`Shower` 1141
 
 Emoji identifier for `Shower`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Shrimp'></a>
 
-`Shrimp` 1141
+`Shrimp` 1142
 
 Emoji identifier for `Shrimp`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShuffleTracksButton'></a>
 
-`ShuffleTracksButton` 1142
+`ShuffleTracksButton` 1143
 
 Emoji identifier for `ShuffleTracksButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ShushingFace'></a>
 
-`ShushingFace` 1143
+`ShushingFace` 1144
 
 Emoji identifier for `ShushingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SignOfTheHorns'></a>
 
-`SignOfTheHorns` 1144
+`SignOfTheHorns` 1145
 
 Emoji identifier for `SignOfTheHorns`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SixOClock'></a>
 
-`SixOClock` 1145
+`SixOClock` 1146
 
 Emoji identifier for `SixOClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SixThirty'></a>
 
-`SixThirty` 1146
+`SixThirty` 1147
 
 Emoji identifier for `SixThirty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Skateboard'></a>
 
-`Skateboard` 1147
+`Skateboard` 1148
 
 Emoji identifier for `Skateboard`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Skier'></a>
 
-`Skier` 1148
+`Skier` 1149
 
 Emoji identifier for `Skier`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Skis'></a>
 
-`Skis` 1149
+`Skis` 1150
 
 Emoji identifier for `Skis`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Skull'></a>
 
-`Skull` 1150
+`Skull` 1151
 
 Emoji identifier for `Skull`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SkullAndCrossbones'></a>
 
-`SkullAndCrossbones` 1151
+`SkullAndCrossbones` 1152
 
 Emoji identifier for `SkullAndCrossbones`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Skunk'></a>
 
-`Skunk` 1152
+`Skunk` 1153
 
 Emoji identifier for `Skunk`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sled'></a>
 
-`Sled` 1153
+`Sled` 1154
 
 Emoji identifier for `Sled`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SleepingFace'></a>
 
-`SleepingFace` 1154
+`SleepingFace` 1155
 
 Emoji identifier for `SleepingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SleepyFace'></a>
 
-`SleepyFace` 1155
+`SleepyFace` 1156
 
 Emoji identifier for `SleepyFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SlightlyFrowningFace'></a>
 
-`SlightlyFrowningFace` 1156
+`SlightlyFrowningFace` 1157
 
 Emoji identifier for `SlightlyFrowningFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SlightlySmilingFace'></a>
 
-`SlightlySmilingFace` 1157
+`SlightlySmilingFace` 1158
 
 Emoji identifier for `SlightlySmilingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sloth'></a>
 
-`Sloth` 1158
+`Sloth` 1159
 
 Emoji identifier for `Sloth`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SlotMachine'></a>
 
-`SlotMachine` 1159
+`SlotMachine` 1160
 
 Emoji identifier for `SlotMachine`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmallAirplane'></a>
 
-`SmallAirplane` 1160
+`SmallAirplane` 1161
 
 Emoji identifier for `SmallAirplane`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmallBlueDiamond'></a>
 
-`SmallBlueDiamond` 1161
+`SmallBlueDiamond` 1162
 
 Emoji identifier for `SmallBlueDiamond`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmallOrangeDiamond'></a>
 
-`SmallOrangeDiamond` 1162
+`SmallOrangeDiamond` 1163
 
 Emoji identifier for `SmallOrangeDiamond`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingCatWithHeartEyes'></a>
 
-`SmilingCatWithHeartEyes` 1163
+`SmilingCatWithHeartEyes` 1164
 
 Emoji identifier for `SmilingCatWithHeartEyes`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFace'></a>
 
-`SmilingFace` 1164
+`SmilingFace` 1165
 
 Emoji identifier for `SmilingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithHalo'></a>
 
-`SmilingFaceWithHalo` 1165
+`SmilingFaceWithHalo` 1166
 
 Emoji identifier for `SmilingFaceWithHalo`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithHeartEyes'></a>
 
-`SmilingFaceWithHeartEyes` 1166
+`SmilingFaceWithHeartEyes` 1167
 
 Emoji identifier for `SmilingFaceWithHeartEyes`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithHearts'></a>
 
-`SmilingFaceWithHearts` 1167
+`SmilingFaceWithHearts` 1168
 
 Emoji identifier for `SmilingFaceWithHearts`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithHorns'></a>
 
-`SmilingFaceWithHorns` 1168
+`SmilingFaceWithHorns` 1169
 
 Emoji identifier for `SmilingFaceWithHorns`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithOpenHands'></a>
 
-`SmilingFaceWithOpenHands` 1169
+`SmilingFaceWithOpenHands` 1170
 
 Emoji identifier for `SmilingFaceWithOpenHands`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithSmilingEyes'></a>
 
-`SmilingFaceWithSmilingEyes` 1170
+`SmilingFaceWithSmilingEyes` 1171
 
 Emoji identifier for `SmilingFaceWithSmilingEyes`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithSunglasses'></a>
 
-`SmilingFaceWithSunglasses` 1171
+`SmilingFaceWithSunglasses` 1172
 
 Emoji identifier for `SmilingFaceWithSunglasses`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmilingFaceWithTear'></a>
 
-`SmilingFaceWithTear` 1172
+`SmilingFaceWithTear` 1173
 
 Emoji identifier for `SmilingFaceWithTear`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SmirkingFace'></a>
 
-`SmirkingFace` 1173
+`SmirkingFace` 1174
 
 Emoji identifier for `SmirkingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Snail'></a>
 
-`Snail` 1174
+`Snail` 1175
 
 Emoji identifier for `Snail`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Snake'></a>
 
-`Snake` 1175
+`Snake` 1176
 
 Emoji identifier for `Snake`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SneezingFace'></a>
 
-`SneezingFace` 1176
+`SneezingFace` 1177
 
 Emoji identifier for `SneezingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Snowboarder'></a>
 
-`Snowboarder` 1177
+`Snowboarder` 1178
 
 Emoji identifier for `Snowboarder`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SnowCappedMountain'></a>
 
-`SnowCappedMountain` 1178
+`SnowCappedMountain` 1179
 
 Emoji identifier for `SnowCappedMountain`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Snowflake'></a>
 
-`Snowflake` 1179
+`Snowflake` 1180
 
 Emoji identifier for `Snowflake`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Snowman'></a>
 
-`Snowman` 1180
+`Snowman` 1181
 
 Emoji identifier for `Snowman`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SnowmanWithoutSnow'></a>
 
-`SnowmanWithoutSnow` 1181
+`SnowmanWithoutSnow` 1182
 
 Emoji identifier for `SnowmanWithoutSnow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Soap'></a>
 
-`Soap` 1182
+`Soap` 1183
 
 Emoji identifier for `Soap`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SoccerBall'></a>
 
-`SoccerBall` 1183
+`SoccerBall` 1184
 
 Emoji identifier for `SoccerBall`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Socks'></a>
 
-`Socks` 1184
+`Socks` 1185
 
 Emoji identifier for `Socks`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Softball'></a>
 
-`Softball` 1185
+`Softball` 1186
 
 Emoji identifier for `Softball`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SoftIceCream'></a>
 
-`SoftIceCream` 1186
+`SoftIceCream` 1187
 
 Emoji identifier for `SoftIceCream`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SoonArrow'></a>
 
-`SoonArrow` 1187
+`SoonArrow` 1188
 
 Emoji identifier for `SoonArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SosButton'></a>
 
-`SosButton` 1188
+`SosButton` 1189
 
 Emoji identifier for `SosButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpadeSuit'></a>
 
-`SpadeSuit` 1189
+`SpadeSuit` 1190
 
 Emoji identifier for `SpadeSuit`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Spaghetti'></a>
 
-`Spaghetti` 1190
+`Spaghetti` 1191
 
 Emoji identifier for `Spaghetti`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sparkle'></a>
 
-`Sparkle` 1191
+`Sparkle` 1192
 
 Emoji identifier for `Sparkle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sparkler'></a>
 
-`Sparkler` 1192
+`Sparkler` 1193
 
 Emoji identifier for `Sparkler`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sparkles'></a>
 
-`Sparkles` 1193
+`Sparkles` 1194
 
 Emoji identifier for `Sparkles`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SparklingHeart'></a>
 
-`SparklingHeart` 1194
+`SparklingHeart` 1195
 
 Emoji identifier for `SparklingHeart`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpeakerHighVolume'></a>
 
-`SpeakerHighVolume` 1195
+`SpeakerHighVolume` 1196
 
 Emoji identifier for `SpeakerHighVolume`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpeakerLowVolume'></a>
 
-`SpeakerLowVolume` 1196
+`SpeakerLowVolume` 1197
 
 Emoji identifier for `SpeakerLowVolume`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpeakerMediumVolume'></a>
 
-`SpeakerMediumVolume` 1197
+`SpeakerMediumVolume` 1198
 
 Emoji identifier for `SpeakerMediumVolume`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpeakingHead'></a>
 
-`SpeakingHead` 1198
+`SpeakingHead` 1199
 
 Emoji identifier for `SpeakingHead`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpeakNoEvilMonkey'></a>
 
-`SpeakNoEvilMonkey` 1199
+`SpeakNoEvilMonkey` 1200
 
 Emoji identifier for `SpeakNoEvilMonkey`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpeechBalloon'></a>
 
-`SpeechBalloon` 1200
+`SpeechBalloon` 1201
 
 Emoji identifier for `SpeechBalloon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Speedboat'></a>
 
-`Speedboat` 1201
+`Speedboat` 1202
 
 Emoji identifier for `Speedboat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Spider'></a>
 
-`Spider` 1202
+`Spider` 1203
 
 Emoji identifier for `Spider`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpiderWeb'></a>
 
-`SpiderWeb` 1203
+`SpiderWeb` 1204
 
 Emoji identifier for `SpiderWeb`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpiralCalendar'></a>
 
-`SpiralCalendar` 1204
+`SpiralCalendar` 1205
 
 Emoji identifier for `SpiralCalendar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpiralNotepad'></a>
 
-`SpiralNotepad` 1205
+`SpiralNotepad` 1206
 
 Emoji identifier for `SpiralNotepad`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpiralShell'></a>
 
-`SpiralShell` 1206
+`SpiralShell` 1207
 
 Emoji identifier for `SpiralShell`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Splatter'></a>
 
-`Splatter` 1207
+`Splatter` 1208
 
 Emoji identifier for `Splatter`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sponge'></a>
 
-`Sponge` 1208
+`Sponge` 1209
 
 Emoji identifier for `Sponge`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Spoon'></a>
 
-`Spoon` 1209
+`Spoon` 1210
 
 Emoji identifier for `Spoon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SportsMedal'></a>
 
-`SportsMedal` 1210
+`SportsMedal` 1211
 
 Emoji identifier for `SportsMedal`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SportUtilityVehicle'></a>
 
-`SportUtilityVehicle` 1211
+`SportUtilityVehicle` 1212
 
 Emoji identifier for `SportUtilityVehicle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SpoutingWhale'></a>
 
-`SpoutingWhale` 1212
+`SpoutingWhale` 1213
 
 Emoji identifier for `SpoutingWhale`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Squid'></a>
 
-`Squid` 1213
+`Squid` 1214
 
 Emoji identifier for `Squid`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SquintingFaceWithTongue'></a>
 
-`SquintingFaceWithTongue` 1214
+`SquintingFaceWithTongue` 1215
 
 Emoji identifier for `SquintingFaceWithTongue`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Stadium'></a>
 
-`Stadium` 1215
+`Stadium` 1216
 
 Emoji identifier for `Stadium`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Star'></a>
 
-`Star` 1216
+`Star` 1217
 
 Emoji identifier for `Star`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StarAndCrescent'></a>
 
-`StarAndCrescent` 1217
+`StarAndCrescent` 1218
 
 Emoji identifier for `StarAndCrescent`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StarOfDavid'></a>
 
-`StarOfDavid` 1218
+`StarOfDavid` 1219
 
 Emoji identifier for `StarOfDavid`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StarStruck'></a>
 
-`StarStruck` 1219
+`StarStruck` 1220
 
 Emoji identifier for `StarStruck`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Station'></a>
 
-`Station` 1220
+`Station` 1221
 
 Emoji identifier for `Station`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StatueOfLiberty'></a>
 
-`StatueOfLiberty` 1221
+`StatueOfLiberty` 1222
 
 Emoji identifier for `StatueOfLiberty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SteamingBowl'></a>
 
-`SteamingBowl` 1222
+`SteamingBowl` 1223
 
 Emoji identifier for `SteamingBowl`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Stethoscope'></a>
 
-`Stethoscope` 1223
+`Stethoscope` 1224
 
 Emoji identifier for `Stethoscope`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StopButton'></a>
 
-`StopButton` 1224
+`StopButton` 1225
 
 Emoji identifier for `StopButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StopSign'></a>
 
-`StopSign` 1225
+`StopSign` 1226
 
 Emoji identifier for `StopSign`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Stopwatch'></a>
 
-`Stopwatch` 1226
+`Stopwatch` 1227
 
 Emoji identifier for `Stopwatch`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StraightRuler'></a>
 
-`StraightRuler` 1227
+`StraightRuler` 1228
 
 Emoji identifier for `StraightRuler`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Strawberry'></a>
 
-`Strawberry` 1228
+`Strawberry` 1229
 
 Emoji identifier for `Strawberry`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StudioMicrophone'></a>
 
-`StudioMicrophone` 1229
+`StudioMicrophone` 1230
 
 Emoji identifier for `StudioMicrophone`\.
 
 <a name='ConsolePlusLibrary.EmojiName.StuffedFlatbread'></a>
 
-`StuffedFlatbread` 1230
+`StuffedFlatbread` 1231
 
 Emoji identifier for `StuffedFlatbread`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sun'></a>
 
-`Sun` 1231
+`Sun` 1232
 
 Emoji identifier for `Sun`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SunBehindCloud'></a>
 
-`SunBehindCloud` 1232
+`SunBehindCloud` 1233
 
 Emoji identifier for `SunBehindCloud`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SunBehindLargeCloud'></a>
 
-`SunBehindLargeCloud` 1233
+`SunBehindLargeCloud` 1234
 
 Emoji identifier for `SunBehindLargeCloud`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SunBehindRainCloud'></a>
 
-`SunBehindRainCloud` 1234
+`SunBehindRainCloud` 1235
 
 Emoji identifier for `SunBehindRainCloud`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SunBehindSmallCloud'></a>
 
-`SunBehindSmallCloud` 1235
+`SunBehindSmallCloud` 1236
 
 Emoji identifier for `SunBehindSmallCloud`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sunflower'></a>
 
-`Sunflower` 1236
+`Sunflower` 1237
 
 Emoji identifier for `Sunflower`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sunglasses'></a>
 
-`Sunglasses` 1237
+`Sunglasses` 1238
 
 Emoji identifier for `Sunglasses`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sunrise'></a>
 
-`Sunrise` 1238
+`Sunrise` 1239
 
 Emoji identifier for `Sunrise`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SunriseOverMountains'></a>
 
-`SunriseOverMountains` 1239
+`SunriseOverMountains` 1240
 
 Emoji identifier for `SunriseOverMountains`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sunset'></a>
 
-`Sunset` 1240
+`Sunset` 1241
 
 Emoji identifier for `Sunset`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SunWithFace'></a>
 
-`SunWithFace` 1241
+`SunWithFace` 1242
 
 Emoji identifier for `SunWithFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Superhero'></a>
 
-`Superhero` 1242
+`Superhero` 1243
 
 Emoji identifier for `Superhero`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Supervillain'></a>
 
-`Supervillain` 1243
+`Supervillain` 1244
 
 Emoji identifier for `Supervillain`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Sushi'></a>
 
-`Sushi` 1244
+`Sushi` 1245
 
 Emoji identifier for `Sushi`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SuspensionRailway'></a>
 
-`SuspensionRailway` 1245
+`SuspensionRailway` 1246
 
 Emoji identifier for `SuspensionRailway`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Swan'></a>
 
-`Swan` 1246
+`Swan` 1247
 
 Emoji identifier for `Swan`\.
 
 <a name='ConsolePlusLibrary.EmojiName.SweatDroplets'></a>
 
-`SweatDroplets` 1247
+`SweatDroplets` 1248
 
 Emoji identifier for `SweatDroplets`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Synagogue'></a>
 
-`Synagogue` 1248
+`Synagogue` 1249
 
 Emoji identifier for `Synagogue`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Syringe'></a>
 
-`Syringe` 1249
+`Syringe` 1250
 
 Emoji identifier for `Syringe`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Taco'></a>
 
-`Taco` 1250
+`Taco` 1251
 
 Emoji identifier for `Taco`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TakeoutBox'></a>
 
-`TakeoutBox` 1251
+`TakeoutBox` 1252
 
 Emoji identifier for `TakeoutBox`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tamale'></a>
 
-`Tamale` 1252
+`Tamale` 1253
 
 Emoji identifier for `Tamale`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TanabataTree'></a>
 
-`TanabataTree` 1253
+`TanabataTree` 1254
 
 Emoji identifier for `TanabataTree`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tangerine'></a>
 
-`Tangerine` 1254
+`Tangerine` 1255
 
 Emoji identifier for `Tangerine`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Taurus'></a>
 
-`Taurus` 1255
+`Taurus` 1256
 
 Emoji identifier for `Taurus`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Taxi'></a>
 
-`Taxi` 1256
+`Taxi` 1257
 
 Emoji identifier for `Taxi`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TeacupWithoutHandle'></a>
 
-`TeacupWithoutHandle` 1257
+`TeacupWithoutHandle` 1258
 
 Emoji identifier for `TeacupWithoutHandle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Teapot'></a>
 
-`Teapot` 1258
+`Teapot` 1259
 
 Emoji identifier for `Teapot`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TearOffCalendar'></a>
 
-`TearOffCalendar` 1259
+`TearOffCalendar` 1260
 
 Emoji identifier for `TearOffCalendar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TeddyBear'></a>
 
-`TeddyBear` 1260
+`TeddyBear` 1261
 
 Emoji identifier for `TeddyBear`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Telephone'></a>
 
-`Telephone` 1261
+`Telephone` 1262
 
 Emoji identifier for `Telephone`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TelephoneReceiver'></a>
 
-`TelephoneReceiver` 1262
+`TelephoneReceiver` 1263
 
 Emoji identifier for `TelephoneReceiver`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Telescope'></a>
 
-`Telescope` 1263
+`Telescope` 1264
 
 Emoji identifier for `Telescope`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Television'></a>
 
-`Television` 1264
+`Television` 1265
 
 Emoji identifier for `Television`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tennis'></a>
 
-`Tennis` 1265
+`Tennis` 1266
 
 Emoji identifier for `Tennis`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TenOClock'></a>
 
-`TenOClock` 1266
+`TenOClock` 1267
 
 Emoji identifier for `TenOClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tent'></a>
 
-`Tent` 1267
+`Tent` 1268
 
 Emoji identifier for `Tent`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TenThirty'></a>
 
-`TenThirty` 1268
+`TenThirty` 1269
 
 Emoji identifier for `TenThirty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TestTube'></a>
 
-`TestTube` 1269
+`TestTube` 1270
 
 Emoji identifier for `TestTube`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Thermometer'></a>
 
-`Thermometer` 1270
+`Thermometer` 1271
 
 Emoji identifier for `Thermometer`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThinkingFace'></a>
 
-`ThinkingFace` 1271
+`ThinkingFace` 1272
 
 Emoji identifier for `ThinkingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThirdPlaceMedal'></a>
 
-`ThirdPlaceMedal` 1272
+`ThirdPlaceMedal` 1273
 
 Emoji identifier for `ThirdPlaceMedal`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThongSandal'></a>
 
-`ThongSandal` 1273
+`ThongSandal` 1274
 
 Emoji identifier for `ThongSandal`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThoughtBalloon'></a>
 
-`ThoughtBalloon` 1274
+`ThoughtBalloon` 1275
 
 Emoji identifier for `ThoughtBalloon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Thread'></a>
 
-`Thread` 1275
+`Thread` 1276
 
 Emoji identifier for `Thread`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThreeOClock'></a>
 
-`ThreeOClock` 1276
+`ThreeOClock` 1277
 
 Emoji identifier for `ThreeOClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThreeThirty'></a>
 
-`ThreeThirty` 1277
+`ThreeThirty` 1278
 
 Emoji identifier for `ThreeThirty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThumbsDown'></a>
 
-`ThumbsDown` 1278
+`ThumbsDown` 1279
 
 Emoji identifier for `ThumbsDown`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ThumbsUp'></a>
 
-`ThumbsUp` 1279
+`ThumbsUp` 1280
 
 Emoji identifier for `ThumbsUp`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Ticket'></a>
 
-`Ticket` 1280
+`Ticket` 1281
 
 Emoji identifier for `Ticket`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tiger'></a>
 
-`Tiger` 1281
+`Tiger` 1282
 
 Emoji identifier for `Tiger`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TigerFace'></a>
 
-`TigerFace` 1282
+`TigerFace` 1283
 
 Emoji identifier for `TigerFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TimerClock'></a>
 
-`TimerClock` 1283
+`TimerClock` 1284
 
 Emoji identifier for `TimerClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TiredFace'></a>
 
-`TiredFace` 1284
+`TiredFace` 1285
 
 Emoji identifier for `TiredFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Toilet'></a>
 
-`Toilet` 1285
+`Toilet` 1286
 
 Emoji identifier for `Toilet`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TokyoTower'></a>
 
-`TokyoTower` 1286
+`TokyoTower` 1287
 
 Emoji identifier for `TokyoTower`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tomato'></a>
 
-`Tomato` 1287
+`Tomato` 1288
 
 Emoji identifier for `Tomato`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tongue'></a>
 
-`Tongue` 1288
+`Tongue` 1289
 
 Emoji identifier for `Tongue`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Toolbox'></a>
 
-`Toolbox` 1289
+`Toolbox` 1290
 
 Emoji identifier for `Toolbox`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tooth'></a>
 
-`Tooth` 1290
+`Tooth` 1291
 
 Emoji identifier for `Tooth`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Toothbrush'></a>
 
-`Toothbrush` 1291
+`Toothbrush` 1292
 
 Emoji identifier for `Toothbrush`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TopArrow'></a>
 
-`TopArrow` 1292
+`TopArrow` 1293
 
 Emoji identifier for `TopArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TopHat'></a>
 
-`TopHat` 1293
+`TopHat` 1294
 
 Emoji identifier for `TopHat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tornado'></a>
 
-`Tornado` 1294
+`Tornado` 1295
 
 Emoji identifier for `Tornado`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Trackball'></a>
 
-`Trackball` 1295
+`Trackball` 1296
 
 Emoji identifier for `Trackball`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tractor'></a>
 
-`Tractor` 1296
+`Tractor` 1297
 
 Emoji identifier for `Tractor`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TradeMark'></a>
 
-`TradeMark` 1297
+`TradeMark` 1298
 
 Emoji identifier for `TradeMark`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Train'></a>
 
-`Train` 1298
+`Train` 1299
 
 Emoji identifier for `Train`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tram'></a>
 
-`Tram` 1299
+`Tram` 1300
 
 Emoji identifier for `Tram`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TramCar'></a>
 
-`TramCar` 1300
+`TramCar` 1301
 
 Emoji identifier for `TramCar`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TransgenderSymbol'></a>
 
-`TransgenderSymbol` 1301
+`TransgenderSymbol` 1302
 
 Emoji identifier for `TransgenderSymbol`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TreasureChest'></a>
 
-`TreasureChest` 1302
+`TreasureChest` 1303
 
 Emoji identifier for `TreasureChest`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TRex'></a>
 
-`TRex` 1303
+`TRex` 1304
 
 Emoji identifier for `TRex`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TriangularFlag'></a>
 
-`TriangularFlag` 1304
+`TriangularFlag` 1305
 
 Emoji identifier for `TriangularFlag`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TriangularRuler'></a>
 
-`TriangularRuler` 1305
+`TriangularRuler` 1306
 
 Emoji identifier for `TriangularRuler`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TridentEmblem'></a>
 
-`TridentEmblem` 1306
+`TridentEmblem` 1307
 
 Emoji identifier for `TridentEmblem`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Troll'></a>
 
-`Troll` 1307
+`Troll` 1308
 
 Emoji identifier for `Troll`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Trolleybus'></a>
 
-`Trolleybus` 1308
+`Trolleybus` 1309
 
 Emoji identifier for `Trolleybus`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Trombone'></a>
 
-`Trombone` 1309
+`Trombone` 1310
 
 Emoji identifier for `Trombone`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Trophy'></a>
 
-`Trophy` 1310
+`Trophy` 1311
 
 Emoji identifier for `Trophy`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TropicalDrink'></a>
 
-`TropicalDrink` 1311
+`TropicalDrink` 1312
 
 Emoji identifier for `TropicalDrink`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TropicalFish'></a>
 
-`TropicalFish` 1312
+`TropicalFish` 1313
 
 Emoji identifier for `TropicalFish`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Trumpet'></a>
 
-`Trumpet` 1313
+`Trumpet` 1314
 
 Emoji identifier for `Trumpet`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TShirt'></a>
 
-`TShirt` 1314
+`TShirt` 1315
 
 Emoji identifier for `TShirt`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Tulip'></a>
 
-`Tulip` 1315
+`Tulip` 1316
 
 Emoji identifier for `Tulip`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TumblerGlass'></a>
 
-`TumblerGlass` 1316
+`TumblerGlass` 1317
 
 Emoji identifier for `TumblerGlass`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Turkey'></a>
 
-`Turkey` 1317
+`Turkey` 1318
 
 Emoji identifier for `Turkey`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Turtle'></a>
 
-`Turtle` 1318
+`Turtle` 1319
 
 Emoji identifier for `Turtle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TwelveOClock'></a>
 
-`TwelveOClock` 1319
+`TwelveOClock` 1320
 
 Emoji identifier for `TwelveOClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TwelveThirty'></a>
 
-`TwelveThirty` 1320
+`TwelveThirty` 1321
 
 Emoji identifier for `TwelveThirty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TwoHearts'></a>
 
-`TwoHearts` 1321
+`TwoHearts` 1322
 
 Emoji identifier for `TwoHearts`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TwoHumpCamel'></a>
 
-`TwoHumpCamel` 1322
+`TwoHumpCamel` 1323
 
 Emoji identifier for `TwoHumpCamel`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TwoOClock'></a>
 
-`TwoOClock` 1323
+`TwoOClock` 1324
 
 Emoji identifier for `TwoOClock`\.
 
 <a name='ConsolePlusLibrary.EmojiName.TwoThirty'></a>
 
-`TwoThirty` 1324
+`TwoThirty` 1325
 
 Emoji identifier for `TwoThirty`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Umbrella'></a>
 
-`Umbrella` 1325
+`Umbrella` 1326
 
 Emoji identifier for `Umbrella`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UmbrellaOnGround'></a>
 
-`UmbrellaOnGround` 1326
+`UmbrellaOnGround` 1327
 
 Emoji identifier for `UmbrellaOnGround`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UmbrellaWithRainDrops'></a>
 
-`UmbrellaWithRainDrops` 1327
+`UmbrellaWithRainDrops` 1328
 
 Emoji identifier for `UmbrellaWithRainDrops`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UnamusedFace'></a>
 
-`UnamusedFace` 1328
+`UnamusedFace` 1329
 
 Emoji identifier for `UnamusedFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Unicorn'></a>
 
-`Unicorn` 1329
+`Unicorn` 1330
 
 Emoji identifier for `Unicorn`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Unlocked'></a>
 
-`Unlocked` 1330
+`Unlocked` 1331
 
 Emoji identifier for `Unlocked`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpArrow'></a>
 
-`UpArrow` 1331
+`UpArrow` 1332
 
 Emoji identifier for `UpArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpButton'></a>
 
-`UpButton` 1332
+`UpButton` 1333
 
 Emoji identifier for `UpButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpDownArrow'></a>
 
-`UpDownArrow` 1333
+`UpDownArrow` 1334
 
 Emoji identifier for `UpDownArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpLeftArrow'></a>
 
-`UpLeftArrow` 1334
+`UpLeftArrow` 1335
 
 Emoji identifier for `UpLeftArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpRightArrow'></a>
 
-`UpRightArrow` 1335
+`UpRightArrow` 1336
 
 Emoji identifier for `UpRightArrow`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpsideDownFace'></a>
 
-`UpsideDownFace` 1336
+`UpsideDownFace` 1337
 
 Emoji identifier for `UpsideDownFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.UpwardsButton'></a>
 
-`UpwardsButton` 1337
+`UpwardsButton` 1338
 
 Emoji identifier for `UpwardsButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Vampire'></a>
 
-`Vampire` 1338
+`Vampire` 1339
 
 Emoji identifier for `Vampire`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VerticalTrafficLight'></a>
 
-`VerticalTrafficLight` 1339
+`VerticalTrafficLight` 1340
 
 Emoji identifier for `VerticalTrafficLight`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VibrationMode'></a>
 
-`VibrationMode` 1340
+`VibrationMode` 1341
 
 Emoji identifier for `VibrationMode`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VictoryHand'></a>
 
-`VictoryHand` 1341
+`VictoryHand` 1342
 
 Emoji identifier for `VictoryHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VideoCamera'></a>
 
-`VideoCamera` 1342
+`VideoCamera` 1343
 
 Emoji identifier for `VideoCamera`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Videocassette'></a>
 
-`Videocassette` 1343
+`Videocassette` 1344
 
 Emoji identifier for `Videocassette`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VideoGame'></a>
 
-`VideoGame` 1344
+`VideoGame` 1345
 
 Emoji identifier for `VideoGame`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Violin'></a>
 
-`Violin` 1345
+`Violin` 1346
 
 Emoji identifier for `Violin`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Virgo'></a>
 
-`Virgo` 1346
+`Virgo` 1347
 
 Emoji identifier for `Virgo`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Volcano'></a>
 
-`Volcano` 1347
+`Volcano` 1348
 
 Emoji identifier for `Volcano`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Volleyball'></a>
 
-`Volleyball` 1348
+`Volleyball` 1349
 
 Emoji identifier for `Volleyball`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VsButton'></a>
 
-`VsButton` 1349
+`VsButton` 1350
 
 Emoji identifier for `VsButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.VulcanSalute'></a>
 
-`VulcanSalute` 1350
+`VulcanSalute` 1351
 
 Emoji identifier for `VulcanSalute`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Waffle'></a>
 
-`Waffle` 1351
+`Waffle` 1352
 
 Emoji identifier for `Waffle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaningCrescentMoon'></a>
 
-`WaningCrescentMoon` 1352
+`WaningCrescentMoon` 1353
 
 Emoji identifier for `WaningCrescentMoon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaningGibbousMoon'></a>
 
-`WaningGibbousMoon` 1353
+`WaningGibbousMoon` 1354
 
 Emoji identifier for `WaningGibbousMoon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Warning'></a>
 
-`Warning` 1354
+`Warning` 1355
 
 Emoji identifier for `Warning`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wastebasket'></a>
 
-`Wastebasket` 1355
+`Wastebasket` 1356
 
 Emoji identifier for `Wastebasket`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Watch'></a>
 
-`Watch` 1356
+`Watch` 1357
 
 Emoji identifier for `Watch`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaterBuffalo'></a>
 
-`WaterBuffalo` 1357
+`WaterBuffalo` 1358
 
 Emoji identifier for `WaterBuffalo`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaterCloset'></a>
 
-`WaterCloset` 1358
+`WaterCloset` 1359
 
 Emoji identifier for `WaterCloset`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Watermelon'></a>
 
-`Watermelon` 1359
+`Watermelon` 1360
 
 Emoji identifier for `Watermelon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaterPistol'></a>
 
-`WaterPistol` 1360
+`WaterPistol` 1361
 
 Emoji identifier for `WaterPistol`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaterWave'></a>
 
-`WaterWave` 1361
+`WaterWave` 1362
 
 Emoji identifier for `WaterWave`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WavingHand'></a>
 
-`WavingHand` 1362
+`WavingHand` 1363
 
 Emoji identifier for `WavingHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WavyDash'></a>
 
-`WavyDash` 1363
+`WavyDash` 1364
 
 Emoji identifier for `WavyDash`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaxingCrescentMoon'></a>
 
-`WaxingCrescentMoon` 1364
+`WaxingCrescentMoon` 1365
 
 Emoji identifier for `WaxingCrescentMoon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WaxingGibbousMoon'></a>
 
-`WaxingGibbousMoon` 1365
+`WaxingGibbousMoon` 1366
 
 Emoji identifier for `WaxingGibbousMoon`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WearyCat'></a>
 
-`WearyCat` 1366
+`WearyCat` 1367
 
 Emoji identifier for `WearyCat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WearyFace'></a>
 
-`WearyFace` 1367
+`WearyFace` 1368
 
 Emoji identifier for `WearyFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wedding'></a>
 
-`Wedding` 1368
+`Wedding` 1369
 
 Emoji identifier for `Wedding`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Whale'></a>
 
-`Whale` 1369
+`Whale` 1370
 
 Emoji identifier for `Whale`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wheel'></a>
 
-`Wheel` 1370
+`Wheel` 1371
 
 Emoji identifier for `Wheel`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WheelchairSymbol'></a>
 
-`WheelchairSymbol` 1371
+`WheelchairSymbol` 1372
 
 Emoji identifier for `WheelchairSymbol`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WheelOfDharma'></a>
 
-`WheelOfDharma` 1372
+`WheelOfDharma` 1373
 
 Emoji identifier for `WheelOfDharma`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteCane'></a>
 
-`WhiteCane` 1373
+`WhiteCane` 1374
 
 Emoji identifier for `WhiteCane`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteCircle'></a>
 
-`WhiteCircle` 1374
+`WhiteCircle` 1375
 
 Emoji identifier for `WhiteCircle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteExclamationMark'></a>
 
-`WhiteExclamationMark` 1375
+`WhiteExclamationMark` 1376
 
 Emoji identifier for `WhiteExclamationMark`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteFlag'></a>
 
-`WhiteFlag` 1376
+`WhiteFlag` 1377
 
 Emoji identifier for `WhiteFlag`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteFlower'></a>
 
-`WhiteFlower` 1377
+`WhiteFlower` 1378
 
 Emoji identifier for `WhiteFlower`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteHair'></a>
 
-`WhiteHair` 1378
+`WhiteHair` 1379
 
 Emoji identifier for `WhiteHair`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteHeart'></a>
 
-`WhiteHeart` 1379
+`WhiteHeart` 1380
 
 Emoji identifier for `WhiteHeart`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteLargeSquare'></a>
 
-`WhiteLargeSquare` 1380
+`WhiteLargeSquare` 1381
 
 Emoji identifier for `WhiteLargeSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteMediumSmallSquare'></a>
 
-`WhiteMediumSmallSquare` 1381
+`WhiteMediumSmallSquare` 1382
 
 Emoji identifier for `WhiteMediumSmallSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteMediumSquare'></a>
 
-`WhiteMediumSquare` 1382
+`WhiteMediumSquare` 1383
 
 Emoji identifier for `WhiteMediumSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteQuestionMark'></a>
 
-`WhiteQuestionMark` 1383
+`WhiteQuestionMark` 1384
 
 Emoji identifier for `WhiteQuestionMark`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteSmallSquare'></a>
 
-`WhiteSmallSquare` 1384
+`WhiteSmallSquare` 1385
 
 Emoji identifier for `WhiteSmallSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WhiteSquareButton'></a>
 
-`WhiteSquareButton` 1385
+`WhiteSquareButton` 1386
 
 Emoji identifier for `WhiteSquareButton`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WiltedFlower'></a>
 
-`WiltedFlower` 1386
+`WiltedFlower` 1387
 
 Emoji identifier for `WiltedFlower`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WindChime'></a>
 
-`WindChime` 1387
+`WindChime` 1388
 
 Emoji identifier for `WindChime`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WindFace'></a>
 
-`WindFace` 1388
+`WindFace` 1389
 
 Emoji identifier for `WindFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Window'></a>
 
-`Window` 1389
+`Window` 1390
 
 Emoji identifier for `Window`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WineGlass'></a>
 
-`WineGlass` 1390
+`WineGlass` 1391
 
 Emoji identifier for `WineGlass`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wing'></a>
 
-`Wing` 1391
+`Wing` 1392
 
 Emoji identifier for `Wing`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WinkingFace'></a>
 
-`WinkingFace` 1392
+`WinkingFace` 1393
 
 Emoji identifier for `WinkingFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WinkingFaceWithTongue'></a>
 
-`WinkingFaceWithTongue` 1393
+`WinkingFaceWithTongue` 1394
 
 Emoji identifier for `WinkingFaceWithTongue`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wireless'></a>
 
-`Wireless` 1394
+`Wireless` 1395
 
 Emoji identifier for `Wireless`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wolf'></a>
 
-`Wolf` 1395
+`Wolf` 1396
 
 Emoji identifier for `Wolf`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Woman'></a>
 
-`Woman` 1396
+`Woman` 1397
 
 Emoji identifier for `Woman`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomanAndManHoldingHands'></a>
 
-`WomanAndManHoldingHands` 1397
+`WomanAndManHoldingHands` 1398
 
 Emoji identifier for `WomanAndManHoldingHands`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomanDancing'></a>
 
-`WomanDancing` 1398
+`WomanDancing` 1399
 
 Emoji identifier for `WomanDancing`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomansBoot'></a>
 
-`WomansBoot` 1399
+`WomansBoot` 1400
 
 Emoji identifier for `WomansBoot`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomansClothes'></a>
 
-`WomansClothes` 1400
+`WomansClothes` 1401
 
 Emoji identifier for `WomansClothes`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomansHat'></a>
 
-`WomansHat` 1401
+`WomansHat` 1402
 
 Emoji identifier for `WomansHat`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomansSandal'></a>
 
-`WomansSandal` 1402
+`WomansSandal` 1403
 
 Emoji identifier for `WomansSandal`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomanWithHeadscarf'></a>
 
-`WomanWithHeadscarf` 1403
+`WomanWithHeadscarf` 1404
 
 Emoji identifier for `WomanWithHeadscarf`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomenHoldingHands'></a>
 
-`WomenHoldingHands` 1404
+`WomenHoldingHands` 1405
 
 Emoji identifier for `WomenHoldingHands`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WomensRoom'></a>
 
-`WomensRoom` 1405
+`WomensRoom` 1406
 
 Emoji identifier for `WomensRoom`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wood'></a>
 
-`Wood` 1406
+`Wood` 1407
 
 Emoji identifier for `Wood`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WoozyFace'></a>
 
-`WoozyFace` 1407
+`WoozyFace` 1408
 
 Emoji identifier for `WoozyFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WorldMap'></a>
 
-`WorldMap` 1408
+`WorldMap` 1409
 
 Emoji identifier for `WorldMap`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Worm'></a>
 
-`Worm` 1409
+`Worm` 1410
 
 Emoji identifier for `Worm`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WorriedFace'></a>
 
-`WorriedFace` 1410
+`WorriedFace` 1411
 
 Emoji identifier for `WorriedFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WrappedGift'></a>
 
-`WrappedGift` 1411
+`WrappedGift` 1412
 
 Emoji identifier for `WrappedGift`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Wrench'></a>
 
-`Wrench` 1412
+`Wrench` 1413
 
 Emoji identifier for `Wrench`\.
 
 <a name='ConsolePlusLibrary.EmojiName.WritingHand'></a>
 
-`WritingHand` 1413
+`WritingHand` 1414
 
 Emoji identifier for `WritingHand`\.
 
 <a name='ConsolePlusLibrary.EmojiName.XRay'></a>
 
-`XRay` 1414
+`XRay` 1415
 
 Emoji identifier for `XRay`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Yarn'></a>
 
-`Yarn` 1415
+`Yarn` 1416
 
 Emoji identifier for `Yarn`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YawningFace'></a>
 
-`YawningFace` 1416
+`YawningFace` 1417
 
 Emoji identifier for `YawningFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YellowCircle'></a>
 
-`YellowCircle` 1417
+`YellowCircle` 1418
 
 Emoji identifier for `YellowCircle`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YellowHeart'></a>
 
-`YellowHeart` 1418
+`YellowHeart` 1419
 
 Emoji identifier for `YellowHeart`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YellowSquare'></a>
 
-`YellowSquare` 1419
+`YellowSquare` 1420
 
 Emoji identifier for `YellowSquare`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YenBanknote'></a>
 
-`YenBanknote` 1420
+`YenBanknote` 1421
 
 Emoji identifier for `YenBanknote`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YinYang'></a>
 
-`YinYang` 1421
+`YinYang` 1422
 
 Emoji identifier for `YinYang`\.
 
 <a name='ConsolePlusLibrary.EmojiName.YoYo'></a>
 
-`YoYo` 1422
+`YoYo` 1423
 
 Emoji identifier for `YoYo`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ZanyFace'></a>
 
-`ZanyFace` 1423
+`ZanyFace` 1424
 
 Emoji identifier for `ZanyFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Zebra'></a>
 
-`Zebra` 1424
+`Zebra` 1425
 
 Emoji identifier for `Zebra`\.
 
 <a name='ConsolePlusLibrary.EmojiName.ZipperMouthFace'></a>
 
-`ZipperMouthFace` 1425
+`ZipperMouthFace` 1426
 
 Emoji identifier for `ZipperMouthFace`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Zombie'></a>
 
-`Zombie` 1426
+`Zombie` 1427
 
 Emoji identifier for `Zombie`\.
 
 <a name='ConsolePlusLibrary.EmojiName.Zzz'></a>
 
-`Zzz` 1427
+`Zzz` 1428
 
 Emoji identifier for `Zzz`\.
