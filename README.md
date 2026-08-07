@@ -13,7 +13,7 @@
 
 </div>
 
-> 🤖 **New:** pick the right ConsolePlus/PromptPlus layer and control conversationally with the [**ConsolePlus + PromptPlus Claude Code Plugin**](https://github.com/FRACerqueira/ConsolePlus-PromptPlus-claude-plugin) — let Claude choose the layer, check whether an interactive control can run in your context, pick the right one of PromptPlus's 21 controls, implement it, and audit existing usage. [Learn more ↓](#-using-consoleplus-with-claude-code)
+> 🤖 **New:** pick the right ConsolePlus/PromptPlus layer and control conversationally with the [**ConsolePlus + PromptPlus Plugin**](https://github.com/FRACerqueira/ConsolePlus-PromptPlus-IA-Plugin) — works with Claude Code or GitHub Copilot to choose the layer, check whether an interactive control can run in your context, pick the right one of PromptPlus's 21 controls, implement it, and audit existing usage. [Learn more ↓](#-using-consoleplus-with-claude-code-or-github-copilot)
 
 ---
 
@@ -156,11 +156,12 @@ PromptPlus.Widgets.Banner("PromptPlus", Color.Bisque);
 
 ---
 
-## 🤖 Using ConsolePlus with Claude Code
+## 🤖 Using ConsolePlus with Claude Code or GitHub Copilot
 
 Prefer describing what you need in plain language instead of driving the API by hand? The official
-[**ConsolePlus + PromptPlus Claude Code Plugin**](https://github.com/FRACerqueira/ConsolePlus-PromptPlus-claude-plugin)
-lets [Claude Code](https://claude.com/claude-code) choose and implement the right control for you:
+[**ConsolePlus + PromptPlus Plugin**](https://github.com/FRACerqueira/ConsolePlus-PromptPlus-IA-Plugin)
+lets [Claude Code](https://claude.com/claude-code) or [GitHub Copilot](https://github.com/features/copilot)
+choose and implement the right control for you:
 
 - A skill (`select-promptplus-control`) that decides whether the need is ConsolePlus rendering or a
   `PromptPlus.Controls` interactive control, checks whether that control can even run in the target
@@ -172,7 +173,8 @@ lets [Claude Code](https://claude.com/claude-code) choose and implement the righ
 - A `promptplus-precommit-check` agent that catches the two cheapest bug-risk patterns on just the
   pending diff, before a commit/PR.
 
-Applies to console-type .NET projects only; a companion hook enforces that automatically.
+Applies to console-type .NET projects only — enforced automatically by a hook on Claude Code, or
+checked by the skill itself on Copilot, which has no hook mechanism.
 
 ---
 
