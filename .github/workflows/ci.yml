@@ -22,9 +22,15 @@ jobs:
       # No checkout here: dorny/paths-filter resolves changed files via the
       # GitHub API instead of a local git diff, avoiding the cost of a
       # full-history clone (kept consistent with PromptPlus's ci.yml).
+      # That API mode only works for pull_request events though — on push
+      # events (e.g. a merge commit landing on main) it has no local repo to
+      # diff against and fails. continue-on-error keeps that failure from
+      # failing the whole job: outputs.code just stays unset, which the
+      # Test step below already treats as "skip".
       - name: Filter changed paths
         uses: dorny/paths-filter@v3
         id: filter
+        continue-on-error: true
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           filters: |
