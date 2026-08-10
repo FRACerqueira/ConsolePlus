@@ -8,6 +8,7 @@ using ConsolePlusLibrary.Core;
 using System;
 using System.Globalization;
 using System.Text;
+using System.Threading;
 
 namespace ConsolePlusLibrary
 {
@@ -26,6 +27,19 @@ namespace ConsolePlusLibrary
 
         private static readonly ProfileConsole _profile;
         private static bool _ctrlCPress;
+        private static readonly object _criticalRenderLock = new();
+        private static readonly ManualResetEventSlim _criticalRenderIdle = new(true);
+        private static int _criticalRenderCount;
+
+        /// <summary>
+        /// Upper bound on how long <see cref="Console_CancelKeyPress"/> waits for in-flight
+        /// critical render sections (see <see cref="BeginCriticalRender"/>) to finish before
+        /// forcing the process to exit. Bounded so Ctrl+C can never hang: a stuck or crashed
+        /// render section simply loses its cleanup, exactly as it did before this mechanism
+        /// existed.
+        /// </summary>
+        private static readonly TimeSpan _criticalRenderGracePeriod = TimeSpan.FromMilliseconds(300);
+
         private static readonly IConsole _consoledrive;
         private static readonly string _originalCulture;
         private static readonly ConsoleColor _originalForecolor;
@@ -94,9 +108,64 @@ namespace ConsolePlusLibrary
         {
             if (!e.Cancel)
             {
+                // Cancel first so a thread inside a critical render section (see
+                // BeginCriticalRender) observes the token and starts its own abort cleanup
+                // right away -- ONLY THEN wait for it; waiting before cancelling would just
+                // burn the whole grace period doing nothing. LockEnvironment.Run already
+                // bypasses its own lock once MainToken is cancelled, so those cleanup writes
+                // can never deadlock against this handler thread while we wait below.
                 Helper.MainToken.Cancel();
                 _ctrlCPress = true;
+                _criticalRenderIdle.Wait(_criticalRenderGracePeriod);
                 Environment.Exit(Helper.ExitCode);
+            }
+        }
+
+        /// <summary>
+        /// Marks the start of a render/cleanup section (e.g. a control's abort/finish path)
+        /// that should get a short, bounded grace period to complete before Ctrl+C forces the
+        /// process to exit, instead of possibly being torn down mid-write. Dispose the
+        /// returned handle (typically via <see langword="using"/>) once the section completes;
+        /// nesting is supported. The grace period is bounded (see
+        /// <see cref="_criticalRenderGracePeriod"/>), so a section that never disposes its
+        /// scope (e.g. a genuine hang) cannot prevent Ctrl+C from eventually exiting.
+        /// </summary>
+        /// <returns>A disposable that ends the critical section when disposed.</returns>
+        public static IDisposable BeginCriticalRender()
+        {
+            lock (_criticalRenderLock)
+            {
+                _criticalRenderCount++;
+                _criticalRenderIdle.Reset();
+            }
+            return new CriticalRenderScope();
+        }
+
+        private static void EndCriticalRender()
+        {
+            lock (_criticalRenderLock)
+            {
+                _criticalRenderCount--;
+                if (_criticalRenderCount <= 0)
+                {
+                    _criticalRenderCount = 0;
+                    _criticalRenderIdle.Set();
+                }
+            }
+        }
+
+        private sealed class CriticalRenderScope : IDisposable
+        {
+            private bool _disposed;
+
+            public void Dispose()
+            {
+                if (_disposed)
+                {
+                    return;
+                }
+                _disposed = true;
+                EndCriticalRender();
             }
         }
 
