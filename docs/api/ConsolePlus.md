@@ -577,6 +577,26 @@ Beeps the console speaker\.
 public static void Beep();
 ```
 
+<a name='ConsolePlusLibrary.ConsolePlus.BeginCriticalRender()'></a>
+
+## ConsolePlus\.BeginCriticalRender\(\) Method
+
+Marks the start of a render/cleanup section \(e\.g\. a control's abort/finish path\)
+that should get a short, bounded grace period to complete before Ctrl\+C forces the
+process to exit, instead of possibly being torn down mid\-write\. Dispose the
+returned handle \(typically via [using](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/using 'https://docs\.microsoft\.com/en\-us/dotnet/csharp/language\-reference/keywords/using')\) once the section completes;
+nesting is supported\. The grace period is bounded \(see
+[ConsolePlusLibrary\.ConsolePlus\.\_criticalRenderGracePeriod](https://learn.microsoft.com/en-us/dotnet/api/consolepluslibrary.consoleplus._criticalrendergraceperiod 'ConsolePlusLibrary\.ConsolePlus\.\_criticalRenderGracePeriod')\), so a section that never disposes its
+scope \(e\.g\. a genuine hang\) cannot prevent Ctrl\+C from eventually exiting\.
+
+```csharp
+public static System.IDisposable BeginCriticalRender();
+```
+
+#### Returns
+[System\.IDisposable](https://learn.microsoft.com/en-us/dotnet/api/system.idisposable 'System\.IDisposable')  
+A disposable that ends the critical section when disposed\.
+
 <a name='ConsolePlusLibrary.ConsolePlus.Clear(System.Nullable_ConsolePlusLibrary.Color_)'></a>
 
 ## ConsolePlus\.Clear\(Nullable\<Color\>\) Method
