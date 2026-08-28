@@ -3,43 +3,27 @@ name: CI
 on:
   push:
     branches: [ "main", "develop" ]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "**/*.slnx"
+      - "**/*.csproj"
+      - ".github/workflows/ci.yml"
   pull_request:
     branches: [ "main", "develop" ]
+    paths:
+      - "src/**"
+      - "tests/**"
+      - "**/*.slnx"
+      - "**/*.csproj"
+      - ".github/workflows/ci.yml"
 
 permissions:
   contents: read
-  pull-requests: read
 
 jobs:
-  # Detects whether the push/PR touches any .cs file. Changes that don't
-  # (docs, yml, csproj, etc.) still get a build (below) but skip the test run.
-  changes:
-    name: Detect changed paths
-    runs-on: ubuntu-latest
-    outputs:
-      code: ${{ steps.filter.outputs.code }}
-    steps:
-      # No checkout here: dorny/paths-filter resolves changed files via the
-      # GitHub API instead of a local git diff, avoiding the cost of a
-      # full-history clone (kept consistent with PromptPlus's ci.yml).
-      # That API mode only works for pull_request events though — on push
-      # events (e.g. a merge commit landing on main) it has no local repo to
-      # diff against and fails. continue-on-error keeps that failure from
-      # failing the whole job: outputs.code just stays unset, which the
-      # Test step below already treats as "skip".
-      - name: Filter changed paths
-        uses: dorny/paths-filter@v3
-        id: filter
-        continue-on-error: true
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          filters: |
-            code:
-              - '**/*.cs'
-
   build-and-test:
     name: Build & Test (${{ matrix.os }})
-    needs: changes
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -61,10 +45,7 @@ jobs:
       - name: Build library (Release)
         run: dotnet build src/ConsolePlus.csproj --configuration Release
 
-      # Skipped when the change doesn't touch any .cs file — those only need a
-      # build to verify nothing broke, not a full test pass.
       - name: Test
-        if: needs.changes.outputs.code == 'true'
         run: >
           dotnet test tests/ConsolePlus.Tests/ConsolePlus.Tests.csproj
           --configuration Debug
@@ -75,7 +56,7 @@ jobs:
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
-        if: always() && needs.changes.outputs.code == 'true'
+        if: always()
         with:
           name: test-results-${{ matrix.os }}
           path: "**/TestResults/**/*.trx"
@@ -83,9 +64,8 @@ jobs:
 
       - name: Upload coverage reports
         uses: actions/upload-artifact@v4
-        if: always() && needs.changes.outputs.code == 'true'
+        if: always()
         with:
           name: coverage-${{ matrix.os }}
           path: "**/TestResults/**/coverage.cobertura.xml"
           retention-days: 7
-

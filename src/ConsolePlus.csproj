@@ -24,10 +24,14 @@
 		<PackageId>ConsolePlus.net</PackageId>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageProjectUrl>https://github.com/FRACerqueira/ConsolePlus</PackageProjectUrl>
-		<Version>1.0.0-rc2</Version>
+		<Version>1.0.0</Version>
 		<PackageIcon>icon.png</PackageIcon>
 		<Copyright>© 2026 - Fernando Cerqueira</Copyright>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<!-- Debug-only: feeds the local dev NuGet source (../../nuget.config points
+		     at bin/Debug) so PromptPlus picks up local changes automatically. The
+		     real release package always comes from publish-nuget.yml's explicit
+		     `dotnet pack`, so Release builds (including CI) don't need this. -->
+		<GeneratePackageOnBuild Condition="'$(Configuration)'=='Debug'">True</GeneratePackageOnBuild>
 		<Title>ConsolePlus.net</Title>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>

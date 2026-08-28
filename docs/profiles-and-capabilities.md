@@ -186,6 +186,14 @@ ConsolePlus.ActionBeforeExit((console, exception, ctrlCPressed) =>
 The callback receives the console instance, any exception that caused the exit (`null` on a
 normal exit), and a `bool` indicating whether Ctrl+C triggered the exit.
 
+On Ctrl+C, the process always terminates — `Console.CancelKeyPress` is not cancellable here. Before
+exiting, ConsolePlus waits up to **300ms** (a fixed, non-configurable grace period) for any in-flight
+critical render section (`BeginCriticalRender`/`EndCriticalRender` — used internally, e.g. by
+PromptPlus, to give an interactive control's own abort cleanup a chance to finish) before forcing the
+exit. This means your app can take up to ~300ms longer to actually quit after Ctrl+C than it did
+before this mechanism existed; a section that hangs or never disposes its scope simply loses its
+cleanup once the grace period elapses, exactly as if the mechanism weren't there.
+
 ---
 
 ## Environment detection
