@@ -75,13 +75,13 @@ Complete documentation is available on GitHub:
 
 ### Quick Links
 
-- **[Getting Started](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/getting-started.md)** — Install, first app, and initialization
-- **[Writing Output](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/writing-output.md)** — `Write`, `WriteLine`, formatting
-- **[Reading Input](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/reading-input.md)** — Keys, lines, and Emacs-style editor
-- **[Markup Language](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/markup.md)** — Inline color tags and emoji
-- **[Colors](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/colors.md)** — Color systems and visual palette
-- **[Widgets](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/widgets.md)** — Banners and separators
-- **[Cursor & Screen](https://github.com/FRACerqueira/ConsolePlus/blob/develop/docs/cursor-and-screen.md)** — Screen control and ANSI commands
+- **[Getting Started](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/getting-started.md)** — Install, first app, and initialization
+- **[Writing Output](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/writing-output.md)** — `Write`, `WriteLine`, formatting
+- **[Reading Input](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/reading-input.md)** — Keys, lines, and Emacs-style editor
+- **[Markup Language](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/markup.md)** — Inline color tags and emoji
+- **[Colors](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/colors.md)** — Color systems and visual palette
+- **[Widgets](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/widgets.md)** — Banners and separators
+- **[Cursor & Screen](https://github.com/FRACerqueira/ConsolePlus/blob/main/docs/cursor-and-screen.md)** — Screen control and ANSI commands
 
 ## 🧩 ConsolePlus + PromptPlus
 
