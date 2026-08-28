@@ -141,6 +141,18 @@ namespace ConsolePlusLibrary
             return new CriticalRenderScope();
         }
 
+        /// <summary>
+        /// Test-only visibility into the nesting counter's idle state — not part of the public
+        /// API surface (internal), exposed for ConsolePlus.Tests to verify
+        /// <see cref="BeginCriticalRender"/>/<see cref="EndCriticalRender"/> nesting and
+        /// clamp-at-zero behavior without going through the real, untestable
+        /// <see cref="Console_CancelKeyPress"/> path.
+        /// </summary>
+        internal static bool IsCriticalRenderIdle => _criticalRenderIdle.IsSet;
+
+        /// <summary>Test-only visibility into the raw nesting count, same rationale as <see cref="IsCriticalRenderIdle"/>.</summary>
+        internal static int CriticalRenderCount => _criticalRenderCount;
+
         private static void EndCriticalRender()
         {
             lock (_criticalRenderLock)
